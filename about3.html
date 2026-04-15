@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Angela's Glass Studio · Wisconsin</title>
+<meta name="description" content="The story behind Angela's Glass Studio — 20+ years of glass art, painting, and study with world-renowned artist Narcissus Quagliata.">
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: 'ElegantGoldenScript';
+  src: url('elegant-golden-script.otf') format('opentype');
+}
+
+
+:root {
+  --bg:       #f2f0f7;
+  --bg-alt:   #e8e5f2;
+  --ink:      #1a1a2e;
+  --iris:     #7b6fa0;
+  --teal:     #3d8b8b;
+  --cobalt:   #4a6fa5;
+  --green:    #7aaa4a;
+  --lavender: #c0a8c8;
+  --sky:      #72c8e8;
+  --cream:    #f8f7fc;
+  --nav-h:    72px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* GRADIENT BAR */
+.gradient-bar {
+  height: 5px;
+  background: linear-gradient(to right, var(--teal), var(--iris), var(--green), var(--cobalt), var(--sky));
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 5px; left: 0; right: 0;
+  height: var(--nav-h); z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(242,240,247,0.96);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(123,111,160,0.1);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
+
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
+  text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
+}
+.nav-links a:hover { opacity: 1; color: var(--lavender); }
+.nav-links a.active { opacity: 1; color: var(--iris); }
+
+.nav-etsy {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--teal); color: white;
+  padding: 0.55rem 1.3rem; border-radius: 3px;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.25s, transform 0.2s;
+}
+.nav-etsy:hover { background: var(--iris); transform: translateY(-1px); }
+
+.nav-logo {
+  display: flex; align-items: center; text-decoration: none;
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: 1.6rem; color: var(--ink); white-space: nowrap;
+}
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+/* HERO */
+.about-hero {
+  margin-top: calc(var(--nav-h) + 5px);
+  height: 36vh;
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
+    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
+    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
+    #6d9e8a;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 55% 45%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-eyebrow {
+  font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.45em; text-transform: uppercase;
+  color: rgba(255,255,255,0.9); margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  color: white; line-height: 1.05; margin-top: 1.8rem; margin-bottom: 1.8rem;
+  margin-top: 2.6rem;
+  margin-bottom: 3.2rem;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+}
+
+.hero-tagline {
+  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  letter-spacing: 0.08em; line-height: 1.9;
+  color: rgba(255,255,255,0.58);
+  max-width: 520px; margin: 0 auto;
+}
+
+/* QUOTE BAND */
+.quote-band {
+  background: var(--ink);
+  padding: 4rem 4rem;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.quote-inner {
+  max-width: 780px;
+  text-align: center;
+}
+
+.quote-mark {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 7rem;
+  line-height: 0.4;
+  color: var(--iris);
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.quote-text {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 1.6rem;
+}
+
+.quote-attribution {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  opacity: 0.7;
+}
+
+/* SECTION SHARED */
+.about-section {
+  padding: 6rem 0;
+}
+
+.about-section.alt {
+  background: var(--bg-alt);
+}
+
+.section-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--iris); opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Alice', serif;
+  font-size: clamp(2.7rem, 4.5vw, 3.75rem);
+  color: var(--iris);
+  line-height: 1.1;
+  margin-bottom: 0.9rem; -webkit-text-stroke: 0.8px currentColor; }
+
+.section-divider {
+  width: 60px; height: 3px;
+  background: var(--iris);
+  border-radius: 2px;
+  opacity: 0.5;
+  margin-bottom: 3rem;
+}
+
+/* SECTION COLOR MODIFIERS */
+.section-label.teal  { color: var(--teal); }
+.section-label.green { color: var(--green); }
+.section-title.teal  { color: var(--teal); }
+.section-title.green { color: var(--green); }
+.section-divider.teal  { background: var(--teal); }
+.section-divider.green { background: var(--green); }
+
+/* MY STORY — two column layout */
+.story-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.story-photo-col {
+  position: relative;
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background:
+    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
+    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
+    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
+    #6d9e8a;
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 40%, rgba(123,111,160,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 70% 70%, rgba(61,139,139,0.2) 0%, transparent 55%);
+}
+
+.photo-placeholder-label {
+  position: relative; z-index: 1;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.photo-accent {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 120px; height: 120px;
+  border: 2px solid rgba(123,111,160,0.2);
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.story-text-col {}
+
+.story-body {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.story-body p + p {
+  margin-top: 1.4em;
+}
+
+.story-body .emphasis {
+  font-weight: 500;
+  color: var(--ink);
+  opacity: 1;
+}
+
+.years-badge {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(123,111,160,0.3);
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--iris);
+}
+
+/* STUDIO SECTION */
+.studio-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.studio-text-col {}
+
+.studio-photo-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.studio-photo {
+  aspect-ratio: 1;
+  background:
+    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
+    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
+    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
+    #6d9e8a;
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.studio-photo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 40% 40%, rgba(123,111,160,0.2) 0%, transparent 70%);
+}
+
+.studio-photo:nth-child(2) { margin-top: 24px; }
+.studio-photo:nth-child(3) { margin-top: -12px; }
+
+.studio-photo-label {
+  position: relative; z-index: 1;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.55rem; font-weight: 400;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* NARCISSUS SECTION */
+.narcissus-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.narcissus-photo-col {
+  position: relative;
+}
+
+.narcissus-photo-stack {
+  position: relative;
+}
+
+.narcissus-photo-main {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
+    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
+    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
+    #6d9e8a;
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.narcissus-photo-main::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 35% 35%, rgba(114,200,232,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 65% 65%, rgba(123,111,160,0.22) 0%, transparent 55%);
+}
+
+.narcissus-photo-label {
+  position: relative; z-index: 1;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.narcissus-accent-line {
+  position: absolute;
+  left: -24px; top: 40px;
+  width: 3px; height: 120px;
+  background: linear-gradient(to bottom, var(--iris), transparent);
+  border-radius: 2px;
+}
+
+.technique-list {
+  margin-top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.technique-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+.technique-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--iris);
+  opacity: 0.6;
+  margin-top: 0.55em;
+  flex-shrink: 0;
+}
+
+/* CLOSING STATEMENT */
+.closing-band {
+  background: var(--ink);
+  padding: 5rem 4rem;
+  text-align: center;
+}
+
+.closing-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.closing-script {
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: white;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 2px 30px rgba(123,111,160,0.3);
+}
+
+.closing-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.95;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.closing-cta {
+  display: inline-block;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.85rem 2.2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+.closing-cta:hover { border-color: var(--lavender); background: rgba(192,168,200,0.1); }
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: white;
+  padding: 3.5rem 5rem;
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo { display: flex; align-items: center; }
+.footer-logo-text {
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: 1.8rem; color: rgba(255,255,255,0.82);
+}
+
+.footer-social { display: flex; justify-content: center; gap: 0.8rem; }
+.footer-social a {
+  width: 60px; height: 60px;
+  border: 1.5px solid rgba(255,255,255,0.3); border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Jost', sans-serif; font-size: 0.87rem; font-weight: 500;
+  letter-spacing: 0.06em; color: rgba(255,255,255,0.65);
+  text-decoration: none; transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.footer-social a:hover { border-color: var(--lavender); color: white; background: rgba(192,168,200,0.15); }
+
+.footer-copy {
+  text-align: right;
+  font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400;
+  letter-spacing: 0.14em; color: rgba(255,255,255,0.5); line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  nav { padding: 0 2rem; }
+  .section-inner { padding: 0 2.5rem; }
+  .story-layout, .studio-layout, .narcissus-layout { gap: 3rem; }
+}
+
+@media (max-width: 800px) {
+  .story-layout, .studio-layout, .narcissus-layout {
+    grid-template-columns: 1fr;
+  }
+  .narcissus-layout .narcissus-photo-col { order: -1; }
+  .studio-photo-col { grid-template-columns: 1fr 1fr; }
+  .studio-photo:nth-child(2) { margin-top: 0; }
+  .studio-photo:nth-child(3) { margin-top: 0; }
+  .about-section { padding: 4rem 0; }
+  .section-inner { padding: 0 1.5rem; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  .footer-copy { text-align: center; }
+  .footer-logo { justify-content: center; }
+  .footer-social { justify-content: center; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+  .quote-band, .closing-band { padding: 3rem 2rem; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="gradient-bar"></div>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="app.html">Glass App</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank" class="nav-etsy">Shop on Etsy ↗</a>
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Angela Weber</p>
+    <h1 class="hero-title">My Story</h1>
+    <p class="hero-tagline">Glass Artist • Capturer of Light</p>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <div class="quote-inner">
+    <span class="quote-mark">&#x201C;</span>
+    <p class="quote-text">I found I could say things with color and shapes that I couldn't say any other way — things I had no words for.</p>
+    <span class="quote-attribution">— Georgia O'Keeffe</span>
+  </div>
+</div>
+
+<!-- MY STORY -->
+<section class="about-section" id="story">
+  <div class="section-inner">
+    <div class="story-layout">
+
+      <div class="story-photo-col">
+        <div class="photo-placeholder">
+          <span class="photo-placeholder-label">Portrait Photo</span>
+        </div>
+      </div>
+
+      <div class="story-text-col">
+        <p class="section-label teal">The Artist</p>
+        <h2 class="section-title teal">My Beginning</h2>
+        <div class="section-divider teal"></div>
+
+        <div class="story-body">
+          <p>I'm Angela, the artist behind Angela's Glass Studio. I've always been drawn to color and light. But I didn't grow up thinking I was "an artist." That wasn't part of the plan. It wasn't something I believed about myself.</p>
+
+          <p>But I never forgot a glass project I made in a school art class. Something about it stuck with me in a quiet, persistent way. Years later, when I was a stay-at-home mom looking for something creative to do, that memory resurfaced… and I decided to try it again.</p>
+
+          <p><span class="emphasis">That one decision turned into everything.</span></p>
+
+          <p>I'm largely self-taught, learning through trial and error and the early days of online glass forums. I made plenty of mistakes, broke things, overfired things, underfired things... and learned from every single one. Over time, I built my skills across stained glass, glass fusing, and more dimensional, sculptural work.</p>
+
+          <p>Over time, <span class="emphasis">glass stopped feeling like a hobby and started feeling like a language I understood.</span></p>
+
+          <p>After a move, I went about five years without a glass studio. That stretch pushed me somewhere unexpected. I started drawing and painting. Mixed media, acrylic, watercolor, anything I could get my hands on. It was the first time I truly saw myself as an artist, not just someone making things.</p>
+
+          <p>Even now, that time shows up in my glasswork. I think in layers, in movement, in color relationships the same way I would with paint. Glass became less about assembling pieces and more about composing something alive.</p>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO -->
+<section class="about-section alt" id="studio">
+  <div class="section-inner">
+    <div class="studio-layout">
+
+      <div class="studio-text-col">
+        <p class="section-label">Where the Work Happens</p>
+        <h2 class="section-title">The Studio</h2>
+        <div class="section-divider"></div>
+
+        <div class="story-body">
+          <p>My studio is where experimentation lives. It's a space built around possibility. Shelves of glass in every color and texture, tools worn smooth from years of use, and the particular kind of quiet that settles in when you're deep in a piece.</p>
+
+          <p>Every work begins here, whether it's a small accent piece or a large architectural commission. I work across multiple techniques: stained glass, glass fusing, and more expressive dimensional work. The studio holds them all.</p>
+
+          <p>There's something about the light in a glass studio that never gets ordinary. The way it moves through color, shifts across the day, changes with the seasons. It's a reminder of why I fell in love with this medium in the first place. And why I keep showing up.</p>
+
+          <p>For me, the studio isn't just where I make things. It's where I think, where I solve problems, and where I stay curious. Every piece that leaves here carries a little of that with it.</p>
+        </div>
+      </div>
+
+      <div class="studio-photo-col">
+        <div class="studio-photo">
+          <span class="studio-photo-label">Studio Photo</span>
+        </div>
+        <div class="studio-photo">
+          <span class="studio-photo-label">Studio Photo</span>
+        </div>
+        <div class="studio-photo">
+          <span class="studio-photo-label">Studio Photo</span>
+        </div>
+        <div class="studio-photo">
+          <span class="studio-photo-label">Studio Photo</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NARCISSUS QUAGLIATA -->
+<section class="about-section" id="narcissus">
+  <div class="section-inner">
+    <div class="narcissus-layout">
+
+      <div class="narcissus-photo-col">
+        <div class="narcissus-photo-stack">
+          <div class="narcissus-photo-main">
+            <span class="narcissus-photo-label">Study Photo / Work</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="section-label green">A Defining Chapter</p>
+        <h2 class="section-title green">Study with Narcissus Quagliata</h2>
+        <div class="section-divider green"></div>
+
+        <div class="story-body">
+          <p>A major turning point in my work came from studying with <span class="emphasis">Narcissus Quagliata</span>, a world-renowned artist known for pushing the boundaries of what glass can be and say. That experience expanded everything for me. Not just in technique, but in how I think about the medium entirely.</p>
+
+          <p>Through his teaching, I explored new approaches to creating movement, depth, and texture. Working with frit, reactive glass, and pre-formed elements in ways I hadn't before. His approach to glass is expressive and fearless, and it gave me permission to loosen up, trust the process, and let the work breathe.</p>
+
+          <p>But beyond technique, it was the conversations that left the most lasting mark. The history, the connections, the deeper story of glass as a medium. Being introduced to other artists, hearing how they think, understanding the lineage of this craft shifted my perspective completely.</p>
+
+          <p><span class="emphasis">I don't just see glass as material anymore. I see it as light, as motion, as something constantly changing depending on how it's experienced.</span></p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING BAND -->
+<div class="closing-band">
+  <div class="closing-inner">
+    <p class="closing-script">More curious now than when I started.</p>
+    <p class="closing-text">Today, my work blends structure and spontaneity. Some pieces are clean and graphic. Others are organic and expressive. All of them are shaped by years of experimentation, curiosity, and a willingness to keep learning. I didn't start out believing I was an artist — but somewhere along the way, through glass, painting, mistakes, broken pieces, and persistence, I became one.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <span class="footer-logo-text"></span>
+  </div>
+  <div class="footer-social">
+    <a href="http://tiktok.com/@angelasglassstudio" target="_blank">TT</a>
+    <a href="https://instagram.com/angelasglassstudio" target="_blank">IG</a>
+    <a href="http://www.facebook.com/angelasglassstudio" target="_blank">FB</a>
+    <a href="https://www.pinterest.com/angelasartroom" target="_blank">PIN</a>
+    <a href="https://angelasglassstudio.etsy.com" target="_blank">ETSY</a>
+  </div>
+  <div class="footer-copy">
+    © 2026 Angela's Glass Studio
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  function toggleMenu() { console.log('mobile menu'); }
+</script>
+
+</body>
+</html>

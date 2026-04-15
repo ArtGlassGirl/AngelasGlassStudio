@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Angela's Glass Studio · Wisconsin</title>
+<meta name="description" content="Privacy Policy for Angela's Glass Studio and My Kiln Journal — how we collect, use, and protect your information.">
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: 'ElegantGoldenScript';
+  src: url('data:font/otf;base64,T1RUTwANAIAAAwBQQ0ZGIPaDwosAAAnoAADBt') format('opentype');
+}
+
+
+:root {
+  --bg:       #f2f0f7;
+  --bg-alt:   #e8e5f2;
+  --ink:      #1a1a2e;
+  --iris:     #7b6fa0;
+  --teal:     #3d8b8b;
+  --cobalt:   #4a6fa5;
+  --green:    #7aaa4a;
+  --lavender: #c0a8c8;
+  --sky:      #72c8e8;
+  --cream:    #f8f7fc;
+  --nav-h:    72px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* GRADIENT BAR */
+.gradient-bar {
+  height: 5px;
+  background: linear-gradient(to right, var(--teal), var(--iris), var(--green), var(--cobalt), var(--sky));
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 5px; left: 0; right: 0;
+  height: var(--nav-h); z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(242,240,247,0.96);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(123,111,160,0.1);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
+
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
+  text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
+}
+.nav-links a:hover { opacity: 1; color: var(--lavender); }
+
+.nav-etsy {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--teal); color: white;
+  padding: 0.55rem 1.3rem; border-radius: 3px;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.25s, transform 0.2s;
+}
+.nav-etsy:hover { background: var(--iris); transform: translateY(-1px); }
+
+.nav-logo {
+  display: flex; align-items: center; text-decoration: none;
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: 1.6rem; color: var(--ink); white-space: nowrap;
+}
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+/* PAGE */
+.policy-page {
+  margin-top: calc(var(--nav-h) + 5px);
+  padding: 5rem 0 7rem;
+}
+
+.policy-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* HEADER */
+.policy-header {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(123,111,160,0.15);
+}
+
+.policy-eyebrow {
+  font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--iris); opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.policy-title {
+  font-family: 'Alice', serif;
+  font-size: clamp(2.7rem, 4.5vw, 3.75rem);
+  color: var(--iris); line-height: 1.1;
+  margin-bottom: 1.2rem; -webkit-text-stroke: 0.8px currentColor; }
+
+.policy-meta {
+  font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 300;
+  letter-spacing: 0.1em; color: var(--ink); opacity: 0.45;
+  margin-bottom: 1.5rem;
+}
+
+.policy-intro {
+  font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300;
+  line-height: 1.9; color: var(--ink); opacity: 0.75;
+}
+
+/* TABLE OF CONTENTS */
+.policy-toc {
+  background: white;
+  border-radius: 3px;
+  padding: 1.8rem 2rem;
+  border: 1px solid rgba(123,111,160,0.12);
+  margin-bottom: 3.5rem;
+}
+
+.policy-toc-title {
+  font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--iris); margin-bottom: 1rem;
+}
+
+.policy-toc ol {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  counter-reset: toc-counter;
+}
+
+.policy-toc li {
+  counter-increment: toc-counter;
+  display: flex; align-items: baseline; gap: 0.7rem;
+}
+
+.policy-toc li::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 0.05em; color: var(--iris); opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.policy-toc a {
+  font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 300;
+  color: var(--ink); text-decoration: none; opacity: 0.7;
+  transition: color 0.2s, opacity 0.2s;
+}
+.policy-toc a:hover { color: var(--iris); opacity: 1; }
+
+/* SECTIONS */
+.policy-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: calc(var(--nav-h) + 2rem);
+}
+
+.policy-section-number {
+  font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 400;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--iris); opacity: 0.5;
+  margin-bottom: 0.4rem;
+}
+
+.policy-section-title {
+  font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 500;
+  letter-spacing: 0.04em; color: var(--ink);
+  margin-bottom: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(123,111,160,0.12);
+}
+
+.policy-body {
+  font-family: 'Jost', sans-serif; font-size: 0.92rem; font-weight: 300;
+  line-height: 1.95; color: var(--ink); opacity: 0.78;
+}
+
+.policy-body p + p { margin-top: 1em; }
+
+.policy-body ul {
+  margin: 1em 0 1em 0;
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+
+.policy-body ul li {
+  display: flex; align-items: flex-start; gap: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.policy-body ul li::before {
+  content: '·';
+  color: var(--iris); font-size: 1.1rem;
+  line-height: 1.6; flex-shrink: 0;
+}
+
+.policy-body a {
+  color: var(--iris); text-decoration: none;
+  border-bottom: 1px solid rgba(123,111,160,0.3);
+  transition: border-color 0.2s;
+}
+.policy-body a:hover { border-color: var(--iris); }
+
+/* CONTACT BOX */
+.policy-contact-box {
+  background: white;
+  border-radius: 3px;
+  padding: 1.8rem 2rem;
+  border-left: 3px solid var(--iris);
+  border-top: 1px solid rgba(123,111,160,0.12);
+  border-right: 1px solid rgba(123,111,160,0.12);
+  border-bottom: 1px solid rgba(123,111,160,0.12);
+  margin-top: 3rem;
+}
+
+.policy-contact-box-title {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--iris); margin-bottom: 0.7rem;
+}
+
+.policy-contact-box p {
+  font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 300;
+  line-height: 1.8; color: var(--ink); opacity: 0.72;
+}
+
+.policy-contact-box a {
+  color: var(--iris); text-decoration: none;
+  border-bottom: 1px solid rgba(123,111,160,0.3);
+}
+.policy-contact-box a:hover { border-color: var(--iris); }
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: white;
+  padding: 3.5rem 5rem;
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo { display: flex; align-items: center; }
+.footer-logo-text { font-family: 'ElegantGoldenScript', cursive; font-size: 1.8rem; color: rgba(255,255,255,0.82); }
+.footer-social { display: flex; justify-content: center; gap: 0.8rem; }
+.footer-social a {
+  width: 60px; height: 60px;
+  border: 1.5px solid rgba(255,255,255,0.3); border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Jost', sans-serif; font-size: 0.87rem; font-weight: 500;
+  letter-spacing: 0.06em; color: rgba(255,255,255,0.65);
+  text-decoration: none; transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.footer-social a:hover { border-color: var(--lavender); color: white; background: rgba(192,168,200,0.15); }
+.footer-copy {
+  text-align: right; font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400;
+  letter-spacing: 0.14em; color: rgba(255,255,255,0.5); line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  nav { padding: 0 2rem; }
+  .policy-inner { padding: 0 1.5rem; }
+  .policy-page { padding: 4rem 0 5rem; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  .footer-copy { text-align: center; }
+  .footer-logo { justify-content: center; }
+  .footer-social { justify-content: center; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="gradient-bar"></div>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="app.html">Glass App</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank" class="nav-etsy">Shop on Etsy ↗</a>
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="policy-page">
+  <div class="policy-inner">
+
+    <!-- HEADER -->
+    <div class="policy-header">
+      <p class="policy-eyebrow">Legal</p>
+      <h1 class="policy-title">Privacy Policy</h1>
+      <p class="policy-meta">Angela's Glass Studio · Last updated: April 2026</p>
+      <p class="policy-intro">Your privacy matters. This policy explains what information Angela's Glass Studio and My Kiln Journal collect, how it's used, and how it's protected. This site is run by Angela Weber, a solo glass artist based in Wisconsin.</p>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="policy-toc">
+      <p class="policy-toc-title">Contents</p>
+      <ol>
+        <li><a href="#information-we-collect">Information We Collect</a></li>
+        <li><a href="#how-we-use-it">How We Use Your Information</a></li>
+        <li><a href="#contact-form">Contact Form</a></li>
+        <li><a href="#my-kiln-journal">My Kiln Journal App</a></li>
+        <li><a href="#cookies">Cookies &amp; Analytics</a></li>
+        <li><a href="#third-parties">Third-Party Services</a></li>
+        <li><a href="#your-rights">Your Rights</a></li>
+        <li><a href="#childrens-privacy">Children's Privacy</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <!-- SECTIONS -->
+
+    <div class="policy-section" id="information-we-collect">
+      <p class="policy-section-number">01</p>
+      <h2 class="policy-section-title">Information We Collect</h2>
+      <div class="policy-body">
+        <p>We only collect information you actively provide to us. This website does not collect any personal information automatically unless you use one of the features described below.</p>
+        <p>The types of information we may collect include:</p>
+        <ul>
+          <li>Your name and email address when you submit the contact form</li>
+          <li>Your message content when you contact us through the site</li>
+          <li>Payment and billing information when you subscribe to My Kiln Journal (handled securely by our payment processor — we do not store your card details)</li>
+          <li>Firing logs, notes, photos, and other content you enter into My Kiln Journal</li>
+          <li>Basic usage data such as pages visited, collected anonymously through analytics tools (if enabled)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="policy-section" id="how-we-use-it">
+      <p class="policy-section-number">02</p>
+      <h2 class="policy-section-title">How We Use Your Information</h2>
+      <div class="policy-body">
+        <p>We use the information we collect only for the purposes it was provided. Specifically:</p>
+        <ul>
+          <li>To respond to messages sent through the contact form</li>
+          <li>To process and manage your My Kiln Journal subscription</li>
+          <li>To provide and maintain the My Kiln Journal app and your account</li>
+          <li>To send account-related emails such as subscription confirmations or renewal notices</li>
+          <li>To improve the website and app based on general usage patterns</li>
+        </ul>
+        <p>We do not sell, rent, or share your personal information with third parties for marketing purposes. Ever.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="contact-form">
+      <p class="policy-section-number">03</p>
+      <h2 class="policy-section-title">Contact Form</h2>
+      <div class="policy-body">
+        <p>When you submit a message through the contact form on this website, we collect your name, email address, and message. This information is used solely to respond to your inquiry.</p>
+        <p>We do not add you to any mailing list or marketing communications as a result of submitting the contact form. Your information is not shared with any third party unless required by law.</p>
+        <p>Contact form submissions are processed through a third-party form service. Please refer to that service's privacy policy for details on how they handle data in transit.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="my-kiln-journal">
+      <p class="policy-section-number">04</p>
+      <h2 class="policy-section-title">My Kiln Journal App</h2>
+      <div class="policy-body">
+        <p>My Kiln Journal is a web-based app available at <a href="https://mykilnjournal.com" target="_blank">mykilnjournal.com</a>. It is designed for glass artists to track firing schedules, logs, and kiln maintenance.</p>
+        <p>When you use My Kiln Journal:</p>
+        <ul>
+          <li>Your account information (email address) is stored securely to manage your subscription</li>
+          <li>The firing logs, notes, schedules, photos, and other content you create are stored and associated with your account</li>
+          <li>Your content belongs to you — we do not use it for any purpose other than providing the app service</li>
+          <li>Subscription payments are processed by a third-party payment provider. We do not store credit card numbers or sensitive payment data on our servers</li>
+        </ul>
+        <p>The free tier allows you to save up to 8 firing logs. If you choose to subscribe ($2.99/month or $29.99/year), your subscription is managed through our payment processor. You may cancel at any time.</p>
+        <p>If you close your account or request deletion, your data will be removed from our systems within a reasonable timeframe.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="cookies">
+      <p class="policy-section-number">05</p>
+      <h2 class="policy-section-title">Cookies &amp; Analytics</h2>
+      <div class="policy-body">
+        <p>This website may use cookies — small text files stored in your browser — to improve your experience. This includes remembering your preferences and enabling certain site features.</p>
+        <p>We may use a privacy-friendly analytics tool to understand general traffic patterns such as which pages are visited most often. This data is collected anonymously and is not tied to any individual visitor.</p>
+        <p>We do not use advertising cookies or share tracking data with ad networks. If you prefer not to be tracked, most browsers allow you to disable cookies in their settings.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="third-parties">
+      <p class="policy-section-number">06</p>
+      <h2 class="policy-section-title">Third-Party Services</h2>
+      <div class="policy-body">
+        <p>This website and My Kiln Journal use a small number of trusted third-party services to operate. These may include:</p>
+        <ul>
+          <li><strong style="font-weight:500;">Payment processor</strong> — for handling My Kiln Journal subscriptions securely</li>
+          <li><strong style="font-weight:500;">Form service</strong> — for processing contact form submissions</li>
+          <li><strong style="font-weight:500;">Hosting provider</strong> — for storing and serving the website and app</li>
+          <li><strong style="font-weight:500;">Google Fonts</strong> — for loading typefaces used on this site (Google may collect basic request data)</li>
+        </ul>
+        <p>Each of these services has its own privacy policy. We choose providers who take data privacy seriously and only share the minimum information necessary for them to perform their service.</p>
+        <p>We also link to external platforms including Etsy, TikTok, Instagram, Facebook, and Pinterest. Those platforms have their own privacy policies and we are not responsible for their data practices.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="your-rights">
+      <p class="policy-section-number">07</p>
+      <h2 class="policy-section-title">Your Rights</h2>
+      <div class="policy-body">
+        <p>You have the right to know what personal information we hold about you, to request corrections, and to request deletion of your data. To exercise any of these rights, please contact us using the information at the bottom of this page.</p>
+        <p>If you are located in the European Union, you may have additional rights under GDPR, including the right to data portability and the right to lodge a complaint with your local supervisory authority. If you are a California resident, you may have additional rights under the CCPA.</p>
+        <p>We will respond to any privacy-related requests within 30 days.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="childrens-privacy">
+      <p class="policy-section-number">08</p>
+      <h2 class="policy-section-title">Children's Privacy</h2>
+      <div class="policy-body">
+        <p>This website and My Kiln Journal are not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will promptly remove it.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="changes">
+      <p class="policy-section-number">09</p>
+      <h2 class="policy-section-title">Changes to This Policy</h2>
+      <div class="policy-body">
+        <p>We may update this Privacy Policy from time to time. When we do, we'll update the "Last updated" date at the top of this page. We encourage you to review this policy periodically. Continued use of this website or My Kiln Journal after changes are posted constitutes acceptance of the updated policy.</p>
+      </div>
+    </div>
+
+    <div class="policy-section" id="contact-us">
+      <p class="policy-section-number">10</p>
+      <h2 class="policy-section-title">Contact Us</h2>
+      <div class="policy-body">
+        <p>If you have any questions about this Privacy Policy or how your information is handled, please get in touch.</p>
+      </div>
+    </div>
+
+    <!-- CONTACT BOX -->
+    <div class="policy-contact-box">
+      <p class="policy-contact-box-title">Get in Touch</p>
+      <p>Angela Weber · Angela's Glass Studio · Wisconsin<br>
+      Use the <a href="contact.html">contact form</a> on our website, or email us directly at <a href="mailto:angela@angelasglassstudio.com">angela@angelasglassstudio.com</a></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="footer-logo-text"></span></div>
+  <div class="footer-social">
+    <a href="http://tiktok.com/@angelasglassstudio" target="_blank">TT</a>
+    <a href="https://instagram.com/angelasglassstudio" target="_blank">IG</a>
+    <a href="http://www.facebook.com/angelasglassstudio" target="_blank">FB</a>
+    <a href="https://www.pinterest.com/angelasglassstudio" target="_blank">PIN</a>
+    <a href="https://angelasglassstudio.etsy.com" target="_blank">ETSY</a>
+  </div>
+  <div class="footer-copy">© 2026 Angela's Glass Studio</div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  function toggleMenu() { console.log('mobile menu'); }
+</script>
+
+</body>
+</html>

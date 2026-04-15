@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Angela's Glass Studio · Wisconsin</title>
+<meta name="description" content="Original glass works by Angela Weber — stained glass, fused glass, accent pieces, and seasonal creations handcrafted in Wisconsin.">
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: 'ElegantGoldenScript';
+  src: url('elegant-golden-script.otf') format('opentype');
+}
+
+
+:root {
+  --bg:       #f2f0f7;
+  --bg-alt:   #e8e5f2;
+  --ink:      #1a1a2e;
+  --iris:     #7b6fa0;
+  --teal:     #3d8b8b;
+  --cobalt:   #4a6fa5;
+  --green:    #7aaa4a;
+  --lavender: #c0a8c8;
+  --sky:      #72c8e8;
+  --cream:    #f8f7fc;
+  --nav-h:    72px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* GRADIENT BAR */
+.gradient-bar {
+  height: 5px;
+  background: linear-gradient(to right, var(--teal), var(--iris), var(--green), var(--cobalt), var(--sky));
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 5px; left: 0; right: 0;
+  height: var(--nav-h); z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(242,240,247,0.96);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(123,111,160,0.1);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
+
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
+  text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
+}
+.nav-links a:hover { opacity: 1; color: var(--lavender); }
+.nav-links a.active { opacity: 1; color: var(--iris); }
+
+.nav-etsy {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--teal); color: white;
+  padding: 0.55rem 1.3rem; border-radius: 3px;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.25s, transform 0.2s;
+}
+.nav-etsy:hover { background: var(--iris); transform: translateY(-1px); }
+
+.nav-logo {
+  display: flex; align-items: center; text-decoration: none;
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: 1.6rem; color: var(--ink); white-space: nowrap;
+}
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+/* HERO */
+.portfolio-hero {
+  margin-top: calc(var(--nav-h) + 5px);
+  height: 36vh;
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
+    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
+    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
+    #6d9e8a;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Decorative glass-like light shards */
+.portfolio-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 40% at 55% 45%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Glass shard geometric overlay */
+.portfolio-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-eyebrow {
+  font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.45em; text-transform: uppercase;
+  color: rgba(192,168,200,0.6); margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  color: white; line-height: 1.05; margin-top: 1.8rem; margin-bottom: 1.8rem;
+  margin-bottom: 1.4rem;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+}
+
+.hero-tagline {
+  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  letter-spacing: 0.08em; line-height: 1.9;
+  color: rgba(255,255,255,0.58);
+  max-width: 520px; margin: 0 auto;
+}
+
+/* TABS */
+.tab-nav {
+  background: var(--cream);
+  border-bottom: 1px solid rgba(123,111,160,0.12);
+  display: flex; justify-content: center;
+  padding: 0 2rem;
+  position: sticky; top: calc(var(--nav-h) + 5px); z-index: 50;
+  box-shadow: 0 2px 12px rgba(26,26,46,0.06);
+}
+
+.tab-list {
+  display: flex; gap: 0; list-style: none;
+}
+
+.tab-btn {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.45;
+  padding: 1.3rem 2.2rem;
+  background: none; border: none; border-bottom: 2px solid transparent;
+  cursor: pointer; white-space: nowrap;
+  transition: opacity 0.25s, color 0.25s, border-color 0.25s;
+  text-decoration: none; display: block;
+}
+.tab-btn:hover { opacity: 1; color: var(--lavender); }
+.tab-btn.active { opacity: 1; color: var(--iris); border-bottom-color: var(--iris); }
+
+/* GALLERY SECTIONS */
+.gallery-section {
+  padding: 5rem 4rem 6rem;
+}
+.gallery-section:nth-child(even) {
+  background: var(--bg-alt);
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-family: 'Alice', serif;
+  font-size: clamp(2.7rem, 4.5vw, 3.75rem); line-height: 1.1; -webkit-text-stroke: 0.8px currentColor; }
+
+.section-divider {
+  width: 80px; height: 4px;
+  border-radius: 2px;
+  margin-top: 0.9rem;
+  opacity: 0.85;
+}
+.section-divider.teal   { background: var(--teal); }
+.section-divider.iris   { background: var(--iris); }
+.section-divider.cobalt { background: var(--cobalt); }
+.section-divider.green  { background: var(--green); }
+
+/* MASONRY GRID */
+.masonry {
+  columns: 4;
+  column-gap: 16px;
+}
+
+@media (max-width: 1200px) { .masonry { columns: 3; } }
+@media (max-width: 800px)  { .masonry { columns: 2; } }
+@media (max-width: 500px)  { .masonry { columns: 1; } }
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.masonry-item:hover .tile-overlay { opacity: 1; }
+.masonry-item:hover .tile-placeholder { transform: scale(1.04); }
+
+/* Placeholder color tiles */
+.tile-placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute; inset: 0;
+  transition: transform 0.45s ease;
+}
+
+/* Overlay on hover */
+.tile-overlay {
+  position: absolute; inset: 0;
+  background: rgba(26,26,46,0.18);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.tile-zoom-icon {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1rem;
+}
+
+/* Height variations — on masonry-item */
+.h-xs  { height: 160px; }
+.h-sm  { height: 200px; }
+.h-md  { height: 260px; }
+.h-lg  { height: 320px; }
+.h-xl  { height: 380px; }
+
+/* Color palette for tiles */
+.c-iris    { background: linear-gradient(145deg, #9b8fc0, #6b5f90); }
+.c-teal    { background: linear-gradient(145deg, #5dabad, #2d7b7b); }
+.c-cobalt  { background: linear-gradient(145deg, #6a8fc5, #3a5f95); }
+.c-green   { background: linear-gradient(145deg, #9aca6a, #6a9a3a); }
+.c-lavender{ background: linear-gradient(145deg, #d0b8d8, #a088a8); }
+.c-sky     { background: linear-gradient(145deg, #92d8f8, #5298b8); }
+.c-rose    { background: linear-gradient(145deg, #c8889a, #985870); }
+.c-amber   { background: linear-gradient(145deg, #d4a86a, #a4783a); }
+.c-slate   { background: linear-gradient(145deg, #8a9ab0, #5a6a80); }
+.c-sage    { background: linear-gradient(145deg, #8aaa7a, #5a7a4a); }
+
+/* Subtle pattern overlay on tiles */
+.masonry-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 8px,
+    rgba(255,255,255,0.03) 8px, rgba(255,255,255,0.03) 9px
+  );
+  pointer-events: none;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(26,26,46,0.92);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+  backdrop-filter: blur(8px);
+}
+.lightbox.open { opacity: 1; pointer-events: all; }
+
+.lightbox-inner {
+  position: relative;
+  max-width: min(700px, 90vw);
+  width: 100%;
+}
+
+.lightbox-tile {
+  width: 100%; height: 500px;
+  border-radius: 3px;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute; top: -48px; right: 0;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  background: none; color: white; font-size: 1.1rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.lightbox-close:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+.lightbox-hint {
+  text-align: center; margin-top: 1.2rem;
+  font-family: 'Jost', sans-serif; font-size: 0.58rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: white;
+  padding: 3.5rem 5rem;
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 3rem;
+}
+.footer-logo { display: flex; align-items: center; }
+.footer-logo-text {
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: 1.8rem; color: rgba(255,255,255,0.82);
+}
+
+.footer-social { display: flex; justify-content: center; gap: 0.8rem; }
+.footer-social a {
+  width: 60px; height: 60px;
+  border: 1.5px solid rgba(255,255,255,0.3); border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Jost', sans-serif; font-size: 0.87rem; font-weight: 500;
+  letter-spacing: 0.06em; color: rgba(255,255,255,0.65);
+  text-decoration: none; transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.footer-social a:hover { border-color: var(--lavender); color: white; background: rgba(192,168,200,0.15); }
+
+.footer-copy {
+  text-align: right;
+  font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400;
+  letter-spacing: 0.14em; color: rgba(255,255,255,0.5); line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  nav { padding: 0 2rem; }
+  .gallery-section { padding: 4rem 2.5rem 5rem; }
+}
+@media (max-width: 800px) {
+  .tab-btn { padding: 1.1rem 1.2rem; font-size: 0.58rem; }
+  .gallery-section { padding: 3rem 1.5rem 4rem; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  .footer-copy { text-align: center; }
+  .footer-logo { justify-content: center; }
+  .footer-social { justify-content: center; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="gradient-bar"></div>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="app.html">Glass App</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank" class="nav-etsy">Shop on Etsy ↗</a>
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="portfolio-hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Glass Transformed</h1>
+    <p class="hero-tagline">Original works spanning stained glass, fused glass, accent pieces,<br>and seasonal creations — each one shaped by hand, by light,<br>and by love of the craft.</p>
+  </div>
+</section>
+
+<!-- TABS -->
+<nav class="tab-nav" id="tab-nav">
+  <ul class="tab-list">
+    <li><a href="#stained-glass" class="tab-btn active" data-target="stained-glass">Stained Glass</a></li>
+    <li><a href="#fused-glass" class="tab-btn" data-target="fused-glass">Fused Glass</a></li>
+    <li><a href="#accent-glass" class="tab-btn" data-target="accent-glass">Accent Glass</a></li>
+    <li><a href="#seasonal" class="tab-btn" data-target="seasonal">Seasonal</a></li>
+  </ul>
+</nav>
+
+<!-- STAINED GLASS -->
+<section class="gallery-section" id="stained-glass">
+  <div class="section-header">
+    <h2 class="section-title" style="color: var(--teal);">Stained Glass</h2>
+    <div class="section-divider teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-cobalt"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-sky"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-cobalt"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xs" onclick="openLightbox(this)"><div class="tile-placeholder c-sky"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-slate"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-cobalt"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-sky"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+  </div>
+</section>
+
+<!-- FUSED GLASS -->
+<section class="gallery-section" id="fused-glass">
+  <div class="section-header">
+    <h2 class="section-title" style="color: var(--iris);">Fused Glass</h2>
+    <div class="section-divider iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-rose"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xs" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-green"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-rose"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-sage"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-sky"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-green"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xs" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-rose"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-sage"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+  </div>
+</section>
+
+<!-- ACCENT GLASS -->
+<section class="gallery-section" id="accent-glass">
+  <div class="section-header">
+    <h2 class="section-title" style="color: var(--cobalt);">Accent Glass</h2>
+    <div class="section-divider cobalt"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-rose"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xs" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-cobalt"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-slate"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-rose"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xs" onclick="openLightbox(this)"><div class="tile-placeholder c-cobalt"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-sky"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+  </div>
+</section>
+
+<!-- SEASONAL -->
+<section class="gallery-section" id="seasonal">
+  <div class="section-header">
+    <h2 class="section-title" style="color: var(--green);">Seasonal</h2>
+    <div class="section-divider green"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-green"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-sky"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xs" onclick="openLightbox(this)"><div class="tile-placeholder c-rose"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-green"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-sm" onclick="openLightbox(this)"><div class="tile-placeholder c-teal"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-rose"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-sky"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xs" onclick="openLightbox(this)"><div class="tile-placeholder c-green"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-xl" onclick="openLightbox(this)"><div class="tile-placeholder c-lavender"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-md" onclick="openLightbox(this)"><div class="tile-placeholder c-amber"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item h-lg" onclick="openLightbox(this)"><div class="tile-placeholder c-iris"></div><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox-tile" id="lightbox-tile"></div>
+    <p class="lightbox-hint">Click anywhere to close</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"></div>
+  <div class="footer-social">
+    <a href="http://tiktok.com/@angelasglassstudio" target="_blank">TT</a>
+    <a href="https://instagram.com/angelasglassstudio" target="_blank">IG</a>
+    <a href="http://www.facebook.com/angelasglassstudio" target="_blank">FB</a>
+    <a href="https://www.pinterest.com/angelasartroom" target="_blank">PIN</a>
+    <a href="https://angelasglassstudio.etsy.com" target="_blank">ETSY</a>
+  </div>
+  <div class="footer-copy">
+    © 2026 Angela's Glass Studio
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+    updateActiveTab();
+  });
+
+  function toggleMenu() { console.log('mobile menu'); }
+
+  // Tab click — smooth scroll to section
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      const tabNavH = document.getElementById('tab-nav').offsetHeight;
+      const navH = document.getElementById('main-nav').offsetHeight + 5;
+      const offset = navH + tabNavH;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Update active tab on scroll
+  const sections = ['stained-glass','fused-glass','accent-glass','seasonal'];
+  function updateActiveTab() {
+    const tabNavH = document.getElementById('tab-nav').offsetHeight;
+    const navH = document.getElementById('main-nav').offsetHeight + 5;
+    const offset = navH + tabNavH + 40;
+
+    let current = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= offset) current = id;
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.target === current);
+    });
+  }
+
+  // Lightbox
+  let currentColor = '';
+  function openLightbox(item) {
+    const tile = item.querySelector('.tile-placeholder');
+    const classes = Array.from(tile.classList);
+    const colorClass = classes.find(c => c.startsWith('c-'));
+    const lightboxTile = document.getElementById('lightbox-tile');
+    lightboxTile.className = 'lightbox-tile ' + (colorClass || '');
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+</body>
+</html>

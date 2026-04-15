@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Angela's Glass Studio · Wisconsin</title>
+<meta name="description" content="Notes from the studio — glass techniques, studio life, and the story behind My Kiln Journal by Angela Weber, Wisconsin glass artist.">
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Jost:wght@300;400;500;600&family=Literata:opsz,wght@7..72,600&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: 'ElegantGoldenScript';
+  src: url('elegant-golden-script.otf') format('opentype');
+}
+
+
+:root {
+  --bg:       #f2f0f7;
+  --bg-alt:   #e8e5f2;
+  --ink:      #1a1a2e;
+  --iris:     #7b6fa0;
+  --teal:     #3d8b8b;
+  --cobalt:   #4a6fa5;
+  --green:    #7aaa4a;
+  --lavender: #c0a8c8;
+  --sky:      #72c8e8;
+  --cream:    #f8f7fc;
+  --nav-h:    72px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* GRADIENT BAR */
+.gradient-bar {
+  height: 5px;
+  background: linear-gradient(to right, var(--teal), var(--iris), var(--green), var(--cobalt), var(--sky));
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 5px; left: 0; right: 0;
+  height: var(--nav-h); z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(242,240,247,0.96);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(123,111,160,0.1);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
+
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
+  text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
+}
+.nav-links a:hover { opacity: 1; color: var(--lavender); }
+.nav-links a.active { opacity: 1; color: var(--iris); }
+
+.nav-etsy {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--teal); color: white;
+  padding: 0.55rem 1.3rem; border-radius: 3px;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.25s, transform 0.2s;
+}
+.nav-etsy:hover { background: var(--iris); transform: translateY(-1px); }
+
+.nav-logo {
+  display: flex; align-items: center; text-decoration: none;
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: 1.6rem; color: var(--ink); white-space: nowrap;
+}
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+/* HERO */
+.blog-hero {
+  margin-top: calc(var(--nav-h) + 5px);
+  height: 36vh; min-height: 240px;
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--ink) 0%, #2d2444 40%, #1d3535 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.blog-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(114,200,232,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 75% 30%, rgba(123,111,160,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 55% 70%, rgba(61,139,139,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 30% at 85% 65%, rgba(122,170,74,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.blog-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(60deg, transparent 30%, rgba(192,168,200,0.04) 30%, rgba(192,168,200,0.04) 31%, transparent 31%),
+    linear-gradient(-45deg, transparent 50%, rgba(114,200,232,0.03) 50%, rgba(114,200,232,0.03) 51%, transparent 51%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; text-align: center; padding: 2rem; }
+.hero-eyebrow {
+  font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.45em; text-transform: uppercase;
+  color: rgba(192,168,200,0.6); margin-bottom: 1rem;
+}
+.hero-title {
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  color: white; line-height: 1.05; margin-bottom: 1.2rem;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+}
+.hero-tagline {
+  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  letter-spacing: 0.08em; line-height: 1.9;
+  color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto;
+}
+
+/* MAIN LAYOUT */
+.blog-main {
+  max-width: 1200px; margin: 0 auto;
+  padding: 5rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* CONTENT AREA */
+.blog-content { min-width: 0; }
+
+/* SEARCH + TABS BAR */
+.blog-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.search-wrap {
+  position: relative;
+  flex: 1; min-width: 200px; max-width: 340px;
+}
+
+.search-input {
+  width: 100%;
+  font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 300;
+  color: var(--ink);
+  background: white;
+  border: 1px solid rgba(123,111,160,0.2);
+  border-radius: 2px;
+  padding: 0.65rem 1rem 0.65rem 2.6rem;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.search-input::placeholder { color: rgba(26,26,46,0.35); }
+.search-input:focus { border-color: var(--iris); box-shadow: 0 0 0 3px rgba(123,111,160,0.1); }
+
+.search-icon {
+  position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%);
+  color: rgba(26,26,46,0.3); pointer-events: none;
+  font-size: 0.85rem;
+}
+
+.category-tabs {
+  display: flex; gap: 0.4rem; flex-wrap: wrap;
+}
+
+.cat-tab {
+  font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.45;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid rgba(123,111,160,0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cat-tab:hover { opacity: 0.8; border-color: var(--iris); color: var(--iris); }
+.cat-tab.active { opacity: 1; color: white; background: var(--iris); border-color: var(--iris); }
+.cat-tab[data-cat="glass-techniques"].active { background: var(--teal); border-color: var(--teal); }
+.cat-tab[data-cat="studio-life"].active { background: var(--iris); border-color: var(--iris); }
+.cat-tab[data-cat="app-tech"].active { background: var(--green); border-color: var(--green); }
+
+/* NO RESULTS */
+.no-results {
+  display: none;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--ink); opacity: 0.4;
+  font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+/* CATEGORY GROUP */
+.category-group { margin-bottom: 4rem; }
+.category-group:last-child { margin-bottom: 0; }
+
+.cat-group-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.cat-group-title {
+  font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.cat-group-title.teal { color: var(--teal); }
+.cat-group-title.iris { color: var(--iris); }
+.cat-group-title.green { color: var(--green); }
+
+.cat-group-line {
+  flex: 1; height: 1px;
+  background: rgba(26,26,46,0.08);
+}
+
+/* BLOG GRID */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+/* BLOG CARD */
+.blog-card {
+  background: white;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(123,111,160,0.1);
+  box-shadow: 0 2px 12px rgba(26,26,46,0.05);
+  transition: box-shadow 0.25s, transform 0.25s;
+  text-decoration: none;
+  display: flex; flex-direction: column;
+}
+.blog-card:hover { box-shadow: 0 8px 30px rgba(26,26,46,0.1); transform: translateY(-3px); }
+
+.blog-card-img {
+  width: 100%; aspect-ratio: 16/9;
+  position: relative; overflow: hidden;
+}
+
+.blog-card-img-inner {
+  width: 100%; height: 100%;
+  transition: transform 0.5s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.blog-card:hover .blog-card-img-inner { transform: scale(1.04); }
+
+.blog-card-img-inner span {
+  font-family: 'Jost', sans-serif; font-size: 0.55rem; font-weight: 300;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* Color bar accent at bottom of image */
+.blog-card-img::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; z-index: 2;
+}
+
+/* Image placeholder colors */
+.bi-teal { background: linear-gradient(145deg, #5aada5, #2a6c68); }
+.bi-iris { background: linear-gradient(145deg, #9b8fc0, #6b5f90); }
+.bi-green { background: linear-gradient(145deg, #8cbf7a, #4a8030); }
+.bi-cobalt { background: linear-gradient(145deg, #6a8fc5, #3a5f95); }
+.bi-sky { background: linear-gradient(145deg, #72c8e8, #3888a8); }
+.bi-lavender { background: linear-gradient(145deg, #d0b8d8, #a088a8); }
+.bi-rose { background: linear-gradient(145deg, #c8889a, #985870); }
+.bi-amber { background: linear-gradient(145deg, #d4a86a, #a4783a); }
+
+/* Accent bar colors */
+.blog-card.acc-teal .blog-card-img::after { background: var(--teal); }
+.blog-card.acc-iris .blog-card-img::after { background: var(--iris); }
+.blog-card.acc-green .blog-card-img::after { background: var(--green); }
+.blog-card.acc-cobalt .blog-card-img::after { background: var(--cobalt); }
+
+.blog-card-cat {
+  position: absolute; top: 0.8rem; left: 0.8rem;
+  font-family: 'Jost', sans-serif; font-size: 0.5rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: white; padding: 0.3rem 0.7rem; border-radius: 2px;
+  z-index: 3;
+}
+.acc-teal .blog-card-cat { background: var(--teal); }
+.acc-iris .blog-card-cat { background: var(--iris); }
+.acc-green .blog-card-cat { background: var(--green); }
+.acc-cobalt .blog-card-cat { background: var(--cobalt); }
+
+.blog-card-body {
+  padding: 1.2rem 1.4rem 1.5rem;
+  display: flex; flex-direction: column; flex: 1;
+}
+
+.blog-card-date {
+  font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.35;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card-title {
+  font-family: 'Literata', serif; font-weight: 600;
+  font-size: 1.1rem; color: var(--ink); line-height: 1.35;
+  margin-bottom: 0.6rem;
+  transition: color 0.25s; }
+.blog-card:hover .blog-card-title { color: var(--iris); }
+.acc-teal:hover .blog-card-title { color: var(--teal); }
+.acc-green:hover .blog-card-title { color: var(--green); }
+
+.blog-card-excerpt {
+  font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 300;
+  line-height: 1.75; color: var(--ink); opacity: 0.65;
+  flex: 1; margin-bottom: 1rem;
+}
+
+.blog-card-read {
+  font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--iris);
+  transition: letter-spacing 0.3s;
+}
+.acc-teal .blog-card-read { color: var(--teal); }
+.acc-green .blog-card-read { color: var(--green); }
+.blog-card:hover .blog-card-read { letter-spacing: 0.32em; }
+
+/* SIDEBAR */
+.blog-sidebar { position: sticky; top: calc(var(--nav-h) + 5px + 2rem); }
+
+.sidebar-section { margin-bottom: 2.5rem; }
+
+.sidebar-title {
+  font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.4;
+  margin-bottom: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(26,26,46,0.08);
+}
+
+/* Archive list */
+.archive-list { list-style: none; }
+.archive-list li { border-bottom: 1px solid rgba(26,26,46,0.06); }
+
+.archive-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.6rem 0;
+  font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 300;
+  color: var(--ink); opacity: 0.6;
+  text-decoration: none; cursor: pointer;
+  transition: opacity 0.2s, color 0.2s;
+  background: none; border: none; width: 100%; text-align: left;
+}
+.archive-link:hover { opacity: 1; color: var(--iris); }
+.archive-link.active { opacity: 1; color: var(--iris); font-weight: 400; }
+
+.archive-count {
+  font-size: 0.7rem; opacity: 0.5;
+  background: var(--bg-alt);
+  border-radius: 10px; padding: 0.1rem 0.5rem;
+}
+
+/* Category key */
+.cat-key { display: flex; flex-direction: column; gap: 0.6rem; }
+.cat-key-item {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  color: var(--ink); opacity: 0.7;
+}
+.cat-key-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: white;
+  padding: 3.5rem 5rem;
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo { display: flex; align-items: center; }
+.footer-logo-text { font-family: 'ElegantGoldenScript', cursive; font-size: 1.8rem; color: rgba(255,255,255,0.82); }
+.footer-social { display: flex; justify-content: center; gap: 0.8rem; }
+.footer-social a {
+  width: 60px; height: 60px;
+  border: 1.5px solid rgba(255,255,255,0.3); border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Jost', sans-serif; font-size: 0.87rem; font-weight: 500;
+  letter-spacing: 0.06em; color: rgba(255,255,255,0.65);
+  text-decoration: none; transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.footer-social a:hover { border-color: var(--lavender); color: white; background: rgba(192,168,200,0.15); }
+.footer-copy {
+  text-align: right; font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400;
+  letter-spacing: 0.14em; color: rgba(255,255,255,0.5); line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  nav { padding: 0 2rem; }
+  .blog-main { padding: 4rem 2.5rem; gap: 3rem; }
+}
+@media (max-width: 900px) {
+  .blog-main { grid-template-columns: 1fr; }
+  .blog-sidebar { position: static; }
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .blog-main { padding: 3rem 1.5rem; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-controls { flex-direction: column; align-items: flex-start; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  .footer-copy { text-align: center; }
+  .footer-logo { justify-content: center; }
+  .footer-social { justify-content: center; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="gradient-bar"></div>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="app.html">Glass App</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank" class="nav-etsy">Shop on Etsy ↗</a>
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">The Blog</p>
+    <h1 class="hero-title">Notes from the Studio</h1>
+    <p class="hero-tagline">Glass techniques, studio life, and the story behind My Kiln Journal — from a Wisconsin glass artist.</p>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="blog-main">
+
+  <!-- CONTENT -->
+  <div class="blog-content">
+
+    <!-- CONTROLS -->
+    <div class="blog-controls">
+      <div class="search-wrap">
+        <span class="search-icon">&#9906;</span>
+        <input class="search-input" type="text" id="search-input" placeholder="Search posts…" oninput="filterPosts()">
+      </div>
+      <div class="category-tabs">
+        <button class="cat-tab active" data-cat="all" onclick="switchCat('all', this)">All Posts</button>
+        <button class="cat-tab" data-cat="glass-techniques" onclick="switchCat('glass-techniques', this)">Glass Techniques</button>
+        <button class="cat-tab" data-cat="studio-life" onclick="switchCat('studio-life', this)">Studio Life</button>
+        <button class="cat-tab" data-cat="app-tech" onclick="switchCat('app-tech', this)">App &amp; Tech</button>
+      </div>
+    </div>
+
+    <div class="no-results" id="no-results">No posts match your search.</div>
+
+    <!-- GLASS TECHNIQUES -->
+    <div class="category-group" id="group-glass-techniques" data-group="glass-techniques">
+      <div class="cat-group-header">
+        <span class="cat-group-title teal">Glass Techniques &amp; Education</span>
+        <div class="cat-group-line"></div>
+      </div>
+      <div class="blog-grid">
+
+        <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="What Narcissus Quagliata Taught Me About Light" data-date="2026-04">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-teal"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Glass · Techniques</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">April 2026</p>
+            <h3 class="blog-card-title">What Narcissus Quagliata Taught Me About Light</h3>
+            <p class="blog-card-excerpt">Studying under one of the world's foremost glass artists changed how I see my work — and how I see light itself. Here's what stayed with me.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="Understanding Reactive Glass: What It Is and Why It Matters" data-date="2026-03">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-cobalt"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Glass · Techniques</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">March 2026</p>
+            <h3 class="blog-card-title">Understanding Reactive Glass: What It Is and Why It Matters</h3>
+            <p class="blog-card-excerpt">Reactive glass can create stunning effects — or unpredictable disasters. Here's what I've learned about working with it intentionally.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="Frit, Powder, and Texture: Building Depth in Fused Glass" data-date="2026-02">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-sky"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Glass · Techniques</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">February 2026</p>
+            <h3 class="blog-card-title">Frit, Powder, and Texture: Building Depth in Fused Glass</h3>
+            <p class="blog-card-excerpt">One of my favorite things about fused glass is the way you can layer materials to create movement and depth. Here's how I approach it.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="Stained Glass vs. Fused Glass: What's the Difference?" data-date="2026-01">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-lavender"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Glass · Education</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">January 2026</p>
+            <h3 class="blog-card-title">Stained Glass vs. Fused Glass: What's the Difference?</h3>
+            <p class="blog-card-excerpt">I get this question constantly. Both are beautiful, both involve glass — but the process, tools, and results are very different. Let me break it down.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- STUDIO LIFE -->
+    <div class="category-group" id="group-studio-life" data-group="studio-life">
+      <div class="cat-group-header">
+        <span class="cat-group-title iris">Studio Life &amp; Behind the Scenes</span>
+        <div class="cat-group-line"></div>
+      </div>
+      <div class="blog-grid">
+
+        <a href="blog-post.html" class="blog-card acc-iris" data-cat="studio-life" data-title="My Wisconsin Garage Glass Studio" data-date="2026-04">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-iris"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Studio Life</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">April 2026</p>
+            <h3 class="blog-card-title">My Wisconsin Garage Glass Studio</h3>
+            <p class="blog-card-excerpt">Three kilns, one vitragraph, and a dream. How I turned a converted garage into a working studio — and what I'd do differently next time.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-iris" data-cat="studio-life" data-title="What Five Years Without a Studio Taught Me About Being an Artist" data-date="2026-03">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-rose"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Studio Life</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">March 2026</p>
+            <h3 class="blog-card-title">What Five Years Without a Studio Taught Me About Being an Artist</h3>
+            <p class="blog-card-excerpt">When I couldn't work with glass, I picked up paint brushes instead. That stretch of time changed everything about how I make things.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-iris" data-cat="studio-life" data-title="A Day in the Studio: What Glass Work Actually Looks Like" data-date="2026-02">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-amber"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Studio Life</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">February 2026</p>
+            <h3 class="blog-card-title">A Day in the Studio: What Glass Work Actually Looks Like</h3>
+            <p class="blog-card-excerpt">People imagine it's all glowing panels and magic. Honestly? A lot of it is math, waiting, and glass dust. Here's what a real studio day looks like.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-iris" data-cat="studio-life" data-title="I Didn't Think I Was an Artist — Until Glass Changed That" data-date="2026-01">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-teal"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">Studio Life</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">January 2026</p>
+            <h3 class="blog-card-title">I Didn't Think I Was an Artist — Until Glass Changed That</h3>
+            <p class="blog-card-excerpt">I came to glass as a stay-at-home mom looking for something creative. I had no idea it would become the thing that showed me who I was.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- APP & TECH -->
+    <div class="category-group" id="group-app-tech" data-group="app-tech">
+      <div class="cat-group-header">
+        <span class="cat-group-title green">App &amp; Tech — My Kiln Journal</span>
+        <div class="cat-group-line"></div>
+      </div>
+      <div class="blog-grid">
+
+        <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="Why I Built My Kiln Journal" data-date="2026-04">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-green"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">App &amp; Tech</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">April 2026</p>
+            <h3 class="blog-card-title">Why I Built My Kiln Journal</h3>
+            <p class="blog-card-excerpt">Tracking firings in a messy binder was driving me nuts. I couldn't find what I needed and kept repeating mistakes. So I built something better.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="How to Install My Kiln Journal on Your Phone (No App Store Needed)" data-date="2026-03">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-cobalt"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">App &amp; Tech</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">March 2026</p>
+            <h3 class="blog-card-title">How to Install My Kiln Journal on Your Phone (No App Store Needed)</h3>
+            <p class="blog-card-excerpt">It's a web app — which means you just visit the site and add it to your home screen. Here's a step-by-step guide for iPhone and Android.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="5 Ways a Firing Log Can Save You Money on Glass" data-date="2026-02">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-iris"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">App &amp; Tech</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">February 2026</p>
+            <h3 class="blog-card-title">5 Ways a Firing Log Can Save You Money on Glass</h3>
+            <p class="blog-card-excerpt">Glass is expensive. A bad firing can ruin hours of work. Keeping detailed records is one of the smartest things you can do as a glass artist.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+        <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="Kiln Maintenance 101: What I Track and Why" data-date="2026-01">
+          <div class="blog-card-img">
+            <div class="blog-card-img-inner bi-sky"><span>Blog Photo</span></div>
+            <span class="blog-card-cat">App &amp; Tech</span>
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">January 2026</p>
+            <h3 class="blog-card-title">Kiln Maintenance 101: What I Track and Why</h3>
+            <p class="blog-card-excerpt">A well-maintained kiln is a reliable kiln. Here's what I log for each of my kilns — and how My Kiln Journal makes it easy to stay on top of it.</p>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div><!-- /blog-content -->
+
+  <!-- SIDEBAR -->
+  <aside class="blog-sidebar">
+
+    <div class="sidebar-section">
+      <p class="sidebar-title">Browse by Month</p>
+      <ul class="archive-list">
+        <li><button class="archive-link active" data-month="all" onclick="filterMonth('all', this)">All Posts <span class="archive-count">12</span></button></li>
+        <li><button class="archive-link" data-month="2026-04" onclick="filterMonth('2026-04', this)">April 2026 <span class="archive-count">3</span></button></li>
+        <li><button class="archive-link" data-month="2026-03" onclick="filterMonth('2026-03', this)">March 2026 <span class="archive-count">3</span></button></li>
+        <li><button class="archive-link" data-month="2026-02" onclick="filterMonth('2026-02', this)">February 2026 <span class="archive-count">3</span></button></li>
+        <li><button class="archive-link" data-month="2026-01" onclick="filterMonth('2026-01', this)">January 2026 <span class="archive-count">3</span></button></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-title">Categories</p>
+      <div class="cat-key">
+        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--teal);"></div>Glass Techniques &amp; Education</div>
+        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--iris);"></div>Studio Life &amp; Behind the Scenes</div>
+        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--green);"></div>App &amp; Tech — My Kiln Journal</div>
+      </div>
+    </div>
+
+  </aside>
+
+</div><!-- /blog-main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="footer-logo-text"></span></div>
+  <div class="footer-social">
+    <a href="http://tiktok.com/@angelasglassstudio" target="_blank">TT</a>
+    <a href="https://instagram.com/angelasglassstudio" target="_blank">IG</a>
+    <a href="http://www.facebook.com/angelasglassstudio" target="_blank">FB</a>
+    <a href="https://www.pinterest.com/angelasglassstudio" target="_blank">PIN</a>
+    <a href="https://angelasglassstudio.etsy.com" target="_blank">ETSY</a>
+  </div>
+  <div class="footer-copy">© 2026 Angela's Glass Studio</div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  function toggleMenu() { console.log('mobile menu'); }
+
+  let activeCat = 'all';
+  let activeMonth = 'all';
+
+  // Category tabs
+  function switchCat(cat, btn) {
+    activeCat = cat;
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  // Month filter
+  function filterMonth(month, btn) {
+    activeMonth = month;
+    document.querySelectorAll('.archive-link').forEach(l => l.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  // Search
+  function filterPosts() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('search-input').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.blog-card');
+    const groups = document.querySelectorAll('.category-group');
+    let anyVisible = false;
+
+    cards.forEach(card => {
+      const cat = card.dataset.cat;
+      const date = card.dataset.date;
+      const title = card.dataset.title.toLowerCase();
+      const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+
+      const catMatch = activeCat === 'all' || cat === activeCat;
+      const monthMatch = activeMonth === 'all' || date === activeMonth;
+      const searchMatch = query === '' || title.includes(query) || excerpt.includes(query);
+
+      const visible = catMatch && monthMatch && searchMatch;
+      card.style.display = visible ? 'flex' : 'none';
+      if (visible) anyVisible = true;
+    });
+
+    // Show/hide category group headers based on whether any cards are visible
+    groups.forEach(group => {
+      const groupCat = group.dataset.group;
+      const catVisible = activeCat === 'all' || activeCat === groupCat;
+      const hasVisible = catVisible && Array.from(group.querySelectorAll('.blog-card'))
+        .some(c => c.style.display !== 'none');
+      group.style.display = hasVisible ? 'block' : 'none';
+    });
+
+    document.getElementById('no-results').style.display = anyVisible ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>
