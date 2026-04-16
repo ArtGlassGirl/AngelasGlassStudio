@@ -88,20 +88,14 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   min-height: 60vh;
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
-    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
-    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
-    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
-    #6d9e8a;
+  background: #ffffff;
   display: flex; align-items: center;
 }
 
 .app-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 50% 40% at 55% 45%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  background: rgba(255,255,255,0.72);
   pointer-events: none;
 }
 
@@ -127,21 +121,17 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .hero-eyebrow {
   font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
   letter-spacing: 0.45em; text-transform: uppercase;
-  color: rgba(192,168,200,0.6); margin-bottom: 1.2rem;
+  color: var(--iris); opacity: 0.7; margin-bottom: 1.2rem;
   display: flex; align-items: center; gap: 0.8rem;
 }
-.hero-eyebrow::before {
-  content: '';
-  display: block; width: 30px; height: 1px;
-  background: rgba(192,168,200,0.4);
-}
+.hero-eyebrow::before { display: none; }
 
 .hero-app-name {
   font-family: 'Alice', serif;
   font-size: clamp(2.7rem, 4.5vw, 3.75rem);
-  color: white; line-height: 1.0;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 40px rgba(123,111,160,0.4);
+  color: var(--ink); line-height: 1.0;
+  margin-bottom: 0.9rem;
+  text-shadow: none;
   white-space: nowrap; -webkit-text-stroke: 0.8px currentColor; }
 
 .hero-app-sub {
@@ -155,7 +145,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   font-family: 'Jost', sans-serif;
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   font-weight: 300; line-height: 1.9;
-  color: rgba(255,255,255,0.65);
+  color: rgba(26,26,46,0.7);
   margin-bottom: 2.5rem;
   max-width: 480px;
 }
@@ -178,19 +168,19 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .btn-hero-secondary {
   font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 400;
   letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: var(--iris);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(123,111,160,0.4);
   padding-bottom: 2px;
   transition: color 0.25s, border-color 0.25s;
 }
-.btn-hero-secondary:hover { color: white; border-color: white; }
+.btn-hero-secondary:hover { color: var(--ink); border-color: var(--ink); }
 
 .hero-pricing-note {
   margin-top: 1.4rem;
   font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 300;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(255,255,255,0.28);
+  color: rgba(26,26,46,0.4);
 }
 
 /* PHONE MOCKUP */
@@ -435,6 +425,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   border-radius: 3px;
   padding: 2rem 1.8rem;
   transition: background 0.25s, border-color 0.25s;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
 }
 .feature-tile:hover {
   background: rgba(123,111,160,0.12);
@@ -847,6 +838,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo"></a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="app.html" class="active">Glass App</a></li>
@@ -948,7 +940,7 @@ footer {
         <div class="feature-desc">Record every firing with notes, schedule used, ratings, tags, and before &amp; after photos. Your full firing history, always at your fingertips.</div>
       </div>
       <div class="feature-tile">
-        <div class="feature-icon">🔥</div>
+        <div class="feature-icon">💾</div>
         <div class="feature-title">Saved Schedules</div>
         <div class="feature-desc">Save your go-to firing schedules and attach them to logs. Build a personal library of what works for your glass and your kilns.</div>
       </div>
@@ -958,7 +950,7 @@ footer {
         <div class="feature-desc">Find any firing fast. Search by keyword, filter by kiln, tag, date, or rating. The answer you need is seconds away, not buried in a binder.</div>
       </div>
       <div class="feature-tile">
-        <div class="feature-icon">🏭</div>
+        <div class="feature-icon">🔥</div>
         <div class="feature-title">Kiln Management</div>
         <div class="feature-desc">Track multiple kilns, log maintenance history, and keep notes on each unit so you always know what condition your equipment is in.</div>
       </div>
