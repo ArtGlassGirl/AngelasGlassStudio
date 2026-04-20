@@ -223,8 +223,10 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   gap: 10px;
 }
 .gallery-item { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+.gallery-item a { display: block; width: 100%; height: 100%; text-decoration: none; }
 .gallery-item:nth-child(1) { grid-row: span 2; }
-.gallery-thumb { width: 100%; height: 100%; transition: transform 0.55s ease; }
+.gallery-thumb { width: 100%; height: 100%; transition: transform 0.55s ease; object-fit: cover; }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .gallery-item:hover .gallery-thumb { transform: scale(1.05); }
 
 /* Colored category tab — stays on real photos */
@@ -235,10 +237,9 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   color: white; padding: 0.3rem 0.7rem; border-radius: 2px; opacity: 0.95;
 }
 .gallery-item:nth-child(1) .cat-tag { background: var(--teal); }
-.gallery-item:nth-child(2) .cat-tag { background: var(--green); }
-.gallery-item:nth-child(3) .cat-tag { background: var(--iris); }
-.gallery-item:nth-child(4) .cat-tag { background: var(--cobalt); }
-.gallery-item:nth-child(5) .cat-tag { background: var(--teal); }
+.gallery-item:nth-child(2) .cat-tag { background: var(--iris); }
+.gallery-item:nth-child(3) .cat-tag { background: var(--cobalt); }
+.gallery-item:nth-child(4) .cat-tag { background: var(--green); }
 
 /* Jewel tint overlay on hover — works over real photos */
 .gallery-item::before {
@@ -267,13 +268,8 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .gp span { font-family: 'Jost', sans-serif; font-size: 0.46rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); }
 
 .gallery-caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 1rem 1.2rem 0.9rem;
-  background: linear-gradient(to top, rgba(26,26,46,0.82), transparent);
-  transform: translateY(6px); opacity: 0;
-  transition: opacity 0.3s, transform 0.3s; z-index: 5;
+  display: none;
 }
-.gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
 .gallery-caption span { font-family: 'Jost', sans-serif; font-size: 0.52rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.65); display: block; margin-bottom: 0.2rem; }
 .gallery-caption p { font-family: 'Alice', serif; font-size: 1rem; color: white; -webkit-text-stroke: 0.8px currentColor; }
 .gallery-cta { margin-top: 4rem; }
@@ -614,6 +610,8 @@ footer {
   .nav-toggle { display: flex; }
   .hero-name { font-size: 3rem; white-space: normal; }
   .gallery-section, .about-section, .app-section, .blog-section { padding: 3rem 1.5rem; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  .gallery-item:nth-child(1) { grid-row: span 1; }
 }
 
 </style>
@@ -665,26 +663,26 @@ footer {
     <a href="portfolio.html" class="view-all">View Full Gallery →</a>
   </div>
   <div class="gallery-grid">
-    <div class="gallery-item">
+    <a href="portfolio.html#stained-glass" class="gallery-item">
       <span class="cat-tag">Stained Glass</span>
       <div class="gallery-thumb gp gp-1"><img src="Stained_Deer.jpg" alt="Featured: Stained Glass Deer"></div>
       <div class="gallery-caption"><span>Stained Glass · Nature</span><p>Deer</p></div>
-    </div>
-    <div class="gallery-item">
+    </a>
+    <a href="portfolio.html#fused-glass" class="gallery-item">
       <span class="cat-tag">Fused Glass</span>
       <div class="gallery-thumb gp gp-2"><img src="Fused_GlassFlower.jpg" alt="Featured: Fused Glass Flower"></div>
       <div class="gallery-caption"><span>Fused Glass · Floral</span><p>Glass Flower</p></div>
-    </div>
-    <div class="gallery-item">
+    </a>
+    <a href="portfolio.html#accent-glass" class="gallery-item">
       <span class="cat-tag">Accent Glass</span>
       <div class="gallery-thumb gp gp-3"><img src="Accent_BlueGreenMosaicDish.jpg" alt="Featured: Accent Glass Mosaic Dish"></div>
       <div class="gallery-caption"><span>Accent Glass · Decor</span><p>Mosaic Dish</p></div>
-    </div>
-    <div class="gallery-item">
+    </a>
+    <a href="portfolio.html#seasonal" class="gallery-item">
       <span class="cat-tag">Seasonal</span>
       <div class="gallery-thumb gp gp-4"><img src="Seasonal_PenguinOrnament.jpg" alt="Featured: Seasonal Penguin Ornament"></div>
       <div class="gallery-caption"><span>Seasonal · Ornament</span><p>Penguin Ornament</p></div>
-    </div>
+    </a>
   </div>
   <div class="gallery-cta">
     <!-- decorative rule -->
