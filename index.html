@@ -290,14 +290,14 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .etsy-left { position: relative; z-index: 1; }
 .etsy-tagline {
   font-family: 'Alice', serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  color: var(--ink); line-height: 1.3;
+  font-size: clamp(2.7rem, 4.5vw, 3.75rem);
+  color: var(--ink); line-height: 1.2;
   margin-bottom: 1rem; -webkit-text-stroke: 0.8px currentColor; }
 .etsy-tagline .green { color: var(--green); }
 .etsy-blurb {
   font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300;
   line-height: 1.85; color: var(--ink); opacity: 0.65;
-  max-width: 420px; margin-bottom: 2rem;
+  max-width: 560px; margin-bottom: 2rem;
 }
 .etsy-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 .btn-etsy-main {
@@ -598,7 +598,10 @@ footer {
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
 }
+.mobile-break { display: none; }
+
 @media (max-width: 768px) {
+  .mobile-break { display: block; }
   .nav-links, .nav-etsy { display: none; }
   .nav-toggle { display: flex; }
   .hero-name { font-size: 3rem; white-space: normal; }
@@ -714,7 +717,7 @@ footer {
   </div>
   <div class="about-content">
     <p class="section-eyebrow">The Artist</p>
-    <h2 class="section-title">25+ Years of <span class="sky">Breaking Glass</span></h2>
+    <h2 class="section-title">25+ Years of <br class="mobile-break"><span class="sky">Breaking Glass</span></h2>
     <p>My first "studio" was a washing machine. Cardboard on top. Solder rolling where it wanted. Zero clue what I was doing.</p>
     <p>I was hooked anyway.</p>
     <p>Now it's a converted garage studio in the Wisconsin countryside with real workbenches, and after years of experience, I have at least a tiny bit more of an idea of what I'm doing.</p>
@@ -727,7 +730,7 @@ footer {
 <section class="app-section">
   <div class="app-content">
     <p class="section-eyebrow">Built for Glass Artists</p>
-    <h2 class="section-title">Introducing <span class="iris">My Kiln Journal</span></h2>
+    <h2 class="section-title">Introducing<br><span class="iris">My Kiln Journal</span></h2>
     <div class="section-accent" style="display:none;"></div>
     <p>I built this because I needed it myself — a dedicated place to track firings, schedules, and kiln notes without digging through my messy binder. Now it's available for glass artists everywhere.</p>
     <ul class="app-features">
@@ -750,7 +753,7 @@ footer {
   <div class="blog-header">
     <div>
       <p class="section-eyebrow">Blog</p>
-      <h2 class="section-title">Notes from <span class="teal">the Studio</span></h2>
+      <h2 class="section-title">Notes from <br class="mobile-break"><span class="teal">the Studio</span></h2>
     </div>
     <a href="blog.html" class="view-all">All Posts →</a>
   </div>
