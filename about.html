@@ -376,15 +376,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .narcissus-photo-main {
   width: 100%;
   aspect-ratio: 4 / 5;
-  background:
-    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
-    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
-    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
-    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
-    #6d9e8a;
   border-radius: 2px;
-  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
   position: relative;
 }
@@ -524,7 +516,10 @@ footer {
   .story-layout, .studio-layout, .narcissus-layout { gap: 3rem; }
 }
 
+.mobile-break { display: none; }
+
 @media (max-width: 800px) {
+  .mobile-break { display: block; }
   .story-layout, .studio-layout, .narcissus-layout {
     grid-template-columns: 1fr;
   }
@@ -696,7 +691,7 @@ footer {
 <!-- CLOSING BAND -->
 <div class="closing-band">
   <div class="closing-inner">
-    <p class="closing-script">I'm more curious now than when I started.</p>
+    <p class="closing-script">I'm more curious now<br class="mobile-break"> than when I started.</p>
     <p class="closing-text">Today, my work blends structure and spontaneity. Some pieces are clean and graphic. Others are organic and expressive. All of them are shaped by years of experimentation, curiosity, and a willingness to keep learning. I didn't start out believing I was an artist — but somewhere along the way, through glass, painting, broken pieces, and persistence,<br>I became one.</p>
   </div>
 </div>
