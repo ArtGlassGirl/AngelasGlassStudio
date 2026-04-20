@@ -445,7 +445,7 @@ footer {
     <div class="masonry-item" onclick="openLightbox(this)"><img src="Accent_BeePlantStake.jpg" alt="Accent Glass: Bee Plant Stake" class="tile-placeholder"><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
     <div class="masonry-item" onclick="openLightbox(this)"><img src="Accent_BlueGreenMosaicDish.jpg" alt="Accent Glass: Blue Green Mosaic Dish" class="tile-placeholder"><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
     <div class="masonry-item" onclick="openLightbox(this)"><img src="Accent_MushroomPlantStake.jpg" alt="Accent Glass: Mushroom Plant Stake" class="tile-placeholder"><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
-    <div class="masonry-item" onclick="openLightbox(this)"><img src="Accent_OrangeTealDish.JPEG" alt="Accent Glass: Orange Teal Dish" class="tile-placeholder"><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
+    <div class="masonry-item" onclick="openLightbox(this)"><img src="Accent_OrangeTealDish.jpg" alt="Accent Glass: Orange Teal Dish" class="tile-placeholder"><div class="tile-overlay"><div class="tile-zoom-icon">+</div></div></div>
   </div>
 </section>
 
@@ -468,7 +468,7 @@ footer {
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
     <div class="lightbox-tile" id="lightbox-tile"></div>
-    <p class="lightbox-hint">Click anywhere to close</p>
+    <p class="lightbox-hint" style="display: none;">Click anywhere to close</p>
   </div>
 </div>
 
@@ -562,7 +562,8 @@ footer {
   }
 
   function closeLightbox(e) {
-    if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+    // Allow closing by clicking the X button or anywhere on the lightbox background
+    if (e && e.target.closest('.lightbox-inner') && !e.target.classList.contains('lightbox-close')) return;
     document.getElementById('lightbox').classList.remove('open');
     document.body.style.overflow = '';
   }
