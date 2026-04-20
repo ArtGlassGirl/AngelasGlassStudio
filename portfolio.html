@@ -543,11 +543,20 @@ footer {
   // Lightbox
   let currentColor = '';
   function openLightbox(item) {
-    const tile = item.querySelector('.tile-placeholder');
-    const classes = Array.from(tile.classList);
-    const colorClass = classes.find(c => c.startsWith('c-'));
+    const img = item.querySelector('img');
     const lightboxTile = document.getElementById('lightbox-tile');
-    lightboxTile.className = 'lightbox-tile ' + (colorClass || '');
+    lightboxTile.innerHTML = '';
+    
+    if (img) {
+      const largeImg = document.createElement('img');
+      largeImg.src = img.src;
+      largeImg.alt = img.alt;
+      largeImg.style.maxWidth = '90%';
+      largeImg.style.maxHeight = '90vh';
+      largeImg.style.objectFit = 'contain';
+      lightboxTile.appendChild(largeImg);
+    }
+    
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
