@@ -87,21 +87,13 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   min-height: 240px;
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 80% 90% at 10% 50%, #5a9e9e 0%, transparent 55%),
-    radial-gradient(ellipse 70% 80% at 90% 20%, #9d8fc0 0%, transparent 50%),
-    radial-gradient(ellipse 60% 70% at 50% 90%, #7aaa4a 0%, transparent 50%),
-    radial-gradient(ellipse 80% 60% at 70% 60%, #7b6fa0 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 30% 20%, #4ea8a8 0%, transparent 50%),
-    #6d9e8a;
+  background: url('GlassShelf.jpg') center center / cover no-repeat;
   display: flex; align-items: center; justify-content: center;
 }
 
 .about-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 50% 40% at 55% 45%, rgba(255,255,255,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -114,28 +106,30 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .hero-content {
   position: relative; z-index: 2;
   text-align: center;
-  padding: 2rem;
+  padding: 2.8rem 4rem;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.8);
 }
 
 .hero-eyebrow {
-  font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
-  letter-spacing: 0.45em; text-transform: uppercase;
-  color: rgba(255,255,255,0.9); margin-bottom: 1rem;
+  display: none;
 }
 
 .hero-title {
   font-family: 'ElegantGoldenScript', cursive;
   font-size: clamp(2rem, 5vw, 3.8rem);
-  color: white; line-height: 1.05; margin-top: 1.8rem; margin-bottom: 1.8rem;
-  margin-top: 2.6rem;
-  margin-bottom: 3.2rem;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+  color: var(--ink); line-height: 1.05;
+  margin-bottom: 1.4rem;
+  text-shadow: none;
 }
 
 .hero-tagline {
-  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 300;
   letter-spacing: 0.08em; line-height: 1.9;
-  color: rgba(255,255,255,0.58);
+  color: var(--ink); opacity: 0.75;
   max-width: 520px; margin: 0 auto;
 }
 
@@ -449,22 +443,22 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 
 /* CLOSING STATEMENT */
 .closing-band {
-  background: var(--bg-alt);
+  background: var(--ink);
   padding: 5rem 4rem;
   text-align: center;
 }
 
 .closing-inner {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .closing-script {
   font-family: 'ElegantGoldenScript', cursive;
   font-size: clamp(1.8rem, 4vw, 3rem);
-  color: var(--ink);
-  margin-bottom: 0.8rem;
-  text-shadow: none;
+  color: white;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 2px 30px rgba(123,111,160,0.3);
 }
 
 .closing-text {
@@ -472,7 +466,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.95;
-  color: var(--ink);
+  color: rgba(255,255,255,0.55);
   margin-bottom: 2.5rem;
   letter-spacing: 0.02em;
 }
@@ -574,7 +568,6 @@ footer {
 <!-- HERO -->
 <section class="about-hero">
   <div class="hero-content">
-    <p class="hero-eyebrow">Angela Weber</p>
     <h1 class="hero-title">My Story</h1>
     <p class="hero-tagline">Glass Artist • Capturer of Light</p>
   </div>
@@ -596,7 +589,7 @@ footer {
 
       <div class="story-photo-col">
         <div class="photo-placeholder">
-          <span class="photo-placeholder-label">Portrait Photo</span>
+          <img src="FusedGirl.jpg" alt="Fused glass girl based on Angela's watercolor painting" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
       </div>
 
@@ -606,19 +599,19 @@ footer {
         <div class="section-divider teal"></div>
 
         <div class="story-body">
-          <p>I'm Angela, the artist behind Angela's Glass Studio. I've always been drawn to color and light. But I didn't grow up thinking I was an "artist." It just wasn't something I believed about myself.</p>
+          <p>I'm Angela, the artist behind Angela's Glass Studio. I've always been drawn to color and light. But I didn't grow up thinking I was "an artist." That wasn't part of the plan. It wasn't something I believed about myself.</p>
 
           <p>But I never forgot a glass project I made in a school art class. Something about it stuck with me in a quiet, persistent way. Years later, when I was a stay-at-home mom looking for something creative to do, that memory resurfaced… and I decided to try it again.</p>
 
-          <p><span class="emphasis" style="font-size: 1.25rem; letter-spacing: 0.04em;">That one decision changed my life.</span></p>
+          <p><span class="emphasis">That one decision turned into everything.</span></p>
 
-          <p>I'm largely self-taught, learning through trial and error and the early days of online glass forums. I made plenty of mistakes, broke things, overfired things, underfired things... but I learned from every single one. Over time, I built my skills through stained glass, fusing glass, and more dimensional, sculptural work.</p>
+          <p>I'm largely self-taught, learning through trial and error and the early days of online glass forums. I made plenty of mistakes, broke things, overfired things, underfired things... and learned from every single one. Over time, I built my skills across stained glass, glass fusing, and more dimensional, sculptural work.</p>
 
-          <p><span class="emphasis">I had such a natural connection to glass. It was part of me.</span></p>
+          <p>Over time, <span class="emphasis">glass stopped feeling like a hobby and started feeling like a language I understood.</span></p>
 
-          <p>After a move, I went about five years without a glass studio. That stretch pushed me somewhere unexpected. I started drawing and painting. Mixed media, acrylic, watercolor, anything I could get my hands on. I started to believe that maybe... I was an artist. Not just someone making things.</p>
+          <p>After a move, I went about five years without a glass studio. That stretch pushed me somewhere unexpected. I started drawing and painting. Mixed media, acrylic, watercolor, anything I could get my hands on. It was the first time I truly saw myself as an artist, not just someone making things.</p>
 
-          <p>That art exploration now shows up in my glasswork. I think in layers, in movement, in color relationships like the way I would with paint. Glass became less about assembling pieces and more about creating something that feels alive.</p>
+          <p>Even now, that time shows up in my glasswork. I think in layers, in movement, in color relationships the same way I would with paint. Glass became less about assembling pieces and more about composing something alive.</p>
         </div>
 
 
@@ -639,26 +632,28 @@ footer {
         <div class="section-divider"></div>
 
         <div class="story-body">
-          <p>My studio is where experimentation lives. It's a space built around possibility. Shelves of glass in every color and texture, tools worn from years of use, and a warmth that comes from years of making things you love.</p>
+          <p>My studio is where experimentation lives. It's a space built around possibility. Shelves of glass in every color and texture, tools worn smooth from years of use, and the particular kind of quiet that settles in when you're deep in a piece.</p>
 
-          <p>Every work begins here, whether it's a small accent piece or a large architectural commission. I work across multiple techniques: stained glass, glass fusing, and more expressive dimensional work. The studio allows me to explore all of them and more.</p>
+          <p>Every work begins here, whether it's a small accent piece or a large architectural commission. I work across multiple techniques: stained glass, glass fusing, and more expressive dimensional work. The studio holds them all.</p>
 
-          <p>For me, the studio isn't just where I make things. It's where I think, where I solve problems, where I stay curious, and where I feel joy when a work is completed. Every piece that leaves here carries a little of that with it.</p>
+          <p>There's something about the light in a glass studio that never gets ordinary. The way it moves through color, shifts across the day, changes with the seasons. It's a reminder of why I fell in love with this medium in the first place. And why I keep showing up.</p>
+
+          <p>For me, the studio isn't just where I make things. It's where I think, where I solve problems, and where I stay curious. Every piece that leaves here carries a little of that with it.</p>
         </div>
       </div>
 
       <div class="studio-photo-col">
         <div class="studio-photo">
-          <span class="studio-photo-label">Studio Photo</span>
+          <img src="Before.jpg" alt="Studio photo" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="studio-photo">
-          <span class="studio-photo-label">Studio Photo</span>
+          <img src="GlassShelf.jpg" alt="Studio photo" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="studio-photo">
-          <span class="studio-photo-label">Studio Photo</span>
+          <img src="WallDecals.jpg" alt="Studio photo" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="studio-photo">
-          <span class="studio-photo-label">Studio Photo</span>
+          <img src="Sink.jpg" alt="Studio photo" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
       </div>
 
@@ -674,7 +669,7 @@ footer {
       <div class="narcissus-photo-col">
         <div class="narcissus-photo-stack">
           <div class="narcissus-photo-main">
-            <span class="narcissus-photo-label">Study Photo / Work</span>
+            <img src="Elephant.jpg" alt="Study with Narcissus Quagliata" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
         </div>
       </div>
@@ -687,11 +682,11 @@ footer {
         <div class="story-body">
           <p>A major turning point in my work came from studying with <span class="emphasis">Narcissus Quagliata</span>, a world-renowned artist known for pushing the boundaries of what glass can be and say. That experience expanded everything for me. Not just in technique, but in how I think about the medium entirely.</p>
 
-          <p>Through his teaching, I explored new approaches to creating movement, depth, and texture. Working with frit, reactive glass, and pre-made elements in ways I hadn't before. His approach to glass is expressive and fearless, and it gave me permission to loosen up, trust the process, and let the work breathe.</p>
+          <p>Through his teaching, I explored new approaches to creating movement, depth, and texture. Working with frit, reactive glass, and pre-formed elements in ways I hadn't before. His approach to glass is expressive and fearless, and it gave me permission to loosen up, trust the process, and let the work breathe.</p>
 
-          <p>But beyond the techniques, it was the conversations that left the most lasting mark. His philosophies about being an artist, the history of art and glass, and his many stories changed how I view everything.</p>
+          <p>But beyond technique, it was the conversations that left the most lasting mark. The history, the connections, the deeper story of glass as a medium. Being introduced to other artists, hearing how they think, understanding the lineage of this craft shifted my perspective completely.</p>
 
-          <p><span class="emphasis">I don't see glass as just a material anymore. I see it as a way to capture the light.</span></p>
+          <p><span class="emphasis">I don't just see glass as material anymore. I see it as light, as motion, as something constantly changing depending on how it's experienced.</span></p>
         </div>
 
       </div>
@@ -703,8 +698,8 @@ footer {
 <!-- CLOSING BAND -->
 <div class="closing-band">
   <div class="closing-inner">
-    <p class="closing-script">I'm more curious now than when I started.</p>
-    <p class="closing-text">Today, my work blends structure and spontaneity. Some pieces are clean and graphic. Others are organic and expressive. All of them are shaped by years of experimentation, curiosity, and a willingness to keep learning. I didn't start out believing I was an artist — but somewhere along the way, through glass, painting, broken pieces, and persistence,<br>I became one.</p>
+    <p class="closing-script">More curious now than when I started.</p>
+    <p class="closing-text">Today, my work blends structure and spontaneity. Some pieces are clean and graphic. Others are organic and expressive. All of them are shaped by years of experimentation, curiosity, and a willingness to keep learning. I didn't start out believing I was an artist — but somewhere along the way, through glass, painting, mistakes, broken pieces, and persistence, I became one.</p>
   </div>
 </div>
 
