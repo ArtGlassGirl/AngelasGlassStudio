@@ -45,7 +45,7 @@ nav {
   height: var(--nav-h); z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 3rem;
-  background: rgba(242,240,247,0.96);
+  background: #ffffff;
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(123,111,160,0.1);
   transition: box-shadow 0.3s;
@@ -59,6 +59,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
 }
 .nav-links a:hover { opacity: 1; color: var(--lavender); }
+.nav-links a.active { opacity: 1; color: var(--iris); border-bottom: 2px solid var(--iris); padding-bottom: 3px; }
 
 .nav-etsy {
   font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
@@ -291,6 +292,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo"></a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="app.html">Glass App</a></li>
