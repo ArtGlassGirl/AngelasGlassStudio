@@ -85,41 +85,29 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   margin-top: calc(var(--nav-h) + 5px);
   height: 36vh; min-height: 240px;
   position: relative; overflow: hidden;
-  background: linear-gradient(135deg, var(--ink) 0%, #2d2444 40%, #1d3535 100%);
+  background: url('SliderMulti.jpg') center center / cover no-repeat;
   display: flex; align-items: center; justify-content: center;
 }
-.blog-hero::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(114,200,232,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 75% 30%, rgba(123,111,160,0.2) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 55% 70%, rgba(61,139,139,0.18) 0%, transparent 50%),
-    radial-gradient(ellipse 30% 30% at 85% 65%, rgba(122,170,74,0.12) 0%, transparent 50%);
-  pointer-events: none;
-}
-.blog-hero::after {
-  content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(60deg, transparent 30%, rgba(192,168,200,0.04) 30%, rgba(192,168,200,0.04) 31%, transparent 31%),
-    linear-gradient(-45deg, transparent 50%, rgba(114,200,232,0.03) 50%, rgba(114,200,232,0.03) 51%, transparent 51%);
-  pointer-events: none;
-}
-.hero-content { position: relative; z-index: 2; text-align: center; padding: 2rem; }
-.hero-eyebrow {
-  font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
-  letter-spacing: 0.45em; text-transform: uppercase;
-  color: rgba(192,168,200,0.6); margin-bottom: 1rem;
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 2.8rem 4rem;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.8);
 }
 .hero-title {
   font-family: 'ElegantGoldenScript', cursive;
   font-size: clamp(2rem, 5vw, 3.8rem);
-  color: white; line-height: 1.05; margin-bottom: 1.2rem;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+  color: var(--ink); line-height: 1.05; margin-bottom: 1.4rem;
+  text-shadow: none;
 }
 .hero-tagline {
-  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300;
   letter-spacing: 0.08em; line-height: 1.9;
-  color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto;
+  color: var(--ink); max-width: 480px; margin: 0 auto;
 }
 
 /* MAIN LAYOUT */
@@ -438,6 +426,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo"></a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="app.html">Glass App</a></li>
@@ -453,9 +442,8 @@ footer {
 <!-- HERO -->
 <section class="blog-hero">
   <div class="hero-content">
-    <p class="hero-eyebrow">The Blog</p>
     <h1 class="hero-title">Notes from the Studio</h1>
-    <p class="hero-tagline">Glass techniques, studio life, and the story behind My Kiln Journal — from a Wisconsin glass artist.</p>
+    <p class="hero-tagline">Glass techniques, studio life, and the tools that make it all work.</p>
   </div>
 </section>
 
@@ -473,9 +461,9 @@ footer {
       </div>
       <div class="category-tabs">
         <button class="cat-tab active" data-cat="all" onclick="switchCat('all', this)">All Posts</button>
-        <button class="cat-tab" data-cat="glass-techniques" onclick="switchCat('glass-techniques', this)">Glass Techniques</button>
+        <button class="cat-tab" data-cat="glass-techniques" onclick="switchCat('glass-techniques', this)">Glass Talk</button>
         <button class="cat-tab" data-cat="studio-life" onclick="switchCat('studio-life', this)">Studio Life</button>
-        <button class="cat-tab" data-cat="app-tech" onclick="switchCat('app-tech', this)">App &amp; Tech</button>
+        <button class="cat-tab" data-cat="app-tech" onclick="switchCat('app-tech', this)">Equipment &amp; Tech</button>
       </div>
     </div>
 
@@ -484,7 +472,7 @@ footer {
     <!-- GLASS TECHNIQUES -->
     <div class="category-group" id="group-glass-techniques" data-group="glass-techniques">
       <div class="cat-group-header">
-        <span class="cat-group-title teal">Glass Techniques &amp; Education</span>
+        <span class="cat-group-title teal">Glass Talk</span>
         <div class="cat-group-line"></div>
       </div>
       <div class="blog-grid">
@@ -492,7 +480,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="What Narcissus Quagliata Taught Me About Light" data-date="2026-04">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-teal"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">Glass · Techniques</span>
+            <span class="blog-card-cat">Glass Talk</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">April 2026</p>
@@ -505,7 +493,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="Understanding Reactive Glass: What It Is and Why It Matters" data-date="2026-03">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-cobalt"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">Glass · Techniques</span>
+            <span class="blog-card-cat">Glass Talk</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">March 2026</p>
@@ -518,7 +506,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="Frit, Powder, and Texture: Building Depth in Fused Glass" data-date="2026-02">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-sky"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">Glass · Techniques</span>
+            <span class="blog-card-cat">Glass Talk</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">February 2026</p>
@@ -531,7 +519,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-teal" data-cat="glass-techniques" data-title="Stained Glass vs. Fused Glass: What's the Difference?" data-date="2026-01">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-lavender"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">Glass · Education</span>
+            <span class="blog-card-cat">Glass Talk</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">January 2026</p>
@@ -547,7 +535,7 @@ footer {
     <!-- STUDIO LIFE -->
     <div class="category-group" id="group-studio-life" data-group="studio-life">
       <div class="cat-group-header">
-        <span class="cat-group-title iris">Studio Life &amp; Behind the Scenes</span>
+        <span class="cat-group-title iris">Studio Life</span>
         <div class="cat-group-line"></div>
       </div>
       <div class="blog-grid">
@@ -610,7 +598,7 @@ footer {
     <!-- APP & TECH -->
     <div class="category-group" id="group-app-tech" data-group="app-tech">
       <div class="cat-group-header">
-        <span class="cat-group-title green">App &amp; Tech — My Kiln Journal</span>
+        <span class="cat-group-title green">Equipment &amp; Tech</span>
         <div class="cat-group-line"></div>
       </div>
       <div class="blog-grid">
@@ -618,7 +606,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="Why I Built My Kiln Journal" data-date="2026-04">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-green"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">App &amp; Tech</span>
+            <span class="blog-card-cat">Equipment &amp; Tech</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">April 2026</p>
@@ -631,7 +619,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="How to Install My Kiln Journal on Your Phone (No App Store Needed)" data-date="2026-03">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-cobalt"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">App &amp; Tech</span>
+            <span class="blog-card-cat">Equipment &amp; Tech</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">March 2026</p>
@@ -644,7 +632,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="5 Ways a Firing Log Can Save You Money on Glass" data-date="2026-02">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-iris"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">App &amp; Tech</span>
+            <span class="blog-card-cat">Equipment &amp; Tech</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">February 2026</p>
@@ -657,7 +645,7 @@ footer {
         <a href="blog-post.html" class="blog-card acc-green" data-cat="app-tech" data-title="Kiln Maintenance 101: What I Track and Why" data-date="2026-01">
           <div class="blog-card-img">
             <div class="blog-card-img-inner bi-sky"><span>Blog Photo</span></div>
-            <span class="blog-card-cat">App &amp; Tech</span>
+            <span class="blog-card-cat">Equipment &amp; Tech</span>
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">January 2026</p>
@@ -689,9 +677,9 @@ footer {
     <div class="sidebar-section">
       <p class="sidebar-title">Categories</p>
       <div class="cat-key">
-        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--teal);"></div>Glass Techniques &amp; Education</div>
-        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--iris);"></div>Studio Life &amp; Behind the Scenes</div>
-        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--green);"></div>App &amp; Tech — My Kiln Journal</div>
+        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--teal);"></div>Glass Talk</div>
+        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--iris);"></div>Studio Life</div>
+        <div class="cat-key-item"><div class="cat-key-dot" style="background:var(--green);"></div>Equipment &amp; Tech</div>
       </div>
     </div>
 
