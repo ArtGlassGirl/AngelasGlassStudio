@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stained Glass vs. Fused Glass: What's the Difference? | Angela's Glass Studio</title>
+<meta name="description" content="They're both beautiful. They both use colored glass. And they are absolutely not the same thing. Let's clear it up.">
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Jost:wght@300;400;500;600&family=Literata:opsz,wght@7..72,600&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: 'ElegantGoldenScript';
+  src: url('elegant-golden-script.otf') format('opentype');
+}
+
+:root {
+  --bg:       #ffffff;
+  --bg-alt:   #f5f5f5;
+  --ink:      #1a1a2e;
+  --iris:     #7b6fa0;
+  --teal:     #3d8b8b;
+  --cobalt:   #4a6fa5;
+  --green:    #7aaa4a;
+  --lavender: #c0a8c8;
+  --sky:      #72c8e8;
+  --cream:    #f8f7fc;
+  --nav-h:    72px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* GRADIENT BAR */
+.gradient-bar {
+  height: 5px;
+  background: linear-gradient(to right, var(--teal), var(--iris), var(--green), var(--cobalt), var(--sky));
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 5px; left: 0; right: 0;
+  height: var(--nav-h); z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: #ffffff;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(123,111,160,0.1);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
+
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
+  text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
+}
+.nav-links a:hover { opacity: 1; color: var(--lavender); }
+.nav-links a.active { opacity: 1; color: var(--iris); border-bottom: 2px solid var(--iris); padding-bottom: 3px; }
+
+.nav-etsy {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--teal); color: white;
+  padding: 0.55rem 1.3rem; border-radius: 3px;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.25s, transform 0.2s;
+}
+.nav-etsy:hover { background: var(--iris); transform: translateY(-1px); }
+
+.nav-logo {
+  display: flex; align-items: center; text-decoration: none;
+  font-family: 'ElegantGoldenScript', cursive;
+  font-size: 1.6rem; color: var(--ink); white-space: nowrap;
+}
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+/* PAGE WRAPPER */
+.page-top { margin-top: calc(var(--nav-h) + 5px); }
+
+/* BACK TO BLOG LINK */
+.back-bar {
+  max-width: 760px; margin: 0 auto;
+  padding: 2rem 2rem 0;
+}
+.back-link {
+  font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--iris); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+
+/* ARTICLE HEADER */
+.article-header {
+  max-width: 760px; margin: 0 auto;
+  padding: 2.5rem 2rem 0;
+}
+.article-category {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1rem;
+}
+.article-title {
+  font-family: 'Alice', serif;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  -webkit-text-stroke: 0.8px currentColor;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 300;
+  color: var(--ink); opacity: 0.55;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(123,111,160,0.15);
+}
+
+/* HERO IMAGE */
+.article-hero-img {
+  max-width: 760px; margin: 2.5rem auto 0;
+  padding: 0 2rem;
+}
+.article-hero-img .img-placeholder {
+  width: 100%; aspect-ratio: 16/9; border-radius: 6px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--iris) 60%, var(--cobalt) 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.55); font-family: 'Jost', sans-serif;
+  font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.article-hero-img img {
+  width: 100%; border-radius: 6px; display: block;
+}
+.article-hero-img .img-caption {
+  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  color: var(--ink); opacity: 0.5; margin-top: 0.6rem; text-align: center;
+  font-style: italic;
+}
+
+/* ARTICLE BODY */
+.article-body {
+  max-width: 760px; margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.article-body p {
+  font-family: 'Jost', sans-serif; font-size: 1.05rem; font-weight: 300;
+  line-height: 1.85; color: var(--ink);
+  margin-bottom: 1.6rem;
+}
+.article-body h2 {
+  font-family: 'Alice', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  -webkit-text-stroke: 0.8px currentColor;
+  color: var(--ink);
+  margin: 2.8rem 0 1rem;
+  line-height: 1.25;
+}
+.article-body h3 {
+  font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--iris); margin: 2rem 0 0.8rem;
+}
+.article-body ul {
+  margin: 0.5rem 0 1.6rem 1.4rem;
+}
+.article-body ul li {
+  font-family: 'Jost', sans-serif; font-size: 1.05rem; font-weight: 300;
+  line-height: 1.85; color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+.article-body blockquote {
+  border-left: 3px solid var(--iris);
+  margin: 2.5rem 0;
+  padding: 1rem 1.8rem;
+  background: var(--cream);
+  border-radius: 0 6px 6px 0;
+}
+.article-body blockquote p {
+  font-family: 'Literata', serif; font-weight: 600;
+  font-size: 1.15rem; line-height: 1.65;
+  color: var(--iris); margin-bottom: 0; font-style: italic;
+}
+
+/* INLINE IMAGE */
+.article-inline-img {
+  margin: 2.5rem 0;
+}
+.article-inline-img .img-placeholder {
+  width: 100%; aspect-ratio: 4/3; border-radius: 6px;
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--iris) 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); font-family: 'Jost', sans-serif;
+  font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.article-inline-img img { width: 100%; border-radius: 6px; display: block; }
+.article-inline-img .img-caption {
+  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  color: var(--ink); opacity: 0.5; margin-top: 0.6rem; text-align: center;
+  font-style: italic;
+}
+
+/* TAGS */
+.article-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  padding: 2rem 0 0;
+  border-top: 1px solid rgba(123,111,160,0.12);
+  margin-top: 1rem;
+}
+.article-tag {
+  font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--iris); border: 1px solid var(--lavender);
+  padding: 0.3rem 0.8rem; border-radius: 20px;
+}
+
+/* PREV / NEXT NAV */
+.post-nav {
+  max-width: 760px; margin: 0 auto;
+  padding: 0 2rem 4rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 0;
+}
+.post-nav-link {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  text-decoration: none;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid rgba(123,111,160,0.2);
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.post-nav-link:hover {
+  border-color: var(--iris);
+  box-shadow: 0 2px 12px rgba(123,111,160,0.12);
+}
+.post-nav-link.next { text-align: right; }
+.post-nav-direction {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--iris); opacity: 0.7;
+}
+.post-nav-title {
+  font-family: 'Literata', serif; font-weight: 600; font-size: 0.95rem;
+  color: var(--ink); line-height: 1.35;
+}
+
+/* YOU MIGHT ALSO LIKE */
+.related-section {
+  background: var(--cream);
+  padding: 4rem 2rem;
+}
+.related-inner { max-width: 760px; margin: 0 auto; }
+.related-heading {
+  font-family: 'Alice', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  -webkit-text-stroke: 0.8px currentColor;
+  color: var(--ink); margin-bottom: 2rem;
+}
+.related-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.related-card {
+  text-decoration: none;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid rgba(123,111,160,0.15);
+  background: white;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex; flex-direction: column;
+}
+.related-card:hover { box-shadow: 0 4px 20px rgba(123,111,160,0.15); transform: translateY(-2px); }
+.related-card-img {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--iris) 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); font-family: 'Jost', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.related-card-body { padding: 1rem 1.1rem 1.2rem; }
+.related-card-cat {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.4rem; display: block;
+}
+.related-card-title {
+  font-family: 'Literata', serif; font-weight: 600; font-size: 0.9rem;
+  color: var(--ink); line-height: 1.4;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: white;
+  padding: 3.5rem 5rem;
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo { display: flex; align-items: center; gap: 0.75rem; }
+.footer-social { display: flex; justify-content: center; gap: 0.6rem; align-items: center; }
+.footer-social .social-icon-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: opacity 0.2s, transform 0.2s; flex-shrink: 0;
+}
+.footer-social .social-icon-btn svg { width: 44px; height: 44px; display: block; }
+.footer-social .social-icon-btn:hover { opacity: 0.82; transform: translateY(-2px); }
+.footer-copy {
+  text-align: right; font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400;
+  letter-spacing: 0.14em; color: rgba(255,255,255,0.5); line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .related-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+  .back-bar, .article-header, .article-hero-img, .article-body, .post-nav { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .post-nav { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+  .related-section { padding: 3rem 1.2rem; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 2.5rem 1.5rem; }
+  .footer-copy { text-align: center; }
+  .footer-logo { justify-content: center; }
+  .footer-social { justify-content: center; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="gradient-bar"></div>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="app.html">Glass App</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank" class="nav-etsy">Shop on Etsy ↗</a>
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page-top">
+
+  <!-- BACK LINK -->
+  <div class="back-bar">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <header class="article-header">
+    <p class="article-category">Glass Talk</p>
+    <h1 class="article-title">Stained Glass vs. Fused Glass: What's the Difference?</h1>
+    <div class="article-meta">
+      <span>Angela Weber</span>
+      <span>·</span>
+      <span>January 2026</span>
+      <span>·</span>
+      <span>5 min read</span>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE -->
+  <div class="article-hero-img">
+    <div class="img-placeholder">Article Photo</div>
+    <p class="img-caption">Caption goes here — describe what's in the photo.</p>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>If you've ever looked at a piece of glass art and thought, "Wait… is that stained glass or fused glass?" — you're not alone.</p>
+
+    <p>They're both beautiful. They both use colored glass. And they are absolutely not the same thing.</p>
+
+    <p>Let's clear it up.</p>
+
+    <h2>What is Stained Glass?</h2>
+
+    <p>Stained glass is the classic. The cathedral windows, the suncatchers, the pieces that look like they've been around since someone named Thomas was chiseling stone by hand.</p>
+
+    <p>Instead of melting glass together, stained glass is all about cutting and assembling. Each piece of glass is:</p>
+
+    <ul>
+      <li>Cut to shape</li>
+      <li>Ground smooth</li>
+      <li>Wrapped in copper foil or fitted into lead came</li>
+      <li>Soldered together to form the final design</li>
+    </ul>
+
+    <p>So when you see a stained glass piece, what you're really seeing is a puzzle… held together with metal.</p>
+
+    <!-- FIRST IMAGE -->
+    <div class="article-inline-img">
+      <div class="img-placeholder">Article Photo</div>
+      <p class="img-caption">A traditional stained glass panel showing individual pieces joined with solder lines.</p>
+    </div>
+
+    <h2>What is Fused Glass?</h2>
+
+    <p>Fused glass is where things get a little more… fiery.</p>
+
+    <p>Instead of assembling pieces with metal, you stack glass and melt it in a kiln until it fuses together into one solid piece. Think of it less like a puzzle and more like controlled chaos with a heating schedule.</p>
+
+    <p>You can:</p>
+
+    <ul>
+      <li>Layer colors</li>
+      <li>Add powders, frit, or stringers</li>
+      <li>Create textures and movement</li>
+      <li>Melt things flat… or slump them into shapes later</li>
+    </ul>
+
+    <p>Once it comes out of the kiln, it's no longer separate pieces. It's one unified sheet of glass that decided to reinvent itself.</p>
+
+    <!-- SECOND IMAGE -->
+    <div class="article-inline-img">
+      <div class="img-placeholder">Article Photo</div>
+      <p class="img-caption">Fused glass before and after firing — loose pieces transformed into a single melted design.</p>
+    </div>
+
+    <h2>The Big Difference (Without the Fancy Talk)</h2>
+
+    <p>Here's the simplest way to think about it:</p>
+
+    <ul>
+      <li>Stained glass = cut + assemble</li>
+      <li>Fused glass = stack + melt</li>
+    </ul>
+
+    <p>One is construction. The other is transformation.</p>
+
+    <h2>The Look and Feel</h2>
+
+    <p>This is where people usually start noticing the difference.</p>
+
+    <h3>Stained Glass</h3>
+    <ul>
+      <li>Visible lines (lead or solder)</li>
+      <li>More structured and graphic</li>
+      <li>Each piece clearly defined</li>
+    </ul>
+
+    <h3>Fused Glass</h3>
+    <ul>
+      <li>Smooth surface</li>
+      <li>Colors blend and react</li>
+      <li>More organic, sometimes painterly</li>
+    </ul>
+
+    <p>If stained glass is outlining with ink, fused glass is painting with heat.</p>
+
+    <h2>Which One is Better?</h2>
+
+    <p>Trick question. Neither.</p>
+
+    <p>It's like asking if watercolor is better than oil paint. Depends what you're trying to do.</p>
+
+    <p>I love stained glass for:</p>
+    <ul>
+      <li>Clean lines</li>
+      <li>Bold designs</li>
+      <li>That timeless, handcrafted feel</li>
+    </ul>
+
+    <p>I love fused glass for:</p>
+    <ul>
+      <li>Texture and movement</li>
+      <li>Color blending</li>
+      <li>Happy accidents that somehow look intentional</li>
+    </ul>
+
+    <p>(We'll pretend those are always intentional.)</p>
+
+    <blockquote>
+      <p>Stained glass is built. Fused glass is transformed. Both require skill… and a little bit of stubbornness.</p>
+    </blockquote>
+
+    <h2>Why This Matters (Especially if You're Buying Art)</h2>
+
+    <p>If you're shopping for glass art, knowing the difference helps you:</p>
+
+    <ul>
+      <li>Understand pricing (they're made very differently)</li>
+      <li>Know how durable it is</li>
+      <li>Appreciate the technique behind it</li>
+    </ul>
+
+    <p>Also, it gives you bonus points when you casually drop, "Oh, I love how this piece was fused," like you totally didn't just learn that five minutes ago.</p>
+
+    <h2>Final Thoughts</h2>
+
+    <p>Both stained and fused glass have their own personality. One isn't an upgrade of the other. They're just different ways of working with the same magical material.</p>
+
+    <p>And honestly? Most glass artists end up falling in love with both at some point.</p>
+
+    <p>Because once you start playing with glass, it's kind of hard to stop.</p>
+
+    <!-- TAGS -->
+    <div class="article-tags">
+      <span class="article-tag">Glass Talk</span>
+      <span class="article-tag">Stained Glass</span>
+      <span class="article-tag">Fused Glass</span>
+      <span class="article-tag">Beginner Guide</span>
+    </div>
+
+  </article>
+
+</div><!-- /page-top -->
+
+<!-- PREV / NEXT NAV -->
+<div class="post-nav">
+  <a href="blog-frit-powder-texture.html" class="post-nav-link prev">
+    <span class="post-nav-direction">← Previous</span>
+    <span class="post-nav-title">Frit, Powder, and Texture: Building Depth in Fused Glass</span>
+  </a>
+  <a href="blog-what-narcissus-taught-me.html" class="post-nav-link next">
+    <span class="post-nav-direction">Next →</span>
+    <span class="post-nav-title">What Narcissus Quagliata Taught Me About Light</span>
+  </a>
+</div>
+
+<!-- YOU MIGHT ALSO LIKE -->
+<section class="related-section">
+  <div class="related-inner">
+    <h2 class="related-heading">You Might Also Like</h2>
+    <div class="related-grid">
+
+      <a href="blog-what-narcissus-taught-me.html" class="related-card">
+        <div class="related-card-img">Photo</div>
+        <div class="related-card-body">
+          <span class="related-card-cat">Glass Talk</span>
+          <p class="related-card-title">What Narcissus Quagliata Taught Me About Light</p>
+        </div>
+      </a>
+
+      <a href="blog-reactive-glass.html" class="related-card">
+        <div class="related-card-img">Photo</div>
+        <div class="related-card-body">
+          <span class="related-card-cat">Glass Talk</span>
+          <p class="related-card-title">Understanding Reactive Glass: What It Is and Why It Matters</p>
+        </div>
+      </a>
+
+      <a href="blog-my-wisconsin-studio.html" class="related-card">
+        <div class="related-card-img">Photo</div>
+        <div class="related-card-body">
+          <span class="related-card-cat">Studio Life</span>
+          <p class="related-card-title">My Wisconsin Garage Glass Studio</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="ButterflyColor.svg" alt="Angela's Glass Studio butterfly logo" style="height:56px; width:auto;">
+    <img src="AGSTextTagline.svg" alt="Angela's Glass Studio" style="height:48px; width:auto;">
+  </div>
+  <div class="footer-social">
+    <a href="https://tiktok.com/@angelasglassstudio" target="_blank" class="social-icon-btn" title="TikTok">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151.198 151.2"><defs><style>.tt-cls-1{fill:#fff;}</style></defs><circle cx="75.599" cy="75.6" r="72.0002"/><path class="tt-cls-1" d="M82.3222,109.8873c-9.3696,8.2169-23.1799,8.5255-32.8853,1.0944-12.2218-9.3578-13.412-27.1505-2.4788-37.9961,5.7838-5.7339,13.8773-8.4256,22.139-7.1925l-.0204,13.5733c-6.9808-2.1673-13.9988,1.9081-15.6605,8.725-1.6686,6.8457,2.9637,13.6686,9.8984,14.7748,7.0663,1.1272,13.6171-3.9658,14.1395-11.2921l.0215-57.3724,13.4036-.0029c.218,11.462,9.3091,20.4675,20.8477,20.5597l.0111,13.3075c-7.6015.0912-14.6592-2.4697-20.8215-6.979l.0663,29.6166c.0166,7.4313-3.0162,14.2336-8.6607,19.1837Z"/></svg>
+    </a>
+    <a href="https://instagram.com/angelasglassstudio" target="_blank" class="social-icon-btn" title="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151.198 151.2"><defs><style>.ig-cls-1{fill:#9637c5;}.ig-cls-2{fill:#fff;}</style></defs><circle class="ig-cls-1" cx="75.599" cy="75.6" r="72.0002"/><g><path class="ig-cls-2" d="M90.4733,111.2467l-29.189-.0086c-11.6485-.0034-21.3761-9.4047-21.3764-21.0873l-.0006-29.7763c-.0002-11.8675,9.8989-21.1275,21.6612-21.1276l28.7194-.0002c11.9315,0,21.6978,9.4284,21.6976,21.4157l-.0006,29.1984c-.0003,11.797-9.5628,21.3894-21.5116,21.3859ZM104.7634,89.4668l-.0376-28.8239c-.0102-7.8146-6.3335-14.1152-14.1435-14.1145l-29.282.0029c-8.0197.0008-14.1892,6.4772-14.1891,14.3895l.0003,28.6728c0,7.9068,6.1591,14.3928,14.1946,14.4015l28.9708.0313c8.1371.0088,14.4972-6.3054,14.4864-14.5597Z"/><path class="ig-cls-2" d="M73.1069,56.8692c10.4102-1.5844,19.7242,5.5956,21.2599,15.6103,1.5517,10.1183-5.4901,19.6282-15.615,21.1809-10.0722,1.5446-19.575-5.3254-21.2293-15.3628-1.6592-10.0672,5.111-19.8344,15.5844-21.4284ZM73.3939,64.1924c-6.4066,1.4567-9.9991,7.7659-8.5095,13.8074,1.4817,6.0095,7.5562,9.7157,13.5868,8.3383,6.1254-1.3991,9.9707-7.491,8.5567-13.6241-1.3775-5.9751-7.2932-9.9634-13.634-8.5216Z"/><path class="ig-cls-2" d="M94.2427,52.0745c2.6787-.2721,4.7459,1.7375,5.0106,3.9873.3106,2.6397-1.5882,4.8667-4.0419,5.1332-2.5116.2728-4.7069-1.4718-5.0713-3.8841-.3748-2.4816,1.3306-4.9549,4.1026-5.2364Z"/></g></svg>
+    </a>
+    <a href="https://www.facebook.com/angelasglassstudio" target="_blank" class="social-icon-btn" title="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151.198 151.2"><defs><style>.fb-cls-1{fill:#2268bc;}.fb-cls-2{fill:#fff;}</style></defs><circle class="fb-cls-1" cx="75.599" cy="75.6" r="72.0002"/><path class="fb-cls-2" d="M80.5697,80.1588v29.6699c0,.7201-.6606,1.419-1.3439,1.4188l-10.7575-.0027c-.3766,0-1.1761-.6835-1.1755-1.1329l.0404-29.9514-7.8811-.0208c-.9304-.0025-1.9102-.7932-1.9106-1.7788l-.0048-10.137c-.0005-1.0592.9326-1.8592,1.931-1.8631l7.7996-.0304.0847-11.0382c.0644-8.3972,5.5352-15.2164,14.2317-15.8747,3.5519-.2689,6.9417-.1448,10.5726-.1184.7115.0052,1.5743,1.0474,1.5742,1.7215l-.0008,8.5383c-.0001,1.2328-.9762,1.8914-2.1171,1.9098l-6.4957.105c-2.4429.4253-4.4311,1.9977-4.4543,4.6152l-.0897,10.1178,11.587.0188c1.2088.002,2.0388.9894,1.9297,2.1774l-1.1932,10.0524c-.189.8117-.9498,1.5834-1.8369,1.585l-10.4898.0186Z"/></svg>
+    </a>
+    <a href="https://www.pinterest.com/angelasartroom" target="_blank" class="social-icon-btn" title="Pinterest">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151.198 151.2"><defs><style>.pin-cls-1{fill:#e30;}.pin-cls-2{fill:#fff;}</style></defs><circle class="pin-cls-1" cx="75.599" cy="75.6" r="72.0002"/><path class="pin-cls-2" d="M77.4018,66.7263l-4.1157,14.7726c-.9021,3.2379,1.729,7.1091,4.7468,8.2375,3.6816,1.3766,7.6206.166,10.4808-2.2892,6.4673-5.5513,8.8771-17.9833,8.1587-26.0777-.6202-6.9885-5.0325-12.5932-11.5843-14.9053-4.6187-1.6299-9.4804-1.9754-14.3283-1.1224-9.3801,1.6504-16.4797,9.0797-18.6698,18.1153-1.3861,5.7187-.06,11.3045,3.4078,16.0279.3915,1.7547-.1761,6.4505-2.1121,7.0933-2.5377.8426-7.3003-4.3831-8.7541-7.2091-5.0947-9.9031-2.5102-21.4382,3.8456-30.1875,3.2412-4.4617,7.3562-7.8295,12.5179-10.0108,9.9015-4.1843,21.2788-4.2569,31.0896.0439,10.5372,4.6193,17.1518,14.4424,17.3632,25.9726.1543,8.4157-2.4524,16.6315-7.3574,23.4557-5.1994,7.2338-13.8014,11.2427-22.6626,10.1542-3.8598-.4742-6.831-2.8281-9.5085-5.6313l-2.597,11.0487c-.9202,3.9146-2.5864,7.3963-4.6264,10.8412-1.1047,2.0052-2.4987,3.6037-4.4757,4.8611-.6013.3825-2.1062.0512-2.1658-.8988-.2392-3.817-1.2726-7.7517-.3948-11.5955l7.149-31.3078c-3.0983-7.8441-1.9189-17.8768,7.203-20.2809,2.8215-.711,5.4337.4093,6.635,3.0421,1.0787,2.3643,1.5136,5.1278.7551,7.85Z"/></svg>
+    </a>
+    <a href="https://angelasglassstudio.etsy.com" target="_blank" class="social-icon-btn" title="Etsy">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151.198 151.2"><defs><style>.etsy-cls-1{fill:#fff;}.etsy-cls-2{fill:#fc6f30;}</style></defs><circle class="etsy-cls-2" cx="75.599" cy="75.6" r="72.0002"/><path class="etsy-cls-1" d="M69.7199,78.8973l10.2596.0224c3.4162.0075,6.1968,2.6743,6.3307,6.2956l.0681,1.8418c.0104.2812.6586.9495.9484.9494l2.7899-.0009c.2786,0,.9234-.691.9233-.9687l-.0011-2.7874-.0013-18.8234.0382-2.5753c.0054-.3616-.5583-1.2153-.9032-1.2155l-2.8971-.0011c-.3628-.0001-.9578.8639-.9557,1.2219l.0132,2.1895c.0227,3.7577-2.8746,6.5788-6.6251,6.5815l-10.6968.0079-2.8124.0965.0383-3.2269.0129-17.9472c.0023-3.1745,2.2562-5.1872,5.5586-5.187l17.2129.0011c4.1538.0003,7.7272,2.7701,8.3832,6.919.197,1.2457.1712,2.5772.1513,3.8976l-.0364,2.4214c-.0042.2768.5376,1.0037.8239,1.0158,1.1387.0481,4.2459.5237,4.3443-1.0542l.1469-2.3547.9799-12.215c.075-.9344.6257-4.5656-1.3243-4.6172l-3.1181-.0824-51.4236.0006-3.0723.0335c-1.6509.018-1.1688,3.8839-1.1101,4.9176.0218.3841.7909,1.0762,1.1408,1.0834l1.8362.038,2.327.0512c2.4943.0549,4.6699,2.0592,4.7172,4.5616l.059,3.1218v44.2934s-.059,3.1267-.059,3.1267c-.0448,2.376-2.0579,4.4605-4.4503,4.5418l-2.5872.0879-1.8623.034c-1.6197.0296-1.1919,3.6327-1.1546,4.8263.0122.3901.7551,1.1541,1.1385,1.1581l3.0772.0322,51.7027.0002,3.1304-.0463c.5466-.0081,1.4853-.8916,1.5762-1.4393l.4027-2.4261,2.1234-14.1924.371-2.4633c.2324-1.543-3.2343-1.1096-4.1138-1.085-.3441.0096-1.0072.67-1.0906.9643l-.4892,1.726-1.8066,5.813c-1.3043,4.1967-5.1403,7.079-9.6136,7.0857l-16.0524.0239-3.1112-.0634c-2.5098-.0511-4.549-2.1085-4.6784-4.6168-.0478-.9262-.0583-1.8193-.0582-2.7588l.002-15.7472-.1114-2.8333c-.0045-.1153.4351-.3521.5746-.3478l3.0135.0939Z"/></svg>
+    </a>
+  </div>
+  <div class="footer-copy">© 2026 Angela's Glass Studio</div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  function toggleMenu() { console.log('mobile menu'); }
+</script>
+
+</body>
+</html>
