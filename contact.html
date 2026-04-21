@@ -87,54 +87,33 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   min-height: 240px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--ink) 0%, #2d2444 40%, #1d3535 100%);
+  background: url('StackerGreenAmber.jpg') center center / cover no-repeat;
   display: flex; align-items: center; justify-content: center;
-}
-
-.contact-hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(114,200,232,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 75% 30%, rgba(123,111,160,0.2) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 55% 70%, rgba(61,139,139,0.18) 0%, transparent 50%),
-    radial-gradient(ellipse 30% 30% at 85% 65%, rgba(122,170,74,0.12) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.contact-hero::after {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(60deg, transparent 30%, rgba(192,168,200,0.04) 30%, rgba(192,168,200,0.04) 31%, transparent 31%),
-    linear-gradient(-45deg, transparent 50%, rgba(114,200,232,0.03) 50%, rgba(114,200,232,0.03) 51%, transparent 51%),
-    linear-gradient(120deg, transparent 20%, rgba(61,139,139,0.04) 20%, rgba(61,139,139,0.04) 21%, transparent 21%);
-  pointer-events: none;
 }
 
 .hero-content {
   position: relative; z-index: 2;
-  text-align: center; padding: 2rem;
-}
-
-.hero-eyebrow {
-  font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
-  letter-spacing: 0.45em; text-transform: uppercase;
-  color: rgba(192,168,200,0.6); margin-bottom: 1rem;
+  text-align: center;
+  padding: 2.8rem 4rem;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.8);
 }
 
 .hero-title {
   font-family: 'ElegantGoldenScript', cursive;
   font-size: clamp(2rem, 5vw, 3.8rem);
-  color: white; line-height: 1.05; margin-top: 2.8rem; margin-bottom: 2.2rem;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+  color: var(--ink); line-height: 1.05; margin-top: 1.8rem; margin-bottom: 1.4rem;
+  text-shadow: none;
 }
 
 .hero-tagline {
-  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300;
+  font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300;
   letter-spacing: 0.08em; line-height: 1.9;
-  color: rgba(255,255,255,0.55);
-  max-width: 480px; margin: 0 auto; padding-top: 0.6rem;
+  color: var(--ink);
+  max-width: 480px; margin: 0 auto;
 }
 
 /* MAIN CONTACT AREA */
@@ -513,7 +492,6 @@ footer {
 <!-- HERO -->
 <section class="contact-hero">
   <div class="hero-content">
-    <p class="hero-eyebrow">Get in Touch</p>
     <h1 class="hero-title">Say Hello</h1>
     <p class="hero-tagline">I'd love to hear from you.</p>
   </div>
