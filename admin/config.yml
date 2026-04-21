@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "blog-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "hidden", default: "Angela Weber" }
+      - { label: "Date", name: "date", widget: "datetime", format: "MMMM YYYY", date_format: "MMMM YYYY", time_format: false }
+      - { label: "Category", name: "category", widget: "select", options: ["Glass Talk", "Studio Life", "Equipment & Tech"] }
+      - { label: "Hero Photo", name: "hero_image", widget: "image", required: true }
+      - { label: "Hero Photo Caption", name: "hero_caption", widget: "string", required: false }
+      - { label: "Article Text", name: "body", widget: "markdown" }
+      - { label: "Pull Quote", name: "pull_quote", widget: "string", required: false, hint: "Optional — the highlighted phrase that appears in purple" }
+      - { label: "In-Article Photo", name: "inline_image", widget: "image", required: false }
+      - { label: "In-Article Photo Caption", name: "inline_caption", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
