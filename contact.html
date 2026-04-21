@@ -15,8 +15,8 @@
 
 
 :root {
-  --bg:       #f2f0f7;
-  --bg-alt:   #e8e5f2;
+  --bg:       #f0f5ee;
+  --bg-alt:   #e4eee0;
   --ink:      #1a1a2e;
   --iris:     #7b6fa0;
   --teal:     #3d8b8b;
@@ -35,7 +35,7 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
 /* GRADIENT BAR */
 .gradient-bar {
   height: 5px;
-  background: linear-gradient(to right, var(--teal), var(--iris), var(--green), var(--cobalt), var(--sky));
+  background: linear-gradient(to right, var(--teal), var(--green), var(--green), var(--cobalt), var(--sky));
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
 }
 
@@ -47,7 +47,7 @@ nav {
   padding: 0 3rem;
   background: rgba(242,240,247,0.96);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(123,111,160,0.1);
+  border-bottom: 1px solid rgba(122,170,74,0.15);
   transition: box-shadow 0.3s;
 }
 nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
@@ -58,8 +58,8 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
   text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
 }
-.nav-links a:hover { opacity: 1; color: var(--lavender); }
-.nav-links a.active { opacity: 1; color: var(--iris); }
+.nav-links a:hover { opacity: 1; color: rgba(122,170,74,0.5); }
+.nav-links a.active { opacity: 1; color: var(--green); }
 
 .nav-etsy {
   font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
@@ -69,7 +69,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   text-decoration: none; white-space: nowrap;
   transition: background 0.25s, transform 0.2s;
 }
-.nav-etsy:hover { background: var(--iris); transform: translateY(-1px); }
+.nav-etsy:hover { background: var(--green); transform: translateY(-1px); }
 
 .nav-logo {
   display: flex; align-items: center; text-decoration: none;
@@ -113,7 +113,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300;
   letter-spacing: 0.08em; line-height: 1.9;
   color: var(--ink);
-  max-width: 480px; margin: 0 auto;
+  max-width: 480px; margin: 0 auto; padding-left: 2rem;
 }
 
 /* MAIN CONTACT AREA */
@@ -135,18 +135,18 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .section-label {
   font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
   letter-spacing: 0.42em; text-transform: uppercase;
-  color: var(--iris); opacity: 0.7; margin-bottom: 1rem;
+  color: var(--green); opacity: 0.7; margin-bottom: 1rem;
 }
 
 .section-title {
   font-family: 'Alice', serif;
   font-size: clamp(2.7rem, 4.5vw, 3.75rem);
-  color: var(--iris); line-height: 1.1;
+  color: var(--green); line-height: 1.1;
   margin-bottom: 0.9rem; -webkit-text-stroke: 0.8px currentColor; }
 
 .section-divider {
   width: 60px; height: 3px;
-  background: var(--iris); border-radius: 2px;
+  background: var(--green); border-radius: 2px;
   opacity: 0.5; margin-bottom: 2.2rem;
 }
 
@@ -159,7 +159,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 /* Commission callout */
 .commission-note {
   background: white;
-  border-left: 3px solid var(--iris);
+  border-left: 3px solid var(--green);
   border-radius: 2px;
   padding: 1.4rem 1.6rem;
   margin-bottom: 2.5rem;
@@ -169,7 +169,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .commission-note-label {
   font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500;
   letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--iris); margin-bottom: 0.5rem;
+  color: var(--green); margin-bottom: 0.5rem;
   display: flex; align-items: center; gap: 0.5rem;
 }
 
@@ -202,7 +202,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 
 .contact-detail-icon {
   width: 36px; height: 36px;
-  border: 1px solid rgba(123,111,160,0.25);
+  border: 1px solid rgba(122,170,74,0.3);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 0.9rem;
@@ -215,7 +215,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 }
 
 .contact-detail-text a {
-  color: var(--iris); text-decoration: none;
+  color: var(--green); text-decoration: none;
   transition: opacity 0.2s;
 }
 .contact-detail-text a:hover { opacity: 0.7; }
@@ -241,7 +241,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 }
 .social-link:hover {
   background: white;
-  border-color: rgba(123,111,160,0.15);
+  border-color: rgba(122,170,74,0.2);
 }
 
 .social-link-icon {
@@ -279,13 +279,13 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   border-radius: 3px;
   padding: 3rem;
   box-shadow: 0 4px 30px rgba(26,26,46,0.07);
-  border: 1px solid rgba(123,111,160,0.1);
+  border: 1px solid rgba(122,170,74,0.15);
 }
 
 .form-title {
   font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
   letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--iris); margin-bottom: 2rem;
+  color: var(--green); margin-bottom: 2rem;
 }
 
 .form-group {
@@ -307,7 +307,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 300;
   color: var(--ink);
   background: var(--bg);
-  border: 1px solid rgba(123,111,160,0.2);
+  border: 1px solid rgba(122,170,74,0.25);
   border-radius: 2px;
   padding: 0.8rem 1rem;
   outline: none;
@@ -318,8 +318,8 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: var(--iris);
-  box-shadow: 0 0 0 3px rgba(123,111,160,0.1);
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(122,170,74,0.2);
 }
 
 .form-textarea {
@@ -347,7 +347,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500;
   letter-spacing: 0.25em; text-transform: uppercase;
   color: white;
-  background: var(--iris);
+  background: var(--green);
   border: none; border-radius: 2px;
   padding: 1rem 2rem;
   cursor: pointer;
@@ -373,7 +373,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 }
 .form-success-title {
   font-family: 'ElegantGoldenScript', cursive;
-  font-size: 2rem; color: var(--iris); margin-bottom: 0.8rem;
+  font-size: 2rem; color: var(--green); margin-bottom: 0.8rem;
 }
 .form-success-text {
   font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 300;
@@ -385,7 +385,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   background: white;
   border-radius: 3px;
   padding: 1.6rem 1.8rem;
-  border: 1px solid rgba(123,111,160,0.15);
+  border: 1px solid rgba(122,170,74,0.2);
   box-shadow: 0 2px 16px rgba(26,26,46,0.06);
 }
 
@@ -393,7 +393,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   font-family: 'Literata', serif;
   font-size: 2rem;
   font-weight: 600;
-  color: var(--iris);
+  color: var(--green);
   margin-bottom: 0.5rem;
 }
 
@@ -589,7 +589,7 @@ footer {
         </div>
 
         <button type="submit" class="form-submit">Send Message →</button>
-        <p class="form-note">I typically respond within 2–3 business days. Your information is never shared. <a href="privacy.html" style="color:var(--iris);text-decoration:none;border-bottom:1px solid rgba(123,111,160,0.3);">Privacy Policy</a></p>
+        <p class="form-note">I typically respond within 2–3 business days. Your information is never shared. <a href="privacy.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid rgba(122,170,74,0.35);">Privacy Policy</a></p>
 
       </form>
 
