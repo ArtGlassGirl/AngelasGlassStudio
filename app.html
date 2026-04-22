@@ -43,7 +43,7 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
 nav {
   position: fixed; top: 5px; left: 0; right: 0;
   height: var(--nav-h); z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   padding: 0 3rem;
   background: #ffffff;
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -52,15 +52,29 @@ nav {
 }
 nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 
-.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links { justify-self: center; display: flex; align-items: center; gap: 2.2rem; list-style: none; }
 .nav-links a {
   font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 400;
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
   text-decoration: none; opacity: 0.6; transition: opacity 0.25s, color 0.25s;
 }
 .nav-links a:hover { opacity: 1; color: var(--lavender); }
-.nav-links a.active { opacity: 1; color: var(--iris); border-bottom: 2px solid var(--iris); padding-bottom: 3px; }
+.nav-links a.active { opacity: 1; color: var(--iris); }
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; left: -0.8rem; right: -0.8rem;
+  height: 2px;
+  background: var(--lavender);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active::after { background: var(--iris); transform: scaleX(1); }
 
+a.nav-etsy { justify-self: end; }
 .nav-etsy {
   font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -75,6 +89,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
   display: flex; align-items: center; text-decoration: none;
   font-family: 'ElegantGoldenScript', cursive;
   font-size: 1.6rem; color: var(--ink); white-space: nowrap;
+  gap: 0.6rem;
 }
 
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
@@ -233,7 +248,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .app-ui-header {
   padding: 12px 18px 10px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
-  display: flex; align-items: center; justify-content: space-between;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
 }
 .app-ui-logo {
   font-family: 'ElegantGoldenScript', cursive;
@@ -836,7 +851,10 @@ footer {
 <div class="gradient-bar"></div>
 
 <nav id="main-nav">
-  <a href="index.html" class="nav-logo"></a>
+  <a href="index.html" class="nav-logo">
+    <img src="ButterflyColor.svg" alt="" style="height:38px; width:auto; display:inline-block; vertical-align:middle;">
+    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:30px; width:auto; display:inline-block; vertical-align:middle;">
+  </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
@@ -1196,8 +1214,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="ButterflyColor.svg" alt="Angela's Glass Studio butterfly logo" style="height:56px; width:auto;">
-    <img src="AGSTextTagline.svg" alt="Angela's Glass Studio" style="height:48px; width:auto;">
+    <img src="ButterflyColor.svg" alt="Angela\'s Glass Studio" style="height:56px; width:auto; transform:rotate(-15deg); display:block;">
   </div>
   <div class="footer-social">
     <a href="https://tiktok.com/@angelasglassstudio" target="_blank" class="social-icon-btn" title="TikTok">
