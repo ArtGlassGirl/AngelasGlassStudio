@@ -218,7 +218,46 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 }
 
 /* GALLERY */
-.gallery-section { padding: 6rem 5rem; background: var(--cream); max-width: 1100px; margin: 0 auto; }
+.gallery-section { padding: 6rem 5rem; background: var(--cream); }
+
+.section-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.about-section {
+  padding: 6rem 5rem; background: var(--ink); color: white;
+}
+.about-section .section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.app-section {
+  padding: 6rem 5rem; background: var(--bg-alt, #e8e5f2);
+}
+.app-section .section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.etsy-banner-section {
+  padding: 4rem 5rem;
+  background: var(--cream);
+  border-top: 1px solid rgba(122,170,74,0.15);
+  border-bottom: 1px solid rgba(122,170,74,0.15);
+}
+.etsy-banner-section .section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
 .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
 .view-all {
   font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
@@ -287,16 +326,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 /* ETSY BANNER */
 .etsy-banner {
   position: relative; overflow: hidden;
-  background: var(--cream);
-  border-top: 1px solid rgba(122,170,74,0.15);
-  border-bottom: 1px solid rgba(122,170,74,0.15);
-  padding: 4rem 5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
+  display: contents;
 }
 .etsy-banner::before {
   content: '';
@@ -425,8 +455,6 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 /* ABOUT */
 .about-section {
   padding: 6rem 5rem; background: var(--ink); color: white;
-  display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: center;
-  max-width: 1100px; margin: 0 auto;
 }
 .about-photo-wrap { position: relative; width: 100%; height: auto; min-height: 300px; }
 .about-photo-wrap::before {
@@ -473,11 +501,6 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 .app-content .btn-primary:hover { background: var(--green); color: white; }
 
 /* APP */
-.app-section {
-  padding: 6rem 5rem; background: var(--bg-alt, #e8e5f2);
-  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  max-width: 1100px; margin: 0 auto;
-}
 .app-content p {
   font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 300;
   line-height: 1.75; color: var(--ink); opacity: 0.72; margin-bottom: 1.2rem;
@@ -519,7 +542,10 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.08); }
 }
 
 /* BLOG — per-card color theming */
-.blog-section { padding: 6rem 5rem; background: var(--cream); max-width: 1100px; margin: 0 auto; }
+.blog-section { padding: 6rem 5rem; background: var(--cream); }
+.blog-section .section-inner {
+  display: block;
+}
 .blog-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
 .blog-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2rem; }
 .blog-card { display: flex; flex-direction: column; cursor: pointer; }
@@ -610,8 +636,8 @@ footer {
   .hero-right { padding: 2rem 2.5rem 4rem; min-height: auto; }
   .hero-photo-wrap { max-width: 320px; margin: 0 auto; }
   .gallery-section, .about-section, .app-section, .blog-section { padding: 4rem 2.5rem; }
-  .about-section { grid-template-columns: 1fr; gap: 3rem; }
-  .app-section { grid-template-columns: 1fr; gap: 3rem; }
+  .about-section .section-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .app-section .section-inner { grid-template-columns: 1fr; gap: 3rem; }
   .blog-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .gallery-item:nth-child(1) { grid-row: span 1; }
@@ -678,14 +704,15 @@ footer {
 
 <!-- GALLERY -->
 <section class="gallery-section">
-  <div class="gallery-header">
-    <div>
-      <p class="section-eyebrow">Portfolio</p>
-      <h2 class="section-title">Featured <span class="teal">Glasswork</span></h2>
+  <div class="section-inner">
+    <div class="gallery-header">
+      <div>
+        <p class="section-eyebrow">Portfolio</p>
+        <h2 class="section-title">Featured <span class="teal">Glasswork</span></h2>
+      </div>
+      <a href="portfolio.html" class="view-all">View Full Gallery →</a>
     </div>
-    <a href="portfolio.html" class="view-all">View Full Gallery →</a>
-  </div>
-  <div class="gallery-grid">
+    <div class="gallery-grid">
     <a href="portfolio.html#stained-glass" class="gallery-item">
       <span class="cat-tag">Stained Glass</span>
       <div class="gallery-thumb gp gp-1"><img src="Stained_Deer.jpg" alt="Featured: Stained Glass Deer"></div>
@@ -711,9 +738,13 @@ footer {
     <!-- decorative rule -->
 
   </div>
+  </div>
+</section>
 
-  <!-- ETSY BANNER -->
-  <div class="etsy-banner">
+<!-- ETSY BANNER -->
+<section class="etsy-banner-section">
+  <div class="section-inner">
+    <div class="etsy-banner">
 
     <!-- LEFT: logo + copy + CTA -->
     <div class="etsy-left">
@@ -735,56 +766,62 @@ footer {
     </div>
 
   </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about-section">
-  <div class="about-photo-wrap">
-      <img src="Angela.jpg" alt="Angela Weber, glass artist" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div class="about-content">
-    <p class="section-eyebrow">The Artist</p>
-    <h2 class="section-title">25+ Years of <br class="mobile-break"><span class="sky">Breaking Glass</span></h2>
-    <p>My first "studio" was a washing machine. Cardboard on top. Solder rolling where it wanted. Zero clue what I was doing.</p>
-    <p>I was hooked anyway.</p>
-    <p>Now it's a converted garage studio in the Wisconsin countryside with real workbenches, and after years of experience, I have at least a tiny bit more of an idea of what I'm doing.</p>
-    <span class="credential-badge">25+ Years as a Glass Artist &nbsp;·&nbsp; Studied with Narcissus Quagliata</span><br>
-    <a href="about.html" class="btn btn-primary">Read My Story</a>
+  <div class="section-inner">
+    <div class="about-photo-wrap">
+        <img src="Angela.jpg" alt="Angela Weber, glass artist" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="about-content">
+      <p class="section-eyebrow">The Artist</p>
+      <h2 class="section-title">25+ Years of <br class="mobile-break"><span class="sky">Breaking Glass</span></h2>
+      <p>My first "studio" was a washing machine. Cardboard on top. Solder rolling where it wanted. Zero clue what I was doing.</p>
+      <p>I was hooked anyway.</p>
+      <p>Now it's a converted garage studio in the Wisconsin countryside with real workbenches, and after years of experience, I have at least a tiny bit more of an idea of what I'm doing.</p>
+      <span class="credential-badge">25+ Years as a Glass Artist &nbsp;·&nbsp; Studied with Narcissus Quagliata</span><br>
+      <a href="about.html" class="btn btn-primary">Read My Story</a>
+    </div>
   </div>
 </section>
 
 <!-- APP -->
 <section class="app-section">
-  <div class="app-content">
-    <p class="section-eyebrow">Built for Glass Artists</p>
-    <h2 class="section-title">Introducing<br><span class="iris">My Kiln Journal</span></h2>
-    <div class="section-accent" style="display:none;"></div>
-    <p>I built this because I needed it myself — a dedicated place to track firings, schedules, and kiln notes without digging through my messy binder. Now it's available for glass artists everywhere.</p>
-    <ul class="app-features">
-      <li>Save firing schedules, log notes and results for each firing</li>
-      <li>Search and filter firing logs to find exactly what you need</li>
-      <li>Manage multiple kilns and track maintenance info</li>
-      <li>Built by a glass artist, for glass artists</li>
-    </ul>
-    <a href="app.html" class="btn btn-primary">Learn More &amp; Get the App</a>
-  </div>
-  <div class="app-visual">
-    <div class="app-phone">
-      <img src="CellphoneApp.png" alt="My Kiln Journal App Screenshot" style="width: 100%; height: 100%; object-fit: contain;">
+  <div class="section-inner">
+    <div class="app-content">
+      <p class="section-eyebrow">Built for Glass Artists</p>
+      <h2 class="section-title">Introducing<br><span class="iris">My Kiln Journal</span></h2>
+      <div class="section-accent" style="display:none;"></div>
+      <p>I built this because I needed it myself — a dedicated place to track firings, schedules, and kiln notes without digging through my messy binder. Now it's available for glass artists everywhere.</p>
+      <ul class="app-features">
+        <li>Save firing schedules, log notes and results for each firing</li>
+        <li>Search and filter firing logs to find exactly what you need</li>
+        <li>Manage multiple kilns and track maintenance info</li>
+        <li>Built by a glass artist, for glass artists</li>
+      </ul>
+      <a href="app.html" class="btn btn-primary">Learn More &amp; Get the App</a>
+    </div>
+    <div class="app-visual">
+      <div class="app-phone">
+        <img src="CellphoneApp.png" alt="My Kiln Journal App Screenshot" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
     </div>
   </div>
 </section>
 
 <!-- BLOG -->
 <section class="blog-section">
-  <div class="blog-header">
-    <div>
-      <p class="section-eyebrow">Blog</p>
-      <h2 class="section-title">Notes from <br class="mobile-break"><span class="teal">the Studio</span></h2>
+  <div class="section-inner">
+    <div class="blog-header">
+      <div>
+        <p class="section-eyebrow">Blog</p>
+        <h2 class="section-title">Notes from <br class="mobile-break"><span class="teal">the Studio</span></h2>
+      </div>
+      <a href="blog.html" class="view-all">All Posts →</a>
     </div>
-    <a href="blog.html" class="view-all">All Posts →</a>
-  </div>
-  <div class="blog-grid">
+    <div class="blog-grid">
 
     <div class="blog-card featured c-teal">
       <div class="blog-img-wrap">
@@ -819,6 +856,7 @@ footer {
       <a href="blog.html" class="read-more">Read More →</a>
     </div>
 
+    </div>
   </div>
 </section>
 
