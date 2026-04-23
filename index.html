@@ -665,13 +665,61 @@ footer {
 
 @media (max-width: 768px) {
   .mobile-break { display: block; }
+
+  /* NAV — hamburger right, working mobile menu */
+  nav { grid-template-columns: 1fr auto; padding: 0 1.2rem; }
   .nav-links, .nav-etsy { display: none; }
   .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.nav-toggle { display: flex; }
-  .hero-name { font-size: 3rem; white-space: normal; }
+  .nav-toggle { display: flex; }
+
+  /* Mobile menu drawer */
+  .mobile-menu {
+    display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: #ffffff; z-index: 99;
+    padding: 1.5rem 1.5rem 2rem; border-bottom: 1px solid rgba(123,111,160,0.12);
+    box-shadow: 0 8px 24px rgba(26,26,46,0.1);
+    flex-direction: column; gap: 0.2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 0.7rem 0; opacity: 0.7;
+    border-bottom: 1px solid rgba(123,111,160,0.08);
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover, .mobile-menu a.active { opacity: 1; color: var(--iris); }
+
+  /* HERO — compact frosted box, hero image visible on all sides */
+  .hero { height: 50vh; min-height: 300px; }
+  .hero-inner { padding: 1.2rem; }
+  .hero-left {
+    padding: 1.4rem 1.4rem 1rem;
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  .hero-name { font-size: 2rem; white-space: nowrap; margin-bottom: 0.8rem; }
+  .hero-subtitle { font-size: 0.55rem; letter-spacing: 0.35em; margin-bottom: 1rem; }
+  .hero-para { font-size: 0.85rem; line-height: 1.6; }
+  .hero-tagline-line { font-size: 1.2rem; }
+  .hero-body { margin-bottom: 0.1rem; }
+  .chevron-arrows { margin-top: 0; }
+
+  /* GALLERY */
   .gallery-section, .about-section, .app-section, .blog-section { padding: 3rem 1.5rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .gallery-item:nth-child(1) { grid-row: span 1; }
+  .gallery-cta { margin-top: 1.5rem; }
+
+  /* ETSY BANNER */
+  .etsy-banner-section { padding: 3rem 1.5rem; }
+  .etsy-banner-section .section-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .etsy-tagline br { display: none; }
+
+  /* APP + ABOUT grids */
+  .app-section .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-section .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 </style>
@@ -683,7 +731,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="ButterflyColor.svg" alt="" style="height:38px; width:auto; display:inline-block; vertical-align:middle;">
-    <img src="AGSTextTagline.svg" alt="Angela's Glass Studio" style="height:40px; width:auto; display:inline-block; vertical-align:middle; position:relative; top:2px; right:2px;">
+    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:30px; width:auto; display:inline-block; vertical-align:middle;">
   </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
@@ -699,7 +747,16 @@ footer {
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="active">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="app.html">Glass App</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank">Shop on Etsy ↗</a>
+</div>
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-inner">
@@ -909,7 +966,15 @@ footer {
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
   });
-  function toggleMenu() { console.log('mobile menu'); }
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  // Close menu when clicking a link
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+  });
 </script>
 <script>
   if (window.netlifyIdentity) {

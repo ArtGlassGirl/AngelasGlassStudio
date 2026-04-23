@@ -390,16 +390,17 @@ a.nav-etsy { justify-self: end; }
 }
 
 .why-check-mark {
-  font-size: 1.1rem; font-weight: 600;
-  color: var(--teal);
-  margin-top: 0.15rem;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--green);
+  margin-top: 0.05rem;
   flex-shrink: 0;
-  width: 1.4rem; text-align: center;
+  width: 1.6rem; text-align: center;
+  line-height: 1;
 }
 
 .why-check-title {
-  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--ink); margin-bottom: 0.35rem;
 }
 
@@ -452,8 +453,8 @@ a.nav-etsy { justify-self: end; }
 }
 
 .feature-title {
-  font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 500;
-  letter-spacing: 0.15em; text-transform: uppercase;
+  font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
   color: white; margin-bottom: 0.7rem;
 }
 
@@ -578,7 +579,8 @@ a.nav-etsy { justify-self: end; }
   max-width: 1060px; margin: 0 auto; padding: 0 4rem;
 }
 
-.install-header { margin-bottom: 4rem; }
+.install-header { margin-bottom: 2.5rem; }
+.install-header > p { margin-top: 1rem; }
 
 .install-tabs {
   display: flex; gap: 0;
@@ -823,24 +825,77 @@ footer {
 }
 
 @media (max-width: 800px) {
+  /* NAV — hamburger on right, working */
+  nav { grid-template-columns: 1fr auto; padding: 0 1.2rem; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* Mobile menu drawer */
+  .mobile-menu {
+    display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: #ffffff; z-index: 99;
+    padding: 1.5rem 1.5rem 2rem;
+    border-bottom: 1px solid rgba(123,111,160,0.12);
+    box-shadow: 0 8px 24px rgba(26,26,46,0.1);
+    flex-direction: column; gap: 0.2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 0.7rem 0; opacity: 0.7;
+    border-bottom: 1px solid rgba(123,111,160,0.08);
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover, .mobile-menu a.active { opacity: 1; color: var(--iris); }
+
+  /* HERO — eyebrow centered on mobile */
   .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; min-height: auto; }
   .hero-visual { order: -1; }
   .phone-device { width: 200px; }
+  .hero-eyebrow { justify-content: center; text-align: center; }
+
+  /* WHY / CHECKLIST */
   .why-layout, .demo-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+  /* FEATURES GRID */
   .features-grid { grid-template-columns: 1fr; }
+
+  /* PRICING */
   .pricing-cards { grid-template-columns: 1fr; }
-  .install-step { grid-template-columns: auto 1fr; }
-  .step-screenshot { display: none; }
+
+  /* INSTALL STEPS — text first, screenshot below on full width */
+  .install-step {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 1rem;
+  }
+  .step-screenshot {
+    display: block;
+    grid-column: 1 / -1;
+    width: 100%; height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .step-screenshot img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
+  }
+
+  /* INSTALL HEADER — less gap before tabs */
+  .install-header { margin-bottom: 2rem; }
+  .install-header p { margin-top: 0.5rem; }
+
+  /* SHARED SECTION PADDING */
   .why-inner, .features-inner, .pricing-inner,
   .install-inner, .demo-inner { padding: 0 1.5rem; }
   .why-section, .features-section, .pricing-section,
   .install-section, .demo-section { padding: 4rem 0; }
+
+  /* FOOTER */
   footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
-  .nav-links, .nav-etsy { display: none; }
-  .nav-toggle { display: flex; }
   .closing-band { padding: 4rem 2rem; }
 }
 
@@ -853,7 +908,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="ButterflyColor.svg" alt="" style="height:38px; width:auto; display:inline-block; vertical-align:middle;">
-    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:40px; width:auto; display:inline-block; vertical-align:middle; position:relative; top:2px; right:2px;">
+    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:30px; width:auto; display:inline-block; vertical-align:middle;">
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -868,6 +923,17 @@ footer {
     <span></span><span></span><span></span>
   </div>
 </nav>
+
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="app.html" class="active">Glass App</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank">Shop on Etsy ↗</a>
+</div>
 
 <!-- ===================== HERO ===================== -->
 <section class="app-hero">
@@ -1243,7 +1309,14 @@ footer {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  function toggleMenu() { console.log('mobile menu'); }
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+  });
 
   function switchTab(platform, btn) {
     document.querySelectorAll('.install-tab').forEach(t => t.classList.remove('active'));

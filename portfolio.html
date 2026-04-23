@@ -379,14 +379,62 @@ footer {
   .gallery-section { padding: 4rem 2.5rem 5rem; }
 }
 @media (max-width: 800px) {
-  .tab-btn { padding: 1.1rem 1.2rem; font-size: 0.58rem; }
+  /* NAV — hamburger on right, working */
+  nav { grid-template-columns: 1fr auto; padding: 0 1.2rem; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* Mobile menu drawer */
+  .mobile-menu {
+    display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: #ffffff; z-index: 99;
+    padding: 1.5rem 1.5rem 2rem;
+    border-bottom: 1px solid rgba(123,111,160,0.12);
+    box-shadow: 0 8px 24px rgba(26,26,46,0.1);
+    flex-direction: column; gap: 0.2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 0.7rem 0; opacity: 0.7;
+    border-bottom: 1px solid rgba(123,111,160,0.08);
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover, .mobile-menu a.active { opacity: 1; color: var(--iris); }
+
+  /* HERO — match index page sizing, 1-line title, no tagline breaks */
+  .portfolio-hero { height: 50vh; min-height: 300px; }
+  .hero-content {
+    padding: 1.4rem 1.4rem 1rem;
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  .hero-eyebrow { font-size: 0.55rem; letter-spacing: 0.35em; margin-bottom: 0.6rem; }
+  .hero-title { font-size: 2rem; white-space: nowrap; margin-top: 0.6rem; margin-bottom: 0.8rem; }
+  .hero-tagline {
+    font-size: 0.85rem; line-height: 1.6;
+  }
+  .hero-tagline br { display: none; }
+
+  /* TABS — compress so all 4 fit without scrolling */
+  .tab-nav { padding: 0; }
+  .tab-list { width: 100%; display: flex; }
+  .tab-btn {
+    flex: 1; text-align: center;
+    padding: 1rem 0.4rem; font-size: 0.52rem; letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+
+  /* GALLERY */
   .gallery-section { padding: 3rem 1.5rem 4rem; }
+
+  /* FOOTER */
   footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
-  .nav-links, .nav-etsy { display: none; }
-  .nav-toggle { display: flex; }
 }
 
 </style>
@@ -398,7 +446,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="ButterflyColor.svg" alt="" style="height:38px; width:auto; display:inline-block; vertical-align:middle;">
-    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:40px; width:auto; display:inline-block; vertical-align:middle; position:relative; top:2px; right:2px;">
+    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:30px; width:auto; display:inline-block; vertical-align:middle;">
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -413,6 +461,17 @@ footer {
     <span></span><span></span><span></span>
   </div>
 </nav>
+
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html" class="active">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="app.html">Glass App</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank">Shop on Etsy ↗</a>
+</div>
 
 <!-- HERO -->
 <section class="portfolio-hero">
@@ -548,7 +607,14 @@ footer {
     updateActiveTab();
   });
 
-  function toggleMenu() { console.log('mobile menu'); }
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+  });
 
   // Tab click — smooth scroll to section
   document.querySelectorAll('.tab-btn').forEach(btn => {

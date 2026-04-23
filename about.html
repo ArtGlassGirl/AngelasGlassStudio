@@ -534,22 +534,65 @@ footer {
 
 @media (max-width: 800px) {
   .mobile-break { display: block; }
-  .story-layout, .studio-layout, .narcissus-layout {
-    grid-template-columns: 1fr;
+
+  /* NAV — hamburger on right, working */
+  nav { grid-template-columns: 1fr auto; padding: 0 1.2rem; }
+  .nav-links, .nav-etsy { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* Mobile menu drawer */
+  .mobile-menu {
+    display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: #ffffff; z-index: 99;
+    padding: 1.5rem 1.5rem 2rem;
+    border-bottom: 1px solid rgba(123,111,160,0.12);
+    box-shadow: 0 8px 24px rgba(26,26,46,0.1);
+    flex-direction: column; gap: 0.2rem;
   }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 0.7rem 0; opacity: 0.7;
+    border-bottom: 1px solid rgba(123,111,160,0.08);
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover, .mobile-menu a.active { opacity: 1; color: var(--iris); }
+
+  /* HERO — match index/portfolio sizing */
+  .about-hero { height: 50vh; min-height: 300px; }
+  .hero-content {
+    padding: 1.4rem 1.4rem 1rem;
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  .hero-title { font-size: 2rem; margin-bottom: 0.8rem; }
+  .hero-tagline { font-size: 0.85rem; line-height: 1.6; }
+
+  /* QUOTE BAND — less space between " and quote text */
+  .quote-band { padding: 3rem 2rem; }
+  .quote-mark { font-size: 5rem; line-height: 0.6; margin-bottom: 0.5rem; }
+
+  /* CLOSING BAND — "I'm more curious now" and "than when I started." on same tight line */
+  .closing-band { padding: 3rem 2rem; }
+  .closing-script { line-height: 1.2; }
+  .mobile-break { display: none; }
+
+  /* CONTENT SECTIONS */
+  .story-layout, .studio-layout, .narcissus-layout { grid-template-columns: 1fr; }
   .narcissus-layout .narcissus-photo-col { order: -1; }
   .studio-photo-col { grid-template-columns: 1fr 1fr; }
   .studio-photo:nth-child(2) { margin-top: 0; }
   .studio-photo:nth-child(3) { margin-top: 0; }
   .about-section { padding: 4rem 0; }
   .section-inner { padding: 0 1.5rem; }
+
+  /* FOOTER */
   footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
-  .nav-links, .nav-etsy { display: none; }
-  .nav-toggle { display: flex; }
-  .quote-band, .closing-band { padding: 3rem 2rem; }
 }
 
 </style>
@@ -561,7 +604,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="ButterflyColor.svg" alt="" style="height:38px; width:auto; display:inline-block; vertical-align:middle;">
-    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:40px; width:auto; display:inline-block; vertical-align:middle; position:relative; top:2px; right:2px;">
+    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:30px; width:auto; display:inline-block; vertical-align:middle;">
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -576,6 +619,17 @@ footer {
     <span></span><span></span><span></span>
   </div>
 </nav>
+
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html" class="active">About</a>
+  <a href="app.html">Glass App</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank">Shop on Etsy ↗</a>
+</div>
 
 <!-- HERO -->
 <section class="about-hero">
@@ -748,7 +802,14 @@ footer {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  function toggleMenu() { console.log('mobile menu'); }
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+  });
 </script>
 
 </body>

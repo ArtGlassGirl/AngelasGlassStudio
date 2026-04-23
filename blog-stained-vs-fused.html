@@ -320,13 +320,41 @@ footer {
   .related-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
-  nav { padding: 0 1.5rem; }
+  /* NAV — hamburger already right via flex justify-content:space-between */
+  nav { padding: 0 1.2rem; }
   .nav-links, .nav-etsy { display: none; }
   .nav-toggle { display: flex; }
+
+  /* Mobile menu drawer */
+  .mobile-menu {
+    display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: #ffffff; z-index: 99;
+    padding: 1.5rem 1.5rem 2rem;
+    border-bottom: 1px solid rgba(123,111,160,0.12);
+    box-shadow: 0 8px 24px rgba(26,26,46,0.1);
+    flex-direction: column; gap: 0.2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding: 0.7rem 0; opacity: 0.7;
+    border-bottom: 1px solid rgba(123,111,160,0.08);
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover, .mobile-menu a.active { opacity: 1; color: var(--iris); }
+
+  /* Reduce gap between meta line and first hero image */
+  .article-hero-img { margin-top: 1rem; }
+
+  /* CONTENT PADDING */
   .back-bar, .article-header, .article-hero-img, .article-body, .post-nav { padding-left: 1.2rem; padding-right: 1.2rem; }
   .post-nav { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr; }
   .related-section { padding: 3rem 1.2rem; }
+
+  /* FOOTER */
   footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 2.5rem 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
@@ -340,13 +368,16 @@ footer {
 <div class="gradient-bar"></div>
 
 <nav id="main-nav">
-  <a href="index.html" class="nav-logo"></a>
+  <a href="index.html" class="nav-logo">
+    <img src="ButterflyColor.svg" alt="" style="height:38px; width:auto; display:inline-block; vertical-align:middle;">
+    <img src="AGSTextTagline.svg" alt="Angela's Glass Studio" style="height:30px; width:auto; display:inline-block; vertical-align:middle;">
+  </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="app.html">Glass App</a></li>
-    <li><a href="blog.html">Blog</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="https://angelasglassstudio.etsy.com" target="_blank" class="nav-etsy">Shop on Etsy ↗</a>
@@ -354,6 +385,17 @@ footer {
     <span></span><span></span><span></span>
   </div>
 </nav>
+
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="app.html">Glass App</a>
+  <a href="blog.html" class="active">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://angelasglassstudio.etsy.com" target="_blank">Shop on Etsy ↗</a>
+</div>
 
 <div class="page-top">
 
@@ -599,7 +641,14 @@ footer {
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
   });
-  function toggleMenu() { console.log('mobile menu'); }
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+  });
 </script>
 
 </body>
