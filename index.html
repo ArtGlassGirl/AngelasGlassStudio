@@ -693,18 +693,19 @@ footer {
 
   /* HERO — compact frosted box, hero image visible on all sides */
   .hero { height: 50vh; min-height: 300px; }
-  .hero-inner { padding: 1.2rem; }
+  .hero-inner { padding: 1.2rem; display: flex; align-items: center; justify-content: center; }
   .hero-left {
-    padding: 1.4rem 1.4rem 1rem;
+    padding: 1.4rem 2rem 1.2rem;
     max-width: 85%;
     margin: 0 auto;
   }
-  .hero-name { font-size: 2rem; white-space: nowrap; margin-bottom: 0.8rem; }
-  .hero-subtitle { font-size: 0.55rem; letter-spacing: 0.35em; margin-bottom: 1rem; }
+  .hero-name { font-size: 2rem; white-space: nowrap; margin-bottom: 0.4rem; }
+  .hero-subtitle { font-size: 0.55rem; letter-spacing: 0.35em; margin-top: 0.5rem; margin-bottom: 0.9rem; }
   .hero-para { font-size: 0.85rem; line-height: 1.6; }
   .hero-tagline-line { font-size: 1.2rem; }
-  .hero-body { margin-bottom: 0.1rem; }
-  .chevron-arrows { margin-top: 0; }
+  .hero-body { margin-bottom: 0rem; }
+  .hero-buttons { margin-top: 0.6rem; }
+  .chevron-arrows { margin-top: 0.2rem; margin-bottom: 0; }
 
   /* GALLERY */
   .gallery-section, .about-section, .app-section, .blog-section { padding: 3rem 1.5rem; }
@@ -731,7 +732,7 @@ footer {
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="ButterflyColor.svg" alt="" style="height:38px; width:auto; display:inline-block; vertical-align:middle;">
-    <img src="AGSTextTagline.svg" alt="Angela\'s Glass Studio" style="height:30px; width:auto; display:inline-block; vertical-align:middle;">
+    <img src="AGSTextTagline.svg" alt="Angela's Glass Studio" style="height:40px; width:auto; display:inline-block; vertical-align:middle;">
   </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
@@ -765,7 +766,7 @@ footer {
     <div class="hero-divider"></div>
     <p class="hero-subtitle">Wisconsin Glass Artist</p>
     <div class="hero-body">
-      <p class="hero-para">Original glass pieces designed to capture the light.</p>
+      <p class="hero-para">Original glass pieces<br class="mobile-break"> designed to capture the light.</p>
     </div>
     <div class="hero-buttons">
       <div class="chevron-arrows">
