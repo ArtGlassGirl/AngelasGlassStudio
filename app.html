@@ -824,6 +824,8 @@ footer {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+.mobile-break { display: none; }
+
 @media (max-width: 800px) {
   /* NAV — hamburger on right, working */
   nav { grid-template-columns: 1fr auto; padding: 0 1.2rem; }
@@ -854,6 +856,7 @@ footer {
   .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; min-height: auto; }
   .hero-visual { order: -1; }
   .phone-device { width: 200px; }
+  .mobile-break { display: block; }
   .hero-eyebrow { justify-content: center; text-align: center; }
 
   /* WHY / CHECKLIST */
@@ -874,8 +877,10 @@ footer {
   .step-screenshot {
     display: block;
     grid-column: 1 / -1;
-    width: 100%; height: auto;
-    aspect-ratio: 16 / 9;
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
   .step-screenshot img {
     width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
@@ -892,7 +897,7 @@ footer {
   .install-section, .demo-section { padding: 4rem 0; }
 
   /* FOOTER */
-  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 2.5rem 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
@@ -939,7 +944,7 @@ footer {
 <section class="app-hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <p class="hero-eyebrow">Built by a glass artist, for glass artists</p>
+      <p class="hero-eyebrow">Built by a glass artist,<br class="mobile-break"> for glass artists</p>
       <h1 class="hero-app-name">My Kiln Journal</h1>
       <p class="hero-app-sub">The essential firing companion</p>
       <p class="hero-tagline">You shouldn't have to rely on memory or a messy binder full of notes to get consistent results. My Kiln Journal helps you track what matters and find it quickly, so you can create with confidence.</p>

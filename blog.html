@@ -411,6 +411,8 @@ footer {
 }
 
 /* RESPONSIVE */
+.mobile-break { display: none; }
+
 @media (max-width: 1100px) {
   nav { padding: 0 2rem; }
   .blog-main { padding: 4rem 2.5rem; gap: 3rem; }
@@ -448,14 +450,15 @@ footer {
 
   /* HERO — match other pages */
   .blog-hero { height: 50vh; min-height: 300px; }
+  .mobile-break { display: block; }
   .hero-content {
     padding: 1.8rem 2rem 1.6rem;
     max-width: 85%;
     width: 85%;
     margin: 0 auto;
   }
-  .hero-title { font-size: 2rem; margin-top: 0; margin-bottom: 0.6rem; }
-  .hero-tagline { font-size: 0.85rem; line-height: 1.6; }
+  .hero-title { font-size: 2rem; margin-top: 4px; margin-bottom: 0.6rem; }
+  .hero-tagline { font-size: 0.85rem; line-height: 1.6; margin-top: 2px; }
 
   /* HIDE Categories sidebar section on mobile */
   .sidebar-section:last-child { display: none; }
@@ -466,7 +469,7 @@ footer {
   .blog-controls { flex-direction: column; align-items: flex-start; }
 
   /* FOOTER */
-  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 2.5rem 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
@@ -512,7 +515,7 @@ footer {
 <section class="blog-hero">
   <div class="hero-content">
     <h1 class="hero-title">Studio Notes</h1>
-    <p class="hero-tagline">Glass techniques, studio life, and the tools that make it all work.</p>
+    <p class="hero-tagline">Glass techniques, studio life, and<br class="mobile-break"> the tools that make it all work.</p>
   </div>
 </section>
 

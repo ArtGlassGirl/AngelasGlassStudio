@@ -569,16 +569,16 @@ footer {
     margin: 0 auto;
   }
   .hero-title { font-size: 2rem; margin-bottom: 0.5rem; }
-  .hero-tagline { font-size: 0.85rem; line-height: 1.6; margin-top: 0.6rem; }
+  .hero-tagline { font-size: 0.85rem; line-height: 1.6; margin-top: calc(0.6rem + 6px); }
 
   /* QUOTE BAND — less space between " and quote text */
   .quote-band { padding: 3rem 2rem; }
   .quote-mark { font-size: 5rem; line-height: 0.6; margin-bottom: 0.5rem; }
 
-  /* CLOSING BAND — "I'm more curious now" and "than when I started." on same tight line */
+  /* CLOSING BAND */
   .closing-band { padding: 3rem 2rem; }
   .closing-script { line-height: 1.2; }
-  .mobile-break { display: none; }
+  .closing-script-line2 { display: block; margin-top: 4px; }
 
   /* CONTENT SECTIONS */
   .story-layout, .studio-layout, .narcissus-layout { grid-template-columns: 1fr; }
@@ -590,7 +590,7 @@ footer {
   .section-inner { padding: 0 1.5rem; }
 
   /* FOOTER */
-  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 2.5rem 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
@@ -766,7 +766,7 @@ footer {
 <!-- CLOSING BAND -->
 <div class="closing-band">
   <div class="closing-inner">
-    <p class="closing-script">I'm more curious now<br class="mobile-break"> than when I started.</p>
+    <p class="closing-script">I'm more curious now<span class="closing-script-line2"> than when I started.</span></p>
     <p class="closing-text">Today, my work blends structure and spontaneity. Some pieces are clean and graphic. Others are organic and expressive. All of them are shaped by years of experimentation, curiosity, and a willingness to keep learning. I didn't start out believing I was an artist — but somewhere along the way, through glass, painting, broken pieces, and persistence,<br>I became one.</p>
   </div>
 </div>
