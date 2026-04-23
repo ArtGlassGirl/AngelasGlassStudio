@@ -109,10 +109,10 @@ a.nav-etsy { justify-self: end; }
   display: flex; align-items: center; justify-content: center;
   width: 100%; max-width: 1300px;
 }
-.hero-left {
-  padding: 4rem 4rem 2rem 4rem;
+.hero-content {
   position: relative; z-index: 2;
   text-align: center;
+  padding: 2.8rem 4rem;
   background: rgba(255,255,255,0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -190,30 +190,6 @@ a.nav-etsy { justify-self: end; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
 }
-
-/* HERO RIGHT */
-.hero-right {
-  position: relative; z-index: 2;
-  display: flex; align-items: center; justify-content: center;
-  padding: 2rem 4rem 4rem 2rem; min-height: auto;
-}
-.hero-photo-wrap { position: relative; width: 100%; max-width: 300px; }
-.hero-photo {
-  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top;
-  border-radius: 6px; display: block;
-  box-shadow: 0 20px 60px rgba(26,26,46,0.15);
-}
-.hero-badge {
-  position: absolute; bottom: -1rem; left: -1.5rem;
-  background: white; border: 1px solid rgba(123,111,160,0.2);
-  border-radius: 4px; padding: 0.8rem 1.2rem;
-  box-shadow: 0 8px 24px rgba(26,26,46,0.1);
-}
-.hero-badge p {
-  font-family: 'Jost', sans-serif; font-size: 0.55rem; font-weight: 400;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--iris); line-height: 1.7;
-}
-.hero-badge p:first-child { color: var(--ink); font-weight: 500; }
 
 /* SECTION SHARED */
 .section-eyebrow {
@@ -645,11 +621,6 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 1100px) {
   nav { padding: 0 2rem; }
-  .hero { display: block; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-left { padding: 4rem 2.5rem 2rem; }
-  .hero-right { padding: 2rem 2.5rem 4rem; min-height: auto; }
-  .hero-photo-wrap { max-width: 320px; margin: 0 auto; }
   .gallery-section, .about-section, .app-section, .blog-section { padding: 4rem 2.5rem; }
   .about-section .section-inner { grid-template-columns: 1fr; gap: 3rem; }
   .app-section .section-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -691,21 +662,22 @@ footer {
   .mobile-menu a:last-child { border-bottom: none; }
   .mobile-menu a:hover, .mobile-menu a.active { opacity: 1; color: var(--iris); }
 
-  /* HERO — compact frosted box, hero image visible on all sides */
+  /* HERO — frosted box centered, same pattern as all other pages */
   .hero { height: 50vh; min-height: 300px; }
   .hero-inner { padding: 1.2rem; display: flex; align-items: center; justify-content: center; }
-  .hero-left {
-    padding: 1.4rem 2rem 1.2rem;
+  .hero-content {
+    padding: 1.8rem 2rem 1.6rem;
     max-width: 85%;
+    width: 85%;
     margin: 0 auto;
   }
-  .hero-name { font-size: 2rem; white-space: nowrap; margin-bottom: 0.4rem; }
-  .hero-subtitle { font-size: 0.55rem; letter-spacing: 0.35em; margin-top: 0.5rem; margin-bottom: 0.9rem; }
+  .hero-name { font-size: 2rem; white-space: nowrap; margin-bottom: 0.4rem; margin-top: 4px; }
+  .hero-subtitle { font-size: 0.55rem; letter-spacing: 0.35em; margin-top: calc(0.5rem + 10px); margin-bottom: 0.9rem; }
   .hero-para { font-size: 0.85rem; line-height: 1.6; }
   .hero-tagline-line { font-size: 1.2rem; }
   .hero-body { margin-bottom: 0rem; }
   .hero-buttons { margin-top: 0.6rem; }
-  .chevron-arrows { margin-top: 0.2rem; margin-bottom: 0; }
+  .chevron-arrows { margin-top: calc(0.2rem - 4px); margin-bottom: -4px; }
 
   /* GALLERY */
   .gallery-section, .about-section, .app-section, .blog-section { padding: 3rem 1.5rem; }
@@ -761,7 +733,7 @@ footer {
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-  <div class="hero-left">
+  <div class="hero-content">
     <h1 class="hero-name">Angela Weber</h1>
     <div class="hero-divider"></div>
     <p class="hero-subtitle">Wisconsin Glass Artist</p>
