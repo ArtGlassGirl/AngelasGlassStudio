@@ -408,15 +408,16 @@ footer {
   .portfolio-hero { height: 50vh; min-height: 300px; }
   .hero-content {
     padding: 1.8rem 2rem 1.6rem;
-    max-width: 85%;
-    width: 85%;
+    width: 85vw;
+    max-width: 85vw;
     margin: 0 auto;
     text-align: center;
+    box-sizing: border-box;
   }
   .hero-eyebrow { font-size: 0.55rem; letter-spacing: 0.35em; margin-bottom: 0.6rem; }
-  .hero-title { font-size: 2rem; white-space: normal; margin-top: 0.4rem; margin-bottom: calc(0.6rem + 2px); text-align: center; width: 100%; display: block; }
+  .hero-title { font-size: 1.9rem; white-space: nowrap; margin-top: 0.4rem; margin-bottom: calc(0.6rem + 2px); }
   .hero-tagline { font-size: 0.85rem; line-height: 1.6; }
-  .hero-tagline br { display: none; }
+  .hero-tagline br { display: block; }
 
   /* TABS — compress so all 4 fit without scrolling, centered */
   .tab-nav { padding: 0; justify-content: center; }
@@ -477,7 +478,7 @@ footer {
 <section class="portfolio-hero">
   <div class="hero-content">
     <h1 class="hero-title">Glass Transformed</h1>
-    <p class="hero-tagline">Original glass pieces, from statement work to everyday accents.<br>Thoughtfully made by hand to capture the light.</p>
+    <p class="hero-tagline">I transform glass through cutting, fusing, and shaping.<br> The light brings it to life.</p>
   </div>
 </section>
 
