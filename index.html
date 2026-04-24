@@ -124,7 +124,7 @@ a.nav-etsy { justify-self: end; }
 .hero-name {
   font-family: 'ElegantGoldenScript', cursive;
   font-size: 3.5rem; color: var(--ink);
-  line-height: 1.3; white-space: nowrap; margin-bottom: 1.5rem; text-align: center;
+  line-height: 1.3; white-space: nowrap; margin-bottom: calc(1.5rem + 8px); text-align: center;
   margin-top: 4px;
 }
 
@@ -135,7 +135,7 @@ a.nav-etsy { justify-self: end; }
 .hero-subtitle {
   font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500;
   letter-spacing: 0.4em; text-transform: uppercase;
-  color: var(--ink); opacity: 0.42; margin-bottom: 1.8rem; text-align: center; margin-top: 0;
+  color: var(--ink); opacity: 0.42; margin-bottom: calc(1.8rem - 4px); text-align: center;
 }
 
 /* Hero body */
@@ -148,7 +148,7 @@ a.nav-etsy { justify-self: end; }
 .hero-para {
   font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 400;
   letter-spacing: 0.08em; line-height: 1.9; color: var(--ink); opacity: 0.75;
-  text-align: center; margin-top: -4px;
+  text-align: center; margin-top: -6px;
 }
 
 /* Tagline — flush left, tight to paragraph, looks like sentence continues */
@@ -159,8 +159,6 @@ a.nav-etsy { justify-self: end; }
   color: var(--iris); text-align: left;
   margin-top: -0.5rem;
   font-weight: normal; -webkit-text-stroke: 0.8px currentColor; }
-
-.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.2rem; justify-content: center; }
 
 /* BUTTONS */
 .btn {
@@ -176,22 +174,6 @@ a.nav-etsy { justify-self: end; }
 .btn-ghost:hover { background: var(--iris); color: white; transform: translateY(-2px); }
 .btn-cobalt { background: var(--cobalt); color: white; }
 .btn-cobalt:hover { background: var(--ink); transform: translateY(-2px); }
-
-/* CHEVRON ARROWS */
-.chevron-arrows {
-  display: flex; flex-direction: column; gap: 0;
-  margin-top: -0.4rem; margin-bottom: -8px; cursor: pointer;
-  animation: bounce 2s infinite;
-}
-.chevron-arrows:hover { opacity: 0.8; }
-.chevron { width: 24px; height: 24px; }
-.chevron-top { opacity: 0.3; }
-.chevron-middle { opacity: 0.6; }
-.chevron-bottom { opacity: 1; }
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
 
 /* SECTION SHARED */
 .section-eyebrow {
@@ -681,8 +663,6 @@ footer {
   .hero-para { font-size: 0.85rem; line-height: 1.6; }
   .hero-tagline-line { font-size: 1.2rem; }
   .hero-body { margin-bottom: 0rem; }
-  .hero-buttons { margin-top: 0.6rem; }
-  .chevron-arrows { margin-top: calc(0.2rem - 4px); margin-bottom: -4px; }
 
   /* GALLERY */
   .gallery-section, .about-section, .app-section, .blog-section { padding: 3rem 1.5rem; }
@@ -744,13 +724,6 @@ footer {
     <p class="hero-subtitle">Wisconsin Glass Artist</p>
     <div class="hero-body">
       <p class="hero-para">Handmade glass driven by color, texture, and curiosity.</p>
-    </div>
-    <div class="hero-buttons">
-      <div class="chevron-arrows">
-        <svg class="chevron chevron-bottom" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 9L12 15L18 9" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
     </div>
   </div></div>
 </section>
