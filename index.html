@@ -92,7 +92,7 @@ a.nav-etsy { justify-self: end; }
 
 /* HERO */
 .hero {
-  margin-top: calc(var(--nav-h) + 5px);
+  margin-top: var(--nav-h);
   height: 36vh;
   min-height: 240px;
   display: flex; justify-content: center; align-items: center;
@@ -125,6 +125,7 @@ a.nav-etsy { justify-self: end; }
   font-family: 'ElegantGoldenScript', cursive;
   font-size: 3.5rem; color: var(--ink);
   line-height: 1.3; white-space: nowrap; margin-bottom: 1.5rem; text-align: center;
+  margin-top: 4px;
 }
 
 .hero-divider {
@@ -134,7 +135,7 @@ a.nav-etsy { justify-self: end; }
 .hero-subtitle {
   font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500;
   letter-spacing: 0.4em; text-transform: uppercase;
-  color: var(--ink); opacity: 0.42; margin-bottom: 1.8rem; text-align: center;
+  color: var(--ink); opacity: 0.42; margin-bottom: 1.8rem; text-align: center; margin-top: -4px;
 }
 
 /* Hero body */
@@ -179,7 +180,7 @@ a.nav-etsy { justify-self: end; }
 /* CHEVRON ARROWS */
 .chevron-arrows {
   display: flex; flex-direction: column; gap: 0;
-  margin-top: -0.4rem; margin-bottom: 0rem; cursor: pointer;
+  margin-top: -0.4rem; margin-bottom: -4px; cursor: pointer;
   animation: bounce 2s infinite;
 }
 .chevron-arrows:hover { opacity: 0.8; }
