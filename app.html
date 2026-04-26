@@ -200,11 +200,11 @@ a.nav-etsy { justify-self: end; }
 
 .frit-bg {
   position: absolute;
-  width: 900px;
-  height: auto;
+  height: 120%;
+  width: auto;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: -40%;
+  transform: translateY(-50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -221,7 +221,6 @@ a.nav-etsy { justify-self: end; }
 .phone-wrap {
   position: relative;
   display: flex; justify-content: center;
-  overflow: visible;
 }
 
 .phone-glow {
@@ -873,6 +872,7 @@ footer {
   .phone-device { width: 200px; }
   .mobile-break { display: block; }
   .hero-eyebrow { justify-content: center; text-align: center; }
+  .frit-bg { right: auto; left: 50%; transform: translate(-50%, -50%); }
 
   /* WHY / CHECKLIST */
   .why-layout, .demo-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -971,13 +971,13 @@ footer {
     </div>
 
     <div class="hero-visual">
+      <img
+        src="FritSpill.png"
+        alt=""
+        aria-hidden="true"
+        class="frit-bg"
+      >
       <div class="phone-wrap">
-        <img
-          src="FritSpill.png"
-          alt=""
-          aria-hidden="true"
-          class="frit-bg"
-        >
         <div class="phone-glow"></div>
         <img
           src="https://raw.githubusercontent.com/ArtGlassGirl/AngelasGlassStudio/c39babab09fd89f7a442d57d1c1ad63b700693b4/CellphoneApp.png"
