@@ -207,6 +207,7 @@ a.nav-etsy { justify-self: end; }
 .phone-wrap {
   position: relative;
   display: flex; justify-content: center;
+  overflow: visible;
 }
 
 .phone-glow {
@@ -957,11 +958,17 @@ footer {
 
     <div class="hero-visual">
       <div class="phone-wrap">
+        <img
+          src="FritSpill.png"
+          alt=""
+          aria-hidden="true"
+          style="position:absolute; width:140%; max-width:none; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; z-index:0;"
+        >
         <div class="phone-glow"></div>
         <img
           src="https://raw.githubusercontent.com/ArtGlassGirl/AngelasGlassStudio/c39babab09fd89f7a442d57d1c1ad63b700693b4/CellphoneApp.png"
           alt="My Kiln Journal app on a mobile phone"
-          style="max-width:320px; width:100%; height:auto; display:block;"
+          style="max-width:320px; width:100%; height:auto; display:block; position:relative; z-index:1;"
         >
       </div>
     </div>
