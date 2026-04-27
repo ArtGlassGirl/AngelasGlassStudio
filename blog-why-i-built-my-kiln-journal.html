@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stained Glass vs. Fused Glass: What's the Difference? | Angela's Glass Studio</title>
-<meta name="description" content="What's the difference between stained glass and fused glass? A Wisconsin glass artist explains the techniques, tools, and results in plain English.">
+<title>Why I Built My Kiln Journal | Angela's Glass Studio</title>
+<meta name="description" content="After 20+ years of glass work, I was tired of losing firing notes and repeating expensive mistakes. Here's why I built My Kiln Journal for glass artists.">
 <link href="https://fonts.googleapis.com/css2?family=Alice&family=Jost:wght@300;400;500;600&family=Literata:opsz,wght@7..72,600&display=swap" rel="stylesheet">
 <style>
 
@@ -188,23 +188,33 @@ a.nav-etsy { justify-self: end; }
   color: var(--iris); margin-bottom: 0; font-style: italic;
 }
 
-/* INLINE IMAGE */
-.article-inline-img {
+/* APP CTA BLOCK */
+.app-cta-block {
+  background: var(--cream);
+  border: 1px solid rgba(123,111,160,0.2);
+  border-radius: 8px;
+  padding: 2rem 2.2rem;
   margin: 2.5rem 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  flex-wrap: wrap;
 }
-.article-inline-img .img-placeholder {
-  width: 100%; aspect-ratio: 4/3; border-radius: 6px;
-  background: linear-gradient(135deg, var(--lavender) 0%, var(--iris) 100%);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.6); font-family: 'Jost', sans-serif;
-  font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+.app-cta-text {
+  font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 500;
+  color: var(--ink); line-height: 1.5;
 }
-.article-inline-img img { width: 100%; border-radius: 6px; display: block; }
-.article-inline-img .img-caption {
-  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 400;
-  color: var(--ink); opacity: 0.5; margin-top: 0.6rem; text-align: center;
-  font-style: italic;
+.app-cta-text span {
+  display: block; font-size: 0.78rem; font-weight: 400; opacity: 0.6; margin-top: 0.2rem;
 }
+.app-cta-btn {
+  font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background: var(--iris); color: white;
+  padding: 0.65rem 1.5rem; border-radius: 3px;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.25s, transform 0.2s;
+  flex-shrink: 0;
+}
+.app-cta-btn:hover { background: var(--teal); transform: translateY(-1px); }
 
 /* TAGS */
 .article-tags {
@@ -321,12 +331,10 @@ footer {
   .related-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
-  /* NAV — hamburger already right via flex justify-content:space-between */
   nav { grid-template-columns: 1fr auto; padding: 0 1.2rem; }
   .nav-links, .nav-etsy { display: none; }
   .nav-toggle { display: flex; }
 
-  /* Mobile menu drawer */
   .mobile-menu {
     display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
     background: #ffffff; z-index: 99;
@@ -346,18 +354,16 @@ footer {
   .mobile-menu a:last-child { border-bottom: none; }
   .mobile-menu a:hover, .mobile-menu a.active { opacity: 1; color: var(--iris); }
 
-  /* Reduce gap between meta line and first hero image */
   .article-hero-img { margin-top: 1rem; }
   .article-meta { padding-bottom: calc(2rem - 2px); }
-  .article-hero-img .img-caption { margin-bottom: -2px; }
 
-  /* CONTENT PADDING */
   .back-bar, .article-header, .article-hero-img, .article-body, .post-nav { padding-left: 1.2rem; padding-right: 1.2rem; }
   .post-nav { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr; }
   .related-section { padding: 3rem 1.2rem; }
 
-  /* FOOTER */
+  .app-cta-block { flex-direction: column; align-items: flex-start; }
+
   footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 2.5rem 1.5rem; }
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
@@ -409,159 +415,56 @@ footer {
 
   <!-- ARTICLE HEADER -->
   <header class="article-header">
-    <p class="article-category">Glass Talk</p>
-    <h1 class="article-title">Stained Glass vs. Fused Glass: What's the Difference?</h1>
+    <p class="article-category">Equipment &amp; Tech</p>
+    <h1 class="article-title">Why I Built My Kiln Journal</h1>
     <div class="article-meta">
       <span>Angela Weber</span>
       <span>·</span>
-      <span>January 2026</span>
+      <span>April 2026</span>
       <span>·</span>
-      <span>5 min read</span>
+      <span>3 min read</span>
     </div>
   </header>
 
   <!-- HERO IMAGE -->
   <div class="article-hero-img">
-    <div class="img-placeholder">Article Photo</div>
-    <p class="img-caption">Caption goes here — describe what's in the photo.</p>
+    <img src="CellphoneApp.png" alt="My Kiln Journal app on a phone">
   </div>
 
   <!-- ARTICLE BODY -->
   <article class="article-body">
 
-    <p>If you've ever looked at a piece of glass art and thought, "Wait… is that stained glass or fused glass?" — you're not alone.</p>
+    <p>If you've been doing glass work for any length of time, you know the binder. Maybe yours is a three-ring stuffed with loose pages. Maybe it's a spiral notebook with sticky tabs falling off. Mine was both, plus some random scraps of paper floating around the studio.</p>
 
-    <p>They're both beautiful. They both use colored glass. And they are absolutely not the same thing.</p>
+    <p>This was not a good system.</p>
 
-    <p>Let's clear it up.</p>
+    <p>The thing about firing glass is that the details matter. Temperature, hold times, which kiln you used, how full it was. All of it can change the result. And when something turns out beautifully, you want to be able to do it again. When something goes wrong, you need to figure out why.</p>
 
-    <h2>What is Stained Glass?</h2>
+    <p>I ruined a project once because I was sure I had the most current firing schedule in my binder. I didn't. Somewhere between updating my notes and actually finding them again, I'd lost track of what was current. That piece of glass was expensive. The mistake was more expensive.</p>
 
-    <p>Stained glass is the classic. The cathedral windows, the suncatchers, the pieces that look like they've been around since someone named Thomas was chiseling stone by hand.</p>
+    <p>And here's the other thing I always wanted: photos. Notes can tell you what you did, but a photo can show you something notes can't. I wanted to look at my finished pieces right alongside each firing log, so I could quickly see which schedule produced the look I was after, instead of trying to describe it in words.</p>
 
-    <p>Instead of melting glass together, stained glass is all about cutting and assembling. Each piece of glass is:</p>
+    <p>So I built My Kiln Journal.</p>
 
-    <ul>
-      <li>Cut to shape</li>
-      <li>Ground smooth</li>
-      <li>Wrapped in copper foil or fitted into lead came</li>
-      <li>Soldered together to form the final design</li>
-    </ul>
+    <p>It lets you log every firing: schedules, notes, before and after photos, even ratings for how the piece turned out. You can search by kiln, filter by tags and ratings, and track maintenance across multiple kilns. No more binder. No more guessing if what you found is the most recent version. No more losing the thing that finally worked.</p>
 
-    <p>So when you see a stained glass piece, what you're really seeing is a puzzle… held together with metal.</p>
+    <p>I built it because I needed it. After 20+ years of glass work, I was tired of wasting time searching for information I knew I had somewhere. If any of this sounds familiar, check out My Kiln Journal. You can try it free.</p>
 
-    <!-- FIRST IMAGE -->
-    <div class="article-inline-img">
-      <div class="img-placeholder">Article Photo</div>
-      <p class="img-caption">A traditional stained glass panel showing individual pieces joined with solder lines.</p>
+    <!-- APP CTA -->
+    <div class="app-cta-block">
+      <div class="app-cta-text">
+        My Kiln Journal
+        <span>Free to try &nbsp;·&nbsp; Web app, no credit card needed &nbsp;·&nbsp; iOS &amp; Android</span>
+      </div>
+      <a href="https://mykilnjournal.com" target="_blank" class="app-cta-btn">Try It Free</a>
     </div>
-
-    <h2>What is Fused Glass?</h2>
-
-    <p>Fused glass is where things get a little more… fiery.</p>
-
-    <p>Instead of assembling pieces with metal, you stack glass and melt it in a kiln until it fuses together into one solid piece. Think of it less like a puzzle and more like controlled chaos with a heating schedule.</p>
-
-    <p>You can:</p>
-
-    <ul>
-      <li>Layer colors</li>
-      <li>Add powders, frit, or stringers</li>
-      <li>Create textures and movement</li>
-      <li>Melt things flat… or slump them into shapes later</li>
-    </ul>
-
-    <p>Once it comes out of the kiln, it's no longer separate pieces. It's one unified sheet of glass that decided to reinvent itself.</p>
-
-    <!-- SECOND IMAGE -->
-    <div class="article-inline-img">
-      <div class="img-placeholder">Article Photo</div>
-      <p class="img-caption">Fused glass before and after firing — loose pieces transformed into a single melted design.</p>
-    </div>
-
-    <h2>The Big Difference (Without the Fancy Talk)</h2>
-
-    <p>Here's the simplest way to think about it:</p>
-
-    <ul>
-      <li>Stained glass = cut + assemble</li>
-      <li>Fused glass = stack + melt</li>
-    </ul>
-
-    <p>One is construction. The other is transformation.</p>
-
-    <h2>The Look and Feel</h2>
-
-    <p>This is where people usually start noticing the difference.</p>
-
-    <h3>Stained Glass</h3>
-    <ul>
-      <li>Visible lines (lead or solder)</li>
-      <li>More structured and graphic</li>
-      <li>Each piece clearly defined</li>
-    </ul>
-
-    <h3>Fused Glass</h3>
-    <ul>
-      <li>Smooth surface</li>
-      <li>Colors blend and react</li>
-      <li>More organic, sometimes painterly</li>
-    </ul>
-
-    <p>If stained glass is outlining with ink, fused glass is painting with heat.</p>
-
-    <h2>Which One is Better?</h2>
-
-    <p>Trick question. Neither.</p>
-
-    <p>It's like asking if watercolor is better than oil paint. Depends what you're trying to do.</p>
-
-    <p>I love stained glass for:</p>
-    <ul>
-      <li>Clean lines</li>
-      <li>Bold designs</li>
-      <li>That timeless, handcrafted feel</li>
-    </ul>
-
-    <p>I love fused glass for:</p>
-    <ul>
-      <li>Texture and movement</li>
-      <li>Color blending</li>
-      <li>Happy accidents that somehow look intentional</li>
-    </ul>
-
-    <p>(We'll pretend those are always intentional.)</p>
-
-    <blockquote>
-      <p>Stained glass is built. Fused glass is transformed. Both require skill… and a little bit of stubbornness.</p>
-    </blockquote>
-
-    <h2>Why This Matters (Especially if You're Buying Art)</h2>
-
-    <p>If you're shopping for glass art, knowing the difference helps you:</p>
-
-    <ul>
-      <li>Understand pricing (they're made very differently)</li>
-      <li>Know how durable it is</li>
-      <li>Appreciate the technique behind it</li>
-    </ul>
-
-    <p>Also, it gives you bonus points when you casually drop, "Oh, I love how this piece was fused," like you totally didn't just learn that five minutes ago.</p>
-
-    <h2>Final Thoughts</h2>
-
-    <p>Both stained and fused glass have their own personality. One isn't an upgrade of the other. They're just different ways of working with the same magical material.</p>
-
-    <p>And honestly? Most glass artists end up falling in love with both at some point.</p>
-
-    <p>Because once you start playing with glass, it's kind of hard to stop.</p>
 
     <!-- TAGS -->
     <div class="article-tags">
-      <span class="article-tag">Glass Talk</span>
-      <span class="article-tag">Stained Glass</span>
-      <span class="article-tag">Fused Glass</span>
-      <span class="article-tag">Beginner Guide</span>
+      <span class="article-tag">Equipment &amp; Tech</span>
+      <span class="article-tag">My Kiln Journal</span>
+      <span class="article-tag">Firing Logs</span>
+      <span class="article-tag">Studio Life</span>
     </div>
 
   </article>
@@ -570,13 +473,13 @@ footer {
 
 <!-- PREV / NEXT NAV -->
 <div class="post-nav">
-  <a href="blog-frit-powder-texture.html" class="post-nav-link prev">
+  <a href="blog-stained-vs-fused.html" class="post-nav-link prev">
     <span class="post-nav-direction">← Previous</span>
-    <span class="post-nav-title">Frit, Powder, and Texture: Building Depth in Fused Glass</span>
+    <span class="post-nav-title">Stained Glass vs. Fused Glass: What's the Difference?</span>
   </a>
-  <a href="blog-what-narcissus-taught-me.html" class="post-nav-link next">
-    <span class="post-nav-direction">Next →</span>
-    <span class="post-nav-title">What Narcissus Quagliata Taught Me About Light</span>
+  <a href="blog.html" class="post-nav-link next">
+    <span class="post-nav-direction">More Posts →</span>
+    <span class="post-nav-title">Back to the Blog</span>
   </a>
 </div>
 
@@ -586,19 +489,19 @@ footer {
     <h2 class="related-heading">You Might Also Like</h2>
     <div class="related-grid">
 
-      <a href="blog-what-narcissus-taught-me.html" class="related-card">
+      <a href="app.html" class="related-card">
         <div class="related-card-img">Photo</div>
         <div class="related-card-body">
-          <span class="related-card-cat">Glass Talk</span>
-          <p class="related-card-title">What Narcissus Quagliata Taught Me About Light</p>
+          <span class="related-card-cat">Equipment &amp; Tech</span>
+          <p class="related-card-title">My Kiln Journal: Everything You Get with the App</p>
         </div>
       </a>
 
-      <a href="blog-reactive-glass.html" class="related-card">
+      <a href="blog-stained-vs-fused.html" class="related-card">
         <div class="related-card-img">Photo</div>
         <div class="related-card-body">
           <span class="related-card-cat">Glass Talk</span>
-          <p class="related-card-title">Understanding Reactive Glass: What It Is and Why It Matters</p>
+          <p class="related-card-title">Stained Glass vs. Fused Glass: What's the Difference?</p>
         </div>
       </a>
 
