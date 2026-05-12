@@ -362,6 +362,30 @@ footer {
   .footer-copy { text-align: center; }
   .footer-logo { justify-content: center; }
   .footer-social { justify-content: center; }
+
+  /* HERO COMPARE — stack on mobile */
+  .hero-compare { flex-direction: column; gap: 0.8rem; }
+  .hero-compare-item { width: 100%; }
+}
+
+/* HERO COMPARE */
+.hero-compare {
+  display: flex; gap: 0.6rem;
+  width: 100%; border-radius: 6px; overflow: hidden;
+}
+.hero-compare-item {
+  flex: 1; display: flex; flex-direction: column;
+}
+.hero-compare-item img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  display: block; border-radius: 0;
+}
+.hero-compare-label {
+  font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink); opacity: 0.5;
+  text-align: center; margin-top: 0.5rem;
+  font-style: normal;
 }
 
 </style>
@@ -422,8 +446,16 @@ footer {
 
   <!-- HERO IMAGE -->
   <div class="article-hero-img">
-    <div class="img-placeholder">Article Photo</div>
-    <p class="img-caption">Caption goes here — describe what's in the photo.</p>
+    <div class="hero-compare">
+      <div class="hero-compare-item">
+        <img src="Honeycomb_StainedGlass.jpg" alt="Stained glass honeycomb panel">
+        <p class="hero-compare-label">Stained Glass</p>
+      </div>
+      <div class="hero-compare-item">
+        <img src="Bee_Fused.jpg" alt="Fused glass bee">
+        <p class="hero-compare-label">Fused Glass</p>
+      </div>
+    </div>
   </div>
 
   <!-- ARTICLE BODY -->
@@ -452,8 +484,8 @@ footer {
 
     <!-- FIRST IMAGE -->
     <div class="article-inline-img">
-      <div class="img-placeholder">Article Photo</div>
-      <p class="img-caption">A traditional stained glass panel showing individual pieces joined with solder lines.</p>
+      <img src="Honeycomb_StainedGlass2.jpg" alt="Cut stained glass pieces laid out before copper foiling">
+      <p class="img-caption">Each piece cut to shape and ready for the next step — wrapping in copper foil before everything gets soldered together.</p>
     </div>
 
     <h2>What is Fused Glass?</h2>
@@ -475,8 +507,8 @@ footer {
 
     <!-- SECOND IMAGE -->
     <div class="article-inline-img">
-      <div class="img-placeholder">Article Photo</div>
-      <p class="img-caption">Fused glass before and after firing — loose pieces transformed into a single melted design.</p>
+      <img src="Bee_Fused2.jpg" alt="Fused glass bee pieces stacked on a kiln shelf ready for firing">
+      <p class="img-caption">The bee, stacked and loaded on the kiln shelf. Once that lid closes, the heat does the rest.</p>
     </div>
 
     <h2>The Big Difference (Without the Fancy Talk)</h2>
@@ -570,13 +602,13 @@ footer {
 
 <!-- PREV / NEXT NAV -->
 <div class="post-nav">
-  <a href="blog-frit-powder-texture.html" class="post-nav-link prev">
-    <span class="post-nav-direction">← Previous</span>
-    <span class="post-nav-title">Frit, Powder, and Texture: Building Depth in Fused Glass</span>
+  <a href="blog.html" class="post-nav-link prev">
+    <span class="post-nav-direction">← All Posts</span>
+    <span class="post-nav-title">Back to the Blog</span>
   </a>
-  <a href="blog-what-narcissus-taught-me.html" class="post-nav-link next">
+  <a href="blog-reactive-glass.html" class="post-nav-link next">
     <span class="post-nav-direction">Next →</span>
-    <span class="post-nav-title">What Narcissus Quagliata Taught Me About Light</span>
+    <span class="post-nav-title">Understanding Reactive Glass: What It Is and Why It Matters</span>
   </a>
 </div>
 
@@ -586,11 +618,11 @@ footer {
     <h2 class="related-heading">You Might Also Like</h2>
     <div class="related-grid">
 
-      <a href="blog-what-narcissus-taught-me.html" class="related-card">
+      <a href="blog-why-i-built-my-kiln-journal.html" class="related-card">
         <div class="related-card-img">Photo</div>
         <div class="related-card-body">
-          <span class="related-card-cat">Glass Talk</span>
-          <p class="related-card-title">What Narcissus Quagliata Taught Me About Light</p>
+          <span class="related-card-cat">Equipment &amp; Tech</span>
+          <p class="related-card-title">Why I Built My Kiln Journal</p>
         </div>
       </a>
 
@@ -602,11 +634,11 @@ footer {
         </div>
       </a>
 
-      <a href="blog-my-wisconsin-studio.html" class="related-card">
+      <a href="blog-my-glass-studio-build.html" class="related-card">
         <div class="related-card-img">Photo</div>
         <div class="related-card-body">
           <span class="related-card-cat">Studio Life</span>
-          <p class="related-card-title">My Wisconsin Garage Glass Studio</p>
+          <p class="related-card-title">How I Turned a Cluttered Garage Into My Dream Glass Studio</p>
         </div>
       </a>
 
