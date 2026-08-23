@@ -252,47 +252,6 @@ a.nav-etsy { justify-self: end; }
 }
 
 /* YOU MIGHT ALSO LIKE */
-.related-section {
-  background: var(--cream);
-  padding: 4rem 2rem;
-}
-.related-inner { max-width: 760px; margin: 0 auto; }
-.related-heading {
-  font-family: 'Alice', serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  -webkit-text-stroke: 0.8px currentColor;
-  color: var(--ink); margin-bottom: 2rem;
-}
-.related-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.related-card {
-  text-decoration: none;
-  border-radius: 6px; overflow: hidden;
-  border: 1px solid rgba(123,111,160,0.15);
-  background: white;
-  transition: box-shadow 0.2s, transform 0.2s;
-  display: flex; flex-direction: column;
-}
-.related-card:hover { box-shadow: 0 4px 20px rgba(123,111,160,0.15); transform: translateY(-2px); }
-.related-card-img {
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, var(--lavender) 0%, var(--iris) 100%);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.5); font-family: 'Jost', sans-serif;
-  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-}
-.related-card-body { padding: 1rem 1.1rem 1.2rem; }
-.related-card-cat {
-  font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--teal); margin-bottom: 0.4rem; display: block;
-}
-.related-card-title {
-  font-family: 'Literata', serif; font-weight: 600; font-size: 0.9rem;
-  color: var(--ink); line-height: 1.4;
-}
 
 /* FOOTER */
 footer {
@@ -318,7 +277,7 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .related-grid { grid-template-columns: 1fr 1fr; }
+  
 }
 @media (max-width: 600px) {
   /* NAV — hamburger already right via flex justify-content:space-between */
@@ -354,8 +313,8 @@ footer {
   /* CONTENT PADDING */
   .back-bar, .article-header, .article-hero-img, .article-body, .post-nav { padding-left: 1.2rem; padding-right: 1.2rem; }
   .post-nav { grid-template-columns: 1fr; }
-  .related-grid { grid-template-columns: 1fr; }
-  .related-section { padding: 3rem 1.2rem; }
+  
+  
 
   /* FOOTER */
   footer { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 2.5rem 1.5rem; }
@@ -533,38 +492,6 @@ footer {
 </div>
 
 <!-- YOU MIGHT ALSO LIKE -->
-<section class="related-section">
-  <div class="related-inner">
-    <h2 class="related-heading">You Might Also Like</h2>
-    <div class="related-grid">
-
-      <a href="blog-stained-vs-fused.html" class="related-card">
-        <div class="related-card-img">Photo</div>
-        <div class="related-card-body">
-          <span class="related-card-cat">Glass Talk</span>
-          <p class="related-card-title">Stained Glass vs. Fused Glass: What's the Difference?</p>
-        </div>
-      </a>
-
-      <a href="blog-reactive-glass.html" class="related-card">
-        <div class="related-card-img">Photo</div>
-        <div class="related-card-body">
-          <span class="related-card-cat">Glass Talk</span>
-          <p class="related-card-title">Understanding Reactive Glass: What It Is and Why It Matters</p>
-        </div>
-      </a>
-
-      <a href="blog-why-i-built-my-kiln-journal.html" class="related-card">
-        <div class="related-card-img">Photo</div>
-        <div class="related-card-body">
-          <span class="related-card-cat">Equipment &amp; Tech</span>
-          <p class="related-card-title">Why I Built My Kiln Journal</p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>

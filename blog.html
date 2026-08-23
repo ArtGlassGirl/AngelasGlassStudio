@@ -636,13 +636,7 @@ footer {
 
     <div class="sidebar-section">
       <p class="sidebar-title">Browse by Month</p>
-      <ul class="archive-list">
-        <li><button class="archive-link active" data-month="all" onclick="filterMonth('all', this)">All Posts <span class="archive-count">12</span></button></li>
-        <li><button class="archive-link" data-month="2026-04" onclick="filterMonth('2026-04', this)">April 2026 <span class="archive-count">3</span></button></li>
-        <li><button class="archive-link" data-month="2026-03" onclick="filterMonth('2026-03', this)">March 2026 <span class="archive-count">3</span></button></li>
-        <li><button class="archive-link" data-month="2026-02" onclick="filterMonth('2026-02', this)">February 2026 <span class="archive-count">3</span></button></li>
-        <li><button class="archive-link" data-month="2026-01" onclick="filterMonth('2026-01', this)">January 2026 <span class="archive-count">3</span></button></li>
-      </ul>
+      <ul class="archive-list" id="archive-list"></ul>
     </div>
 
 
@@ -689,6 +683,36 @@ footer {
       document.getElementById('mobile-menu').classList.remove('open');
     });
   });
+
+  // Build archive month list from card data-date attributes
+  (function buildArchive() {
+    const cards = document.querySelectorAll('.blog-card');
+    const monthMap = {};
+    let total = 0;
+    cards.forEach(card => {
+      const d = card.dataset.date; // format: YYYY-MM
+      if (d) {
+        monthMap[d] = (monthMap[d] || 0) + 1;
+        total++;
+      }
+    });
+    // Sort months descending
+    const sorted = Object.keys(monthMap).sort((a, b) => b.localeCompare(a));
+    const list = document.getElementById('archive-list');
+    // "All Posts" entry
+    const allLi = document.createElement('li');
+    allLi.innerHTML = `<button class="archive-link active" data-month="all" onclick="filterMonth('all', this)">All Posts <span class="archive-count">${total}</span></button>`;
+    list.appendChild(allLi);
+    // One entry per month
+    const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    sorted.forEach(key => {
+      const [year, mon] = key.split('-');
+      const label = `${monthNames[parseInt(mon, 10) - 1]} ${year}`;
+      const li = document.createElement('li');
+      li.innerHTML = `<button class="archive-link" data-month="${key}" onclick="filterMonth('${key}', this)">${label} <span class="archive-count">${monthMap[key]}</span></button>`;
+      list.appendChild(li);
+    });
+  })();
 
   let activeCat = 'all';
   let activeMonth = 'all';
