@@ -524,6 +524,9 @@ a.nav-etsy { justify-self: end; }
 .blog-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
 .blog-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2rem; }
 .blog-card { display: flex; flex-direction: column; cursor: pointer; }
+.blog-img-link { display: block; text-decoration: none; }
+.blog-title-link { text-decoration: none; color: inherit; }
+.blog-title-link h3 { margin: 0; }
 
 .blog-img-wrap { border-radius: 4px; overflow: hidden; margin-bottom: 1.2rem; position: relative; }
 .blog-img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; z-index: 2; }
@@ -850,34 +853,40 @@ footer {
     <div class="blog-grid">
 
     <div class="blog-card featured c-teal">
-      <div class="blog-img-wrap">
-        <span class="blog-cat">Glass Talk</span>
-        <div class="blog-img-inner bi1" style="background-image: url('Honeycomb_StainedGlass.jpg'); background-size: cover; background-position: center;"></div>
-      </div>
+      <a href="blog-stained-vs-fused.html" class="blog-img-link">
+        <div class="blog-img-wrap">
+          <span class="blog-cat">Glass Talk</span>
+          <div class="blog-img-inner bi1" style="background-image: url('Honeycomb_StainedGlass.jpg'); background-size: cover; background-position: center;"></div>
+        </div>
+      </a>
       <p class="blog-tag">Glass Talk</p>
-      <h3>Stained Glass vs. Fused Glass: What's the Difference?</h3>
+      <a href="blog-stained-vs-fused.html" class="blog-title-link"><h3>Stained Glass vs. Fused Glass: What's the Difference?</h3></a>
       <p>They're both beautiful. They both use colored glass. And they are absolutely not the same thing. Let's clear it up.</p>
       <a href="blog-stained-vs-fused.html" class="read-more">Read More →</a>
     </div>
 
     <div class="blog-card c-green">
-      <div class="blog-img-wrap">
-        <span class="blog-cat">Equipment &amp; Tech</span>
-        <div class="blog-img-inner bi2" style="background-image: url('CellphoneApp.png'); background-size: cover; background-position: center;"></div>
-      </div>
+      <a href="blog-why-i-built-my-kiln-journal.html" class="blog-img-link">
+        <div class="blog-img-wrap">
+          <span class="blog-cat">Equipment &amp; Tech</span>
+          <div class="blog-img-inner bi2" style="background-image: url('CellphoneApp.png'); background-size: cover; background-position: center;"></div>
+        </div>
+      </a>
       <p class="blog-tag">Equipment &amp; Tech</p>
-      <h3>Why I Built My Kiln Journal</h3>
+      <a href="blog-why-i-built-my-kiln-journal.html" class="blog-title-link"><h3>Why I Built My Kiln Journal</h3></a>
       <p>Tracking firings in a messy binder was driving me nuts. I couldn't find what I needed and kept repeating mistakes. So I built something better.</p>
       <a href="blog-why-i-built-my-kiln-journal.html" class="read-more">Read More →</a>
     </div>
 
     <div class="blog-card c-iris">
-      <div class="blog-img-wrap">
-        <span class="blog-cat">Studio Life</span>
-        <div class="blog-img-inner" style="background-image: url('GarageBefore.jpg'); background-size: cover; background-position: center;"></div>
-      </div>
+      <a href="blog-my-glass-studio-build.html" class="blog-img-link">
+        <div class="blog-img-wrap">
+          <span class="blog-cat">Studio Life</span>
+          <div class="blog-img-inner" style="background-image: url('GarageBefore.jpg'); background-size: cover; background-position: center;"></div>
+        </div>
+      </a>
       <p class="blog-tag">Studio Life</p>
-      <h3>How I Turned a Cluttered Garage Into My Dream Glass Studio</h3>
+      <a href="blog-my-glass-studio-build.html" class="blog-title-link"><h3>How I Turned a Cluttered Garage Into My Dream Glass Studio</h3></a>
       <p>Heat, custom-built shelves, Trofast bins, and aggressively pink rugs. How we converted a cold Wisconsin garage into a real working studio.</p>
       <a href="blog-my-glass-studio-build.html" class="read-more">Read More →</a>
     </div>
